@@ -1,0 +1,31 @@
+change: WP-2.2 — EXIF transpose on image ingress; skew measured, not corrected (OCR-4, OCR-5)
+
+# NO RULES. Every document in the sweep must come back with 0 diffs.
+#
+# OCR-4 applies `ImageOps.exif_transpose` in `DoclingExtractor._preprocess_image`, the
+# choke point every image ingress goes through (the single-image path, the DOCX embedded
+# images, the pipeline's image branch). The transpose fires only when the image carries an
+# EXIF Orientation tag other than 1 — and nothing in this corpus does. Measured before the
+# sweep, on the file bytes:
+#
+#   Bilan 1.jpg            JPEG 598x636, no Orientation tag
+#   bilan1.docx            2 embedded images, 0 tagged
+#   bilab2.docx            2 embedded images, 0 tagged
+#   bilan3.docx            2 embedded images, 0 tagged
+#   Etat résultat 1/2/3    1 embedded image each, 0 tagged
+#
+# So on this corpus the transpose is a no-op by construction and the read must not move.
+# What the package adds besides the transpose is also diff-free by construction:
+#   * `metadata["orientation_transform"]["images"]` is a new metadata key, and the snapshot
+#     record schema (`tools/extraction_benchmark/golden.py:RECORD_FIELDS`) carries no raw
+#     metadata — a new key cannot reach a snapshot field.
+#   * `image.save` moved inside the `try` in `extract_from_image` changes only the failure
+#     path (the temp PNG is no longer stranded); the success path writes the same bytes.
+#   * OCR-5 is measurement only. `tools/skew_report.py` is a standalone tool, nothing in
+#     `src/` imports it, and NO page is deskewed or rotated by the measured angle.
+#
+# PDFs are untouched by construction: this package's only `src/` edits are in the image
+# helper, `extract_from_image`, `extract_from_docx` and the image branch of
+# `_tier1_fast_ocr`. `extract_from_pdf`, `pdf_orientation.py` and `_table_geometry` are not
+# touched, so the nine PDFs are outside the sweep.
+docs: {}

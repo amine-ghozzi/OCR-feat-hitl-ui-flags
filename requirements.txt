@@ -1,0 +1,45 @@
+# Core OCR Libraries
+# NOTE: marker-pdf and surya-ocr were REMOVED (2026-06-12) — neither is imported
+# anywhere in src/, neither is installed in the validated venv, and marker-pdf's
+# `Pillow<11` cap was the sole reason the worker image pinned pillow down to 10.4
+# (vs the venv's 11.3), causing container↔venv preprocessing skew + label drift.
+# Tier-2 VLM engines (incl. Surya) will be reintroduced via the Tier-2 design.
+docling>=2.0.0
+easyocr>=1.7.0       # parametrizable OCR engine (FINALZE_OCR_ENGINE=easyocr) + benchmark candidate
+pytesseract>=0.3.10
+
+# PDF Processing
+PyMuPDF>=1.24.0
+pdfplumber>=0.10.0
+python-docx>=1.1.0
+
+# Data Validation
+pandera>=0.18.0
+pydantic>=2.5.0
+
+# NLP
+spacy>=3.7.0
+
+# Machine Learning
+torch>=2.0.0
+transformers>=4.36.0
+sentence-transformers>=2.2.0
+scikit-learn>=1.3.0
+
+# HITL UI
+streamlit==1.53.1    # pip-freeze pinned; st.segmented_control needs >=1.40
+openpyxl==3.1.5      # Excel export (D15) — was transitive-only, now declared
+
+# Utilities
+Pillow==11.3.0       # PINNED: PIL resampling in preprocessing must match the validated venv (constraints.txt)
+numpy>=1.24.0
+pandas>=2.0.0
+langdetect>=1.0.9
+babel>=2.14.0        # Locale-aware French number parsing (parse_decimal)
+rapidfuzz>=3.6.0     # Fast fuzzy matching (C++-backed) for Nomenclature dict
+PyYAML>=6.0          # Load nomenclature_data.yaml
+
+# Development
+pytest>=7.4.0
+black>=23.0.0
+streamlit-aggrid==1.2.1.post2

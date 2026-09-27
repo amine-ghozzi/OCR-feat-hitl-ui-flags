@@ -1,0 +1,52 @@
+# WP-2.9 — unit / scale binding (VAL-7, decision E-2 A: record + flag, never rescale).
+#
+# The package adds ONE record field, `unit`, and nothing else may move. That is the
+# whole claim, and this whitelist is how it is judged: `unit` is the only field named
+# here, so any diff on `statements` (and therefore on every `values_sha`), `checks`,
+# `qcs`, `hitl_required`, `tier`, `table_shapes`, `text_sha`… is an UNEXPECTED diff and
+# the compare exits 1. Measured against tools/golden/baseline-687165b.json: 16 documents,
+# 16 diffs, every one of them `unit`.
+#
+# `unit` does not exist in the baseline — it was added to RECORD_FIELDS by this package —
+# so the field is ABSENT before and present after on every document, which is what
+# `added` allows.
+#
+# The per-document rules below are the other half of that statement. `added` requires a
+# value after (`rule_allows`: after not in (None, [], {})), and a document that states no
+# unit anywhere records `unit: null` — absent-before vs null-after is still a diff, and
+# `added` rejects it. These eight documents are the ones that state no unit at all, so
+# for them the declaration is `{to: null}`: "this document says nothing about its unit
+# and the pipeline invents nothing". Listing them by name keeps the gate sharp — if one
+# of them starts reporting a unit, or one of the other eight stops, the compare says so
+# instead of waving it through with a blanket `any`.
+#
+# Nothing rescales, so no `scale_resolutions`-driven change is expected on any document;
+# had one appeared it would have had to be listed here per document with its
+# justification, and there is none to list.
+change: WP-2.9 — unit recorded on every document; no value rescaled
+
+docs:
+  "*":
+    unit: added
+
+  # --- the eight documents that state no unit anywhere --------------------
+  # OCR-1: a fully scanned PDF that yields 29 characters — there is no text to read a
+  # unit out of, and the unit will appear here for free once WP-2.x de-rotates it.
+  fis_innov_invest_efd311223.pdf:
+    unit: {to: null}
+  # A single photographed balance sheet: the OCR text carries no unit line.
+  Bilan_1.jpg:
+    unit: {to: null}
+  # The six DOCX are bare statement tables — no title block, no "(en DT)" caption.
+  bilan1.docx:
+    unit: {to: null}
+  bilab2.docx:
+    unit: {to: null}
+  bilan3.docx:
+    unit: {to: null}
+  Etat_r_sultat_1.docx:
+    unit: {to: null}
+  Etat_r_sultat_2.docx:
+    unit: {to: null}
+  Etat_r_sultat_3.docx:
+    unit: {to: null}

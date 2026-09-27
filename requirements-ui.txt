@@ -1,0 +1,28 @@
+# FinAlze HITL UI — THIN API-client image (F1).
+# Generated from `venv/Scripts/python -m pip freeze` (2026-06-10), filtered to
+# the F2-audited import-reachable set of src/hitl + src/client + src/accounting
+# (+ the light src/pipeline types module). NO ML stack: extraction runs in the
+# worker container; the UI talks to the API (FINALZE_API_URL).
+# Regenerate after dependency changes: pip freeze + re-run the F2 import audit
+# (tests/test_canonical_roundtrip.py::test_api_mode_import_stays_light).
+
+# UI
+streamlit==1.53.1
+streamlit-aggrid==1.2.1.post2
+
+# API client
+httpx==0.28.1
+
+# data + parsing (accounting validators / canonical model / grid decoration)
+pandas==2.3.3
+numpy==2.4.1
+pyarrow==23.0.0
+babel==2.18.0          # locale-aware French number parsing
+RapidFuzz==3.14.5      # nomenclature fuzzy matching (label-learning loop)
+PyYAML==6.0.3          # nomenclature_data.yaml
+
+# document preview + export
+PyMuPDF==1.26.7        # PDF page rendering in the source panel
+pillow==11.3.0         # st.image
+python-docx==1.2.0     # DOCX embedded-image preview
+openpyxl==3.1.5        # Excel export (D15)

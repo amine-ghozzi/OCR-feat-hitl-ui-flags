@@ -1,0 +1,5877 @@
+{
+  "docs": {
+    "Bilan_1.jpg": {
+      "canonical_count": 1,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 1,
+        "passed": 9,
+        "skipped": 6,
+        "total": 16
+      },
+      "critical_rule_ids": [],
+      "doc_id": "Bilan_1.jpg",
+      "doc_type": "docling_ocr",
+      "dot_millimes_cells": 1,
+      "ensemble": {
+        "arithmetic_override": null,
+        "conflict_count": null,
+        "q_table": null,
+        "source_count": 1
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [],
+      "green_flag_passed": null,
+      "hitl_reason": null,
+      "hitl_required": true,
+      "native_chars_per_page": null,
+      "nonempty_tables": 1,
+      "ok": true,
+      "page_count": null,
+      "path": "Samples/Bilan 1.jpg",
+      "public": true,
+      "qcs": 0.666,
+      "quarantined": 0,
+      "routing_reason": null,
+      "schema_version": 2,
+      "score_kind": "qcs",
+      "seconds": 71.64,
+      "size_kb": 108.5,
+      "statements": [
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.414,
+          "pages": [
+            1
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 29,
+          "statement_id": 0,
+          "values_sha": "3954071405dc25b573d9cc185b18181c1d69fb37899179239052239d05399fe2"
+        }
+      ],
+      "table_count": 1,
+      "table_shapes": [
+        [
+          29,
+          6
+        ]
+      ],
+      "text_chars": 3325,
+      "text_sha": "6ab24556a266ff32b76f4963f3dde8ba1683f5c3b75bb88cb2a796d829c0df93",
+      "tier": 1,
+      "tier_attempts": [
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": false,
+          "tier": 3
+        }
+      ],
+      "unit": null
+    },
+    "EF_CLB_2024_Provisoire_1_.pdf": {
+      "canonical_count": 3,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 0,
+        "passed": 26,
+        "skipped": 2,
+        "total": 28
+      },
+      "critical_rule_ids": [],
+      "doc_id": "EF_CLB_2024_Provisoire_1_.pdf",
+      "doc_type": "native_pdf",
+      "dot_millimes_cells": 0,
+      "ensemble": {
+        "arithmetic_override": false,
+        "conflict_count": 5,
+        "q_table": 0.9513,
+        "source_count": 2
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [
+        "G1",
+        "G3"
+      ],
+      "green_flag_passed": false,
+      "hitl_reason": null,
+      "hitl_required": false,
+      "native_chars_per_page": [
+        919,
+        0,
+        944,
+        1448
+      ],
+      "nonempty_tables": 3,
+      "ok": true,
+      "page_count": 4,
+      "path": "Samples/Sample - OF/EF CLB 2024 Provisoire (1).pdf",
+      "public": false,
+      "qcs": 0.951,
+      "quarantined": 0,
+      "routing_reason": "high_consensus",
+      "schema_version": 2,
+      "score_kind": "q_table",
+      "seconds": 42.23,
+      "size_kb": 120.5,
+      "statements": [
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.522,
+          "pages": [
+            1
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 23,
+          "statement_id": 0,
+          "values_sha": "b04ab83bb28f69545def0d5ecee2b5326e0080ea80a28e9be0d14b54a9a60d74"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 1,
+          "match_rate": 0.636,
+          "pages": [
+            3
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 22,
+          "statement_id": 1,
+          "values_sha": "24b0625c2fb962821e6e3a1605b62c6af86229952422e464e81a2087baac4649"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 2,
+          "match_rate": 0.593,
+          "pages": [
+            4
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 27,
+          "statement_id": 2,
+          "values_sha": "4b9a50d0ee44e2bd471af5c39e73586e1d3a7a90706304fd75756d1c43ca696b"
+        }
+      ],
+      "table_count": 3,
+      "table_shapes": [
+        [
+          23,
+          5
+        ],
+        [
+          22,
+          5
+        ],
+        [
+          27,
+          5
+        ]
+      ],
+      "text_chars": 3323,
+      "text_sha": "edff08a9b558e91a289d6401825eb5beabd5252ef13487191f0144cfa04c90f1",
+      "tier": 3,
+      "tier_attempts": [
+        {
+          "name": "Native PDF",
+          "passed": false,
+          "tier": 0
+        },
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": true,
+          "tier": 3
+        }
+      ],
+      "unit": {
+        "conflict": false,
+        "source": "header",
+        "value": "DT"
+      }
+    },
+    "EF_LA_VIANDE_BLANCHE_2024.pdf": {
+      "canonical_count": 24,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 1,
+        "failed": 14,
+        "passed": 47,
+        "skipped": 4,
+        "total": 65
+      },
+      "critical_rule_ids": [
+        "Balance Sheet Balance"
+      ],
+      "doc_id": "EF_LA_VIANDE_BLANCHE_2024.pdf",
+      "doc_type": "native_pdf",
+      "dot_millimes_cells": 0,
+      "ensemble": {
+        "arithmetic_override": true,
+        "conflict_count": 0,
+        "q_table": 1.0,
+        "source_count": 2
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [
+        "G1",
+        "G3",
+        "G5"
+      ],
+      "green_flag_passed": false,
+      "hitl_reason": null,
+      "hitl_required": true,
+      "native_chars_per_page": [
+        250,
+        218,
+        49,
+        0,
+        73,
+        1216,
+        1104,
+        1325,
+        1399,
+        132,
+        3252,
+        2189,
+        886,
+        600,
+        1471,
+        1290,
+        1261,
+        1249,
+        1178
+      ],
+      "nonempty_tables": 24,
+      "ok": true,
+      "page_count": 19,
+      "path": "Samples/Sample - OF/EF LA VIANDE BLANCHE 2024.pdf",
+      "public": false,
+      "qcs": 1.0,
+      "quarantined": 10,
+      "routing_reason": "arithmetic_failure",
+      "schema_version": 2,
+      "score_kind": "q_table",
+      "seconds": 207.57,
+      "size_kb": 726.1,
+      "statements": [
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.571,
+          "pages": [
+            8
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 7,
+          "statement_id": 0,
+          "values_sha": "3074555dcfbc9fcb589cde6c11fae388079e3ebee6f1ed0fd261583c7c58cf11"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 1,
+          "match_rate": 0.875,
+          "pages": [
+            7
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 16,
+          "statement_id": 1,
+          "values_sha": "712632d36649c46d9efe3b9fbc45e126491b93008cf873ec76d384d107d34c2d"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 2,
+          "match_rate": 0.474,
+          "pages": [
+            8
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 19,
+          "statement_id": 2,
+          "values_sha": "1bb4d0f8e37bc960857a4e8ccb88676ef4534fcf465c650f59109ec530a8f886"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 3,
+          "match_rate": 0.35,
+          "pages": [
+            9
+          ],
+          "qualified_type": "bilan",
+          "rows": 20,
+          "statement_id": 3,
+          "values_sha": "8df179cd49ea16437e806ccab1afc5092f82b2a1d0a43f45925f1beb75fc9595"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 4,
+          "match_rate": 0.167,
+          "pages": [
+            11
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 6,
+          "statement_id": 4,
+          "values_sha": "c1da872919b019bfacf07679f633f4995a0300ca7a07ed32aed5d45a8a44fbb8"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 5,
+          "match_rate": 0.0,
+          "pages": [
+            11
+          ],
+          "qualified_type": null,
+          "rows": 8,
+          "statement_id": 5,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "cols": 10,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 6,
+          "match_rate": 0.083,
+          "pages": [
+            12
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 12,
+          "statement_id": 6,
+          "values_sha": "798f7f1b1d7920eebe5772b5a4a1c37f12136f6a5ef73b0129e4773114f11d04"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 7,
+          "match_rate": 0.0,
+          "pages": [
+            13
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 7,
+          "values_sha": "5bbd8d7b7ef967056260d690ce6c963d2c5a788ccf4de4a134e775ea8b5aec73"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 8,
+          "match_rate": 0.333,
+          "pages": [
+            13
+          ],
+          "qualified_type": null,
+          "rows": 6,
+          "statement_id": 8,
+          "values_sha": "cd3e2a9d41b758a9c977d32b4d87bd881f09a372cab4c289c6e5be94e061bf9a"
+        },
+        {
+          "cols": 3,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 9,
+          "match_rate": 0.0,
+          "pages": [
+            13
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 9,
+          "values_sha": "a731c77db8d80a1e494ce8c332670396521d6eff51fe60a733b47127095a5026"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 10,
+          "match_rate": 1.0,
+          "pages": [
+            14
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 5,
+          "statement_id": 10,
+          "values_sha": "9a87b3c56dd1a45a147c73272ec3d3bcf0aba5d5f03b148806bbe28187c82240"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 11,
+          "match_rate": 0.5,
+          "pages": [
+            15
+          ],
+          "qualified_type": "bilan",
+          "rows": 2,
+          "statement_id": 11,
+          "values_sha": "1b956afba46194f455b87d3ec79318ce8dc308a2068d4665da6a4122ad283a6e"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 12,
+          "match_rate": 0.2,
+          "pages": [
+            15
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 5,
+          "statement_id": 12,
+          "values_sha": "4543b9de7662beeda877d42e67ce196ad42381916cea901f52fcdb7c32a10f52"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 13,
+          "match_rate": 0.333,
+          "pages": [
+            15
+          ],
+          "qualified_type": null,
+          "rows": 6,
+          "statement_id": 13,
+          "values_sha": "080fd2916898023fd7ffcb816d65a36b7e35a1eff434ae31d5f8bd64968181cc"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 14,
+          "match_rate": 0.143,
+          "pages": [
+            15
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 7,
+          "statement_id": 14,
+          "values_sha": "ee55d43041383a1a6ad3018f2bb23ce54428eadc0f114a3b453ad1f983801f4c"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 15,
+          "match_rate": 0.0,
+          "pages": [
+            16
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 15,
+          "values_sha": "b5f665544d6ae364643fc3ebcd0ccb61b7632ac31de1b4a18873c6bd25e0b355"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 16,
+          "match_rate": 0.0,
+          "pages": [
+            16
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 6,
+          "statement_id": 16,
+          "values_sha": "f8de22722037cb9b830b14d240c77006461aaf12c7280afd648aca778b5be50a"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 17,
+          "match_rate": 0.0,
+          "pages": [
+            16
+          ],
+          "qualified_type": null,
+          "rows": 5,
+          "statement_id": 17,
+          "values_sha": "115dfc36733bf3f79c1574bd253f059489eae3f9ce80a3cda5d166d942da0b31"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 18,
+          "match_rate": 0.0,
+          "pages": [
+            16
+          ],
+          "qualified_type": null,
+          "rows": 2,
+          "statement_id": 18,
+          "values_sha": "d9491c60fa0b1d7c26dd1503b20bcf118373f04c723992fa38b3744a1fdb8715"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 19,
+          "match_rate": 0.056,
+          "pages": [
+            17
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 18,
+          "statement_id": 19,
+          "values_sha": "d7681d8df4279172554ae31e65eba82018ec34c2592096f10f4625ab6ec294a6"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 20,
+          "match_rate": 0.167,
+          "pages": [
+            17
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 6,
+          "statement_id": 20,
+          "values_sha": "ce006e3cfd993ab29884437317f5988ea82b40bc5d5a74ee952a540abcc54b87"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 21,
+          "match_rate": 0.0,
+          "pages": [
+            18
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 21,
+          "values_sha": "237fd4df6f42d6dbc4f2c0113c317913ae2f9d3a2dc6ce11bb6250e628d16b92"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 22,
+          "match_rate": 0.067,
+          "pages": [
+            18
+          ],
+          "qualified_type": null,
+          "rows": 15,
+          "statement_id": 22,
+          "values_sha": "2406169616f8134367e3f921870e2480d1d20858492382be9b01777995ea3646"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 23,
+          "match_rate": 0.471,
+          "pages": [
+            19
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 17,
+          "statement_id": 23,
+          "values_sha": "a254310c8fa6b8d543960253440f8325f2728aae596ab900e01b170cc9ecf691"
+        }
+      ],
+      "table_count": 24,
+      "table_shapes": [
+        [
+          7,
+          4
+        ],
+        [
+          16,
+          6
+        ],
+        [
+          19,
+          6
+        ],
+        [
+          20,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          18,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          15,
+          4
+        ],
+        [
+          17,
+          4
+        ]
+      ],
+      "text_chars": 19362,
+      "text_sha": "00d3fe8591d0f101f604b7abec5a71b18d1d40a553de80583fdc1d758d1a3166",
+      "tier": 3,
+      "tier_attempts": [
+        {
+          "name": "Native PDF",
+          "passed": false,
+          "tier": 0
+        },
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": false,
+          "tier": 3
+        }
+      ],
+      "unit": {
+        "conflict": false,
+        "source": "header",
+        "value": "DT"
+      }
+    },
+    "EF_PROV._COHAPROM_2024_VCAD.pdf": {
+      "canonical_count": 23,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 20,
+        "passed": 50,
+        "skipped": 5,
+        "total": 75
+      },
+      "critical_rule_ids": [],
+      "doc_id": "EF_PROV._COHAPROM_2024_VCAD.pdf",
+      "doc_type": "native_pdf",
+      "dot_millimes_cells": 0,
+      "ensemble": {
+        "arithmetic_override": true,
+        "conflict_count": 67,
+        "q_table": 0.6444,
+        "source_count": 2
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [
+        "G1",
+        "G2"
+      ],
+      "green_flag_passed": false,
+      "hitl_reason": null,
+      "hitl_required": true,
+      "native_chars_per_page": [
+        619,
+        167,
+        1136,
+        1133,
+        1327,
+        1774,
+        195,
+        2715,
+        421,
+        2101,
+        1651,
+        449,
+        1645,
+        977,
+        877,
+        1346,
+        2607,
+        1476
+      ],
+      "nonempty_tables": 24,
+      "ok": true,
+      "page_count": 18,
+      "path": "Samples/Sample - OF/EF PROV. COHAPROM 2024 VCAD.pdf",
+      "public": false,
+      "qcs": 0.644,
+      "quarantined": 4,
+      "routing_reason": "arithmetic_failure",
+      "schema_version": 2,
+      "score_kind": "q_table",
+      "seconds": 97.55,
+      "size_kb": 1393.3,
+      "statements": [
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.1,
+          "pages": [
+            1
+          ],
+          "qualified_type": "bilan",
+          "rows": 10,
+          "statement_id": 0,
+          "values_sha": "2adae427c053471f621911bb4e3fe1c6de57e3795065bec41cc99adde981109d"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 1,
+          "match_rate": 0.056,
+          "pages": [
+            10
+          ],
+          "qualified_type": "bilan",
+          "rows": 18,
+          "statement_id": 1,
+          "values_sha": "0c37c81999fb7424482f9f558f6a4b12f99d14a409807709addad5392be49d7c"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 2,
+          "match_rate": 1.0,
+          "pages": [
+            10
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 3,
+          "statement_id": 2,
+          "values_sha": "e6fd47d1c5a5ee4ac8a4c7d29567735bbc23d3e03a5a5ada769ca1b56c7ab00e"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 3,
+          "match_rate": 0.5,
+          "pages": [
+            11,
+            11
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 8,
+          "statement_id": 3,
+          "values_sha": "4fe163cc2bf5d6ce7be9a5e6b57f152cacf5813cf02a51b8304ecd633499b905"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 4,
+          "match_rate": 0.4,
+          "pages": [
+            11
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 5,
+          "statement_id": 4,
+          "values_sha": "0d1240d94a47b5fcf60c63c446728b46c0c4e4d2655c61ae1a027d7b70c80d8f"
+        },
+        {
+          "cols": 7,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 5,
+          "match_rate": 0.286,
+          "pages": [
+            12
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 7,
+          "statement_id": 5,
+          "values_sha": "abd8e9d0aa8e704c709da005f362a4330d06101d38a2de7ccbddbfcdc040938e"
+        },
+        {
+          "cols": 13,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 6,
+          "match_rate": 0.75,
+          "pages": [
+            13
+          ],
+          "qualified_type": "bilan",
+          "rows": 12,
+          "statement_id": 6,
+          "values_sha": "d37eae20c273c5083af917cf49769d0256920fa872af2e76dfe5b49e92ebe1a9"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 7,
+          "match_rate": 0.5,
+          "pages": [
+            13
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 6,
+          "statement_id": 7,
+          "values_sha": "b285661e0b677207b53d8279643056ee0054cc2c8755e45a2eb52a48d7a2cdf3"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 8,
+          "match_rate": 0.4,
+          "pages": [
+            14
+          ],
+          "qualified_type": null,
+          "rows": 5,
+          "statement_id": 8,
+          "values_sha": "b7815b1b08f5e980f4667bf911f097c9a1ce7412fccefa841d52a461fff53365"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 9,
+          "match_rate": 0.222,
+          "pages": [
+            14
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 9,
+          "statement_id": 9,
+          "values_sha": "357bb15aa8af424ab36beec8d6beb8cb118be615c4b6f2486aff3d5761c10e64"
+        },
+        {
+          "cols": 6,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 10,
+          "match_rate": 0.188,
+          "pages": [
+            15
+          ],
+          "qualified_type": "bilan",
+          "rows": 16,
+          "statement_id": 10,
+          "values_sha": "a0b6ee9496b1372eed18377c61e4a96c345695586b8a65f4a8d7099faca0cb7a"
+        },
+        {
+          "cols": 8,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 11,
+          "match_rate": 0.0,
+          "pages": [
+            16
+          ],
+          "qualified_type": "bilan",
+          "rows": 4,
+          "statement_id": 11,
+          "values_sha": "5c356343666da37fe84f48744daa5cb0e97f790797ed5c1c9f82fd9e1185926e"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 12,
+          "match_rate": 0.444,
+          "pages": [
+            16
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 9,
+          "statement_id": 12,
+          "values_sha": "1a64e6940dd91c4615587d95cbc786ce788a78679e77ffc6412bafefa626d48f"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 13,
+          "match_rate": 0.2,
+          "pages": [
+            16
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 5,
+          "statement_id": 13,
+          "values_sha": "1dd407cf475f3b25a60a482d9ae21bf5c55bf44ceb621c9df82bfc9e6e5e995a"
+        },
+        {
+          "cols": 4,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 14,
+          "match_rate": 0.0,
+          "pages": [
+            17
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 14,
+          "values_sha": "ebe73ac16987e35768dae8efca1a980321aad2f5ff7fc9223ab34f1417f3245e"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 15,
+          "match_rate": 0.333,
+          "pages": [
+            17
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 3,
+          "statement_id": 15,
+          "values_sha": "ed5b16c617b58e77f056a7637bdc7536f835bd257c31934680339e91e670245e"
+        },
+        {
+          "cols": 6,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 16,
+          "match_rate": 0.154,
+          "pages": [
+            18
+          ],
+          "qualified_type": null,
+          "rows": 13,
+          "statement_id": 16,
+          "values_sha": "f980c29b90a0343a4d6f164dd03e1090074e846cb2e827bca429cedffc5b638f"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 17,
+          "match_rate": 0.2,
+          "pages": [
+            18
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 5,
+          "statement_id": 17,
+          "values_sha": "a713f420a161d16b4e571bcbf681a20846a4a5601178b2a528e3dff70f2c9753"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 18,
+          "match_rate": 0.2,
+          "pages": [
+            16
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 5,
+          "statement_id": 18,
+          "values_sha": "1dd407cf475f3b25a60a482d9ae21bf5c55bf44ceb621c9df82bfc9e6e5e995a"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 19,
+          "match_rate": 0.25,
+          "pages": [
+            17
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 4,
+          "statement_id": 19,
+          "values_sha": "6047ffc62d8ef90a838766e70c1cb52f4d222ee470eb90a7920fb6a1db97aa1b"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 20,
+          "match_rate": 0.333,
+          "pages": [
+            17
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 3,
+          "statement_id": 20,
+          "values_sha": "ac03ce02842fd6476c3ef386eee5fd285e531d9bef11afd3fba1b2c40971811e"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 21,
+          "match_rate": 0.154,
+          "pages": [
+            18
+          ],
+          "qualified_type": null,
+          "rows": 13,
+          "statement_id": 21,
+          "values_sha": "c32282d60b906fa52cfb6d1e9920be36b2711f49f31a17d23cbe7ad101c2d5bf"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 22,
+          "match_rate": 0.2,
+          "pages": [
+            18
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 5,
+          "statement_id": 22,
+          "values_sha": "29ef7e566bb53de6c9e25e09c69faf14ebcada1be4eddfec9657b632cd2b6c1d"
+        }
+      ],
+      "table_count": 24,
+      "table_shapes": [
+        [
+          10,
+          7
+        ],
+        [
+          18,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          12,
+          15
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          16,
+          8
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          13,
+          8
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          13,
+          4
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "text_chars": 23027,
+      "text_sha": "eb718ff23f9a808d3fe9f927f07b7c52314d06c133a95110190130ecf7254f5f",
+      "tier": 3,
+      "tier_attempts": [
+        {
+          "name": "Native PDF",
+          "passed": false,
+          "tier": 0
+        },
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": false,
+          "tier": 3
+        }
+      ],
+      "unit": {
+        "conflict": false,
+        "source": "document_default",
+        "value": "DT"
+      }
+    },
+    "Etat_r_sultat_1.docx": {
+      "canonical_count": 1,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 2,
+        "passed": 5,
+        "skipped": 3,
+        "total": 10
+      },
+      "critical_rule_ids": [],
+      "doc_id": "Etat_r_sultat_1.docx",
+      "doc_type": "docling_ocr",
+      "dot_millimes_cells": 1,
+      "ensemble": {
+        "arithmetic_override": null,
+        "conflict_count": null,
+        "q_table": null,
+        "source_count": 1
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [],
+      "green_flag_passed": null,
+      "hitl_reason": null,
+      "hitl_required": true,
+      "native_chars_per_page": null,
+      "nonempty_tables": 1,
+      "ok": true,
+      "page_count": null,
+      "path": "Samples/Etat résultat 1.docx",
+      "public": true,
+      "qcs": 0.729,
+      "quarantined": 0,
+      "routing_reason": null,
+      "schema_version": 2,
+      "score_kind": "qcs",
+      "seconds": 23.57,
+      "size_kb": 304.5,
+      "statements": [
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.667,
+          "pages": [
+            1
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 18,
+          "statement_id": 0,
+          "values_sha": "5f5079ab2c632cfcfa38e280593f11b25cf21e78a4335942b9cf693d75e478b6"
+        }
+      ],
+      "table_count": 1,
+      "table_shapes": [
+        [
+          18,
+          4
+        ]
+      ],
+      "text_chars": 1780,
+      "text_sha": "d902373d42cc0765f3e7d161b830b5322f1388519858631732cbae9f8ea9edd3",
+      "tier": 1,
+      "tier_attempts": [
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": false,
+          "tier": 3
+        }
+      ],
+      "unit": null
+    },
+    "Etat_r_sultat_2.docx": {
+      "canonical_count": 1,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 0,
+        "passed": 5,
+        "skipped": 2,
+        "total": 7
+      },
+      "critical_rule_ids": [],
+      "doc_id": "Etat_r_sultat_2.docx",
+      "doc_type": "docling_ocr",
+      "dot_millimes_cells": 0,
+      "ensemble": null,
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [],
+      "green_flag_passed": null,
+      "hitl_reason": null,
+      "hitl_required": null,
+      "native_chars_per_page": null,
+      "nonempty_tables": 1,
+      "ok": true,
+      "page_count": null,
+      "path": "Samples/Etat résultat 2.docx",
+      "public": true,
+      "qcs": 0.776,
+      "quarantined": 0,
+      "routing_reason": null,
+      "schema_version": 2,
+      "score_kind": "qcs",
+      "seconds": 23.65,
+      "size_kb": 410.9,
+      "statements": [
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.577,
+          "pages": [
+            1
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 26,
+          "statement_id": 0,
+          "values_sha": "f3f2770ba1236b3bce6d179935a9a157ed6c78f38c7b2407d83dd345ffcc8bf7"
+        }
+      ],
+      "table_count": 1,
+      "table_shapes": [
+        [
+          26,
+          4
+        ]
+      ],
+      "text_chars": 2529,
+      "text_sha": "74a0d81d2b7875a6a79994c69de1f99899c43f194c041cae89b5c8d41d0a7348",
+      "tier": 1,
+      "tier_attempts": [
+        {
+          "name": "Docling OCR",
+          "passed": true,
+          "tier": 1
+        }
+      ],
+      "unit": null
+    },
+    "Etat_r_sultat_3.docx": {
+      "canonical_count": 1,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 1,
+        "passed": 8,
+        "skipped": 4,
+        "total": 13
+      },
+      "critical_rule_ids": [],
+      "doc_id": "Etat_r_sultat_3.docx",
+      "doc_type": "docling_ocr",
+      "dot_millimes_cells": 0,
+      "ensemble": null,
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [],
+      "green_flag_passed": null,
+      "hitl_reason": null,
+      "hitl_required": null,
+      "native_chars_per_page": null,
+      "nonempty_tables": 1,
+      "ok": true,
+      "page_count": null,
+      "path": "Samples/Etat résultat 3.docx",
+      "public": true,
+      "qcs": 0.79,
+      "quarantined": 0,
+      "routing_reason": null,
+      "schema_version": 2,
+      "score_kind": "qcs",
+      "seconds": 34.95,
+      "size_kb": 74.6,
+      "statements": [
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.591,
+          "pages": [
+            1
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 22,
+          "statement_id": 0,
+          "values_sha": "88137d82cba0d1f59e647203aa1e9b81a74dff30e46cf3164d39f366792b0a3f"
+        }
+      ],
+      "table_count": 1,
+      "table_shapes": [
+        [
+          22,
+          6
+        ]
+      ],
+      "text_chars": 2860,
+      "text_sha": "5a4e66a6ca2a97066dba2a0eeba90326e29d412da93bb743a66b165b67e63bdf",
+      "tier": 1,
+      "tier_attempts": [
+        {
+          "name": "Docling OCR",
+          "passed": true,
+          "tier": 1
+        }
+      ],
+      "unit": null
+    },
+    "Rapport_CAC_2024_Aquaculture.pdf": {
+      "canonical_count": 26,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 1,
+        "failed": 9,
+        "passed": 34,
+        "skipped": 3,
+        "total": 46
+      },
+      "critical_rule_ids": [
+        "Balance Sheet Balance"
+      ],
+      "doc_id": "Rapport_CAC_2024_Aquaculture.pdf",
+      "doc_type": "docling_ocr",
+      "dot_millimes_cells": 0,
+      "ensemble": {
+        "arithmetic_override": null,
+        "conflict_count": null,
+        "q_table": null,
+        "source_count": 1
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [],
+      "green_flag_passed": null,
+      "hitl_reason": null,
+      "hitl_required": true,
+      "native_chars_per_page": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonempty_tables": 26,
+      "ok": true,
+      "page_count": 25,
+      "path": "Samples/Sample - OF/Rapport CAC 2024 Aquaculture.pdf",
+      "public": false,
+      "qcs": 0.575,
+      "quarantined": 18,
+      "routing_reason": null,
+      "schema_version": 2,
+      "score_kind": "qcs",
+      "seconds": 503.95,
+      "size_kb": 7839.2,
+      "statements": [
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 0,
+          "match_rate": 0.0,
+          "pages": [
+            2
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 0,
+          "values_sha": "c80dafd0db6400ff0636f84662557f4c4e135ac50ab6a722a812f0728d90d797"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 1,
+          "match_rate": 0.571,
+          "pages": [
+            12
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 21,
+          "statement_id": 1,
+          "values_sha": "468f77af434ec1f1ce027e8383b58407f953d426cd7fc5bc04888cc29575bcc6"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 2,
+          "match_rate": 0.667,
+          "pages": [
+            13
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 18,
+          "statement_id": 2,
+          "values_sha": "62b3b7016f07a5050c3df41867fec21413ea94f34f98466da370ec6c6dd89a3a"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 3,
+          "match_rate": 0.529,
+          "pages": [
+            14
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 17,
+          "statement_id": 3,
+          "values_sha": "ff736d79c48ba81b9f77b988c45ea1a1702995189c21fc7ac710b4618a7bc586"
+        },
+        {
+          "cols": 8,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 4,
+          "match_rate": 0.5,
+          "pages": [
+            15
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 4,
+          "values_sha": "ef3e1dc34033a02d3a33c7e374ec469f6b3ff775bbbe982c3924e024e1bd6154"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 5,
+          "match_rate": 0.0,
+          "pages": [
+            17
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 5,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 6,
+          "match_rate": 0.0,
+          "pages": [
+            18
+          ],
+          "qualified_type": null,
+          "rows": 6,
+          "statement_id": 6,
+          "values_sha": "fc2dac7aba691958427297a2e8b4b064505c243ca2859cf979b44313c332e3f9"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 7,
+          "match_rate": 0.056,
+          "pages": [
+            18
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 18,
+          "statement_id": 7,
+          "values_sha": "8f6ae3ea8429c090188e34a379f27307ac9ec3f3d13cec59224b7724ac1c849a"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 8,
+          "match_rate": 0.25,
+          "pages": [
+            19
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 8,
+          "values_sha": "bc628b398b7b2ea7ecdeab5f97c69c2f7002a4648782bdbf495ad14996cf60c4"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 9,
+          "match_rate": 0.0,
+          "pages": [
+            19
+          ],
+          "qualified_type": null,
+          "rows": 2,
+          "statement_id": 9,
+          "values_sha": "374d9ebcb09afee8e3b8482798065d8e157c21056b19b821e7507b422681bf09"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 10,
+          "match_rate": 0.167,
+          "pages": [
+            19
+          ],
+          "qualified_type": null,
+          "rows": 6,
+          "statement_id": 10,
+          "values_sha": "a3f2ce37e513dac8c4f68839ac019069ba9f60e4b470f1fabfd666c423e3d316"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 11,
+          "match_rate": 0.0,
+          "pages": [
+            19
+          ],
+          "qualified_type": null,
+          "rows": 8,
+          "statement_id": 11,
+          "values_sha": "3aff735d9abf6241d9e21bc5e35ada69a38231a07c5b55c4cecd1b06e087b2f8"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 12,
+          "match_rate": 0.143,
+          "pages": [
+            20
+          ],
+          "qualified_type": null,
+          "rows": 7,
+          "statement_id": 12,
+          "values_sha": "ffabb67b92d89df2d3ee1062be145504f1d7d2d9b1701b9e6917d4da2b7421b9"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 13,
+          "match_rate": 0.2,
+          "pages": [
+            20
+          ],
+          "qualified_type": null,
+          "rows": 5,
+          "statement_id": 13,
+          "values_sha": "0e5b28b5857625578bf9553e178c6c3f3ed1612b21e45744dd8665f0fff55ae0"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 14,
+          "match_rate": 0.3,
+          "pages": [
+            20
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 10,
+          "statement_id": 14,
+          "values_sha": "012ca4b02e4500624174dafb01bdb648506d511633d3171cb1c6f1955cdd930a"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 15,
+          "match_rate": 0.75,
+          "pages": [
+            21
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 8,
+          "statement_id": 15,
+          "values_sha": "edcd68bf6c47bc2fecdfdea70a9047e86668f006a0d19d7899c492f3c6a54d17"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 16,
+          "match_rate": 0.4,
+          "pages": [
+            21
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 5,
+          "statement_id": 16,
+          "values_sha": "8ce343457ef068eafee45a84eb73e6efffea854b2adf476c541f156e4e58e606"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 17,
+          "match_rate": 0.25,
+          "pages": [
+            22
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 17,
+          "values_sha": "cf46b99a2dfa8b7a0f580cc6ca60e52951c84806819fe4de90e015bb92ab68fe"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 18,
+          "match_rate": 0.25,
+          "pages": [
+            22
+          ],
+          "qualified_type": null,
+          "rows": 8,
+          "statement_id": 18,
+          "values_sha": "86a8e98ef1d527fbe1f157fc50909e1e089bae5e75c4efd0f75985686a338c6a"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 19,
+          "match_rate": 0.0,
+          "pages": [
+            23
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 19,
+          "values_sha": "7c076d554185b158c4d5714e9cf7e4195a23d6b70eb78584da1c50fc628dd0ea"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 20,
+          "match_rate": 0.3,
+          "pages": [
+            23
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 10,
+          "statement_id": 20,
+          "values_sha": "a47834a61463f7eac6d7cb2aef132d6614f60fcbb6fa9c82f745f748e1eb92d1"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 21,
+          "match_rate": 0.0,
+          "pages": [
+            23
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 21,
+          "values_sha": "25364af5b8804b4be58dc0323c10f2072ac7eac59c0f2a62abb1d6ef257721e6"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 22,
+          "match_rate": 0.0,
+          "pages": [
+            23
+          ],
+          "qualified_type": null,
+          "rows": 5,
+          "statement_id": 22,
+          "values_sha": "b7e2d21dc30ac604780e15e564a89c3c7036ea2e0cfa23e8f3d909c294ed3b45"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 23,
+          "match_rate": 0.0,
+          "pages": [
+            24
+          ],
+          "qualified_type": null,
+          "rows": 13,
+          "statement_id": 23,
+          "values_sha": "a0e7d770e6905aea2fbb481ca466ebac02a91cccb9eebe6e14944ae6e4872b71"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 24,
+          "match_rate": 0.25,
+          "pages": [
+            24
+          ],
+          "qualified_type": null,
+          "rows": 8,
+          "statement_id": 24,
+          "values_sha": "31ee480fb201b304acbe92d4690388e169740ad7ee573f6ab317e2ef17682732"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 25,
+          "match_rate": 0.0,
+          "pages": [
+            24
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 25,
+          "values_sha": "9c57aa40526aa8d7543977895c4440a4df7c7a1a207ef5837048022bc3c77358"
+        }
+      ],
+      "table_count": 26,
+      "table_shapes": [
+        [
+          3,
+          2
+        ],
+        [
+          21,
+          4
+        ],
+        [
+          18,
+          4
+        ],
+        [
+          17,
+          4
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          18,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          13,
+          3
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "text_chars": 51847,
+      "text_sha": "237532480860a69b1139466952176aa49b7184918132201368e09e0f69c8f50c",
+      "tier": 1,
+      "tier_attempts": [
+        {
+          "name": "Native PDF",
+          "passed": false,
+          "tier": 0
+        },
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": false,
+          "tier": 3
+        }
+      ],
+      "unit": {
+        "conflict": false,
+        "source": "header",
+        "value": "DT"
+      }
+    },
+    "Rapport_CAC_2024_sign___1_1_.pdf": {
+      "canonical_count": 14,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 10,
+        "passed": 42,
+        "skipped": 11,
+        "total": 63
+      },
+      "critical_rule_ids": [],
+      "doc_id": "Rapport_CAC_2024_sign___1_1_.pdf",
+      "doc_type": "docling_ocr",
+      "dot_millimes_cells": 0,
+      "ensemble": {
+        "arithmetic_override": null,
+        "conflict_count": null,
+        "q_table": null,
+        "source_count": 1
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [],
+      "green_flag_passed": null,
+      "hitl_reason": null,
+      "hitl_required": true,
+      "native_chars_per_page": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonempty_tables": 14,
+      "ok": true,
+      "page_count": 24,
+      "path": "Samples/Sample - OF/Rapport_CAC_2024_signé_(1)[1].pdf",
+      "public": false,
+      "qcs": 0.497,
+      "quarantined": 5,
+      "routing_reason": null,
+      "schema_version": 2,
+      "score_kind": "qcs",
+      "seconds": 198.94,
+      "size_kb": 11494.4,
+      "statements": [
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.524,
+          "pages": [
+            11
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 21,
+          "statement_id": 0,
+          "values_sha": "81ec53907c77b1efb21ed2ad2a2f78397aab74a342555d004ee839fff9923cdb"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 1,
+          "match_rate": 0.625,
+          "pages": [
+            12
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 16,
+          "statement_id": 1,
+          "values_sha": "a952a7e17f97957f977704e4d51b675a995552ce0f4d9f5cf62fd1e489ebcc67"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 2,
+          "match_rate": 0.524,
+          "pages": [
+            13
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 21,
+          "statement_id": 2,
+          "values_sha": "e6d24cdb5333cf711d100f42c70d3caf6f221c0a85d98880b59fae1ef2aa0ca3"
+        },
+        {
+          "cols": 3,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 3,
+          "match_rate": 0.0,
+          "pages": [
+            15
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 3,
+          "values_sha": "a61c300973c9b7b3fd21a8905ab21f774bfa8ba9ecdde872306e885c037a2044"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 4,
+          "match_rate": 0.0,
+          "pages": [
+            16
+          ],
+          "qualified_type": null,
+          "rows": 7,
+          "statement_id": 4,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "cols": 8,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 5,
+          "match_rate": 0.091,
+          "pages": [
+            18
+          ],
+          "qualified_type": "bilan",
+          "rows": 11,
+          "statement_id": 5,
+          "values_sha": "55e1518bf831a6d0ece19ade36c12fb52819bff8149888a38971f7386e1b0139"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 6,
+          "match_rate": 0.071,
+          "pages": [
+            20
+          ],
+          "qualified_type": null,
+          "rows": 14,
+          "statement_id": 6,
+          "values_sha": "780a4b8a899a0507d3b9c0b4b3539c8f41da4abe59daa916346f3f93841594f1"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 7,
+          "match_rate": 0.296,
+          "pages": [
+            21
+          ],
+          "qualified_type": "bilan",
+          "rows": 27,
+          "statement_id": 7,
+          "values_sha": "1716a92538bc6ba6bcabfec1c8e5fcf0ba398dd8c9463ac18d40c669b844a70e"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 8,
+          "match_rate": 0.167,
+          "pages": [
+            22
+          ],
+          "qualified_type": null,
+          "rows": 12,
+          "statement_id": 8,
+          "values_sha": "d7ac289a08616b21a7d8da013e2e787daa91e142f916c34c8efbe9fea911a232"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 9,
+          "match_rate": 0.3,
+          "pages": [
+            22
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 10,
+          "statement_id": 9,
+          "values_sha": "70d5ffd7d9a810cb7ed3687696878ed5db5d1242f235ff8fb4fc16f898e3830c"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 10,
+          "match_rate": 0.333,
+          "pages": [
+            23
+          ],
+          "qualified_type": "bilan",
+          "rows": 6,
+          "statement_id": 10,
+          "values_sha": "1eb96c8fe7061417436954dc8bbed6eff3d73e9e8f640d2a5adac0abcac74679"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 11,
+          "match_rate": 0.222,
+          "pages": [
+            23
+          ],
+          "qualified_type": "bilan",
+          "rows": 9,
+          "statement_id": 11,
+          "values_sha": "650cddad20749dca71039298f9126ee074e09aed87d38656b96e12e030beab46"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 12,
+          "match_rate": 0.25,
+          "pages": [
+            23
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 12,
+          "values_sha": "c1aa1f5e5b23f1c7a0f97c7911d2763cd57692df912ece51466491d0771af734"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 13,
+          "match_rate": 0.136,
+          "pages": [
+            24
+          ],
+          "qualified_type": "bilan",
+          "rows": 22,
+          "statement_id": 13,
+          "values_sha": "9b49d9864c2d2375baed02869a7ecc480ba6ff40c22bd22af917c49ff9400ce6"
+        }
+      ],
+      "table_count": 14,
+      "table_shapes": [
+        [
+          21,
+          4
+        ],
+        [
+          16,
+          4
+        ],
+        [
+          21,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          11,
+          9
+        ],
+        [
+          14,
+          3
+        ],
+        [
+          27,
+          4
+        ],
+        [
+          12,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          22,
+          3
+        ]
+      ],
+      "text_chars": 42713,
+      "text_sha": "e8c4221f1a58ce093f9cd6f4ea4c1d0ac6ba9320bb5312a9568acd4287cfa9f5",
+      "tier": 1,
+      "tier_attempts": [
+        {
+          "name": "Native PDF",
+          "passed": false,
+          "tier": 0
+        },
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": false,
+          "tier": 3
+        }
+      ],
+      "unit": {
+        "conflict": false,
+        "source": "caption",
+        "value": "DT"
+      }
+    },
+    "air_liquide_efi300625.pdf": {
+      "canonical_count": 28,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 5,
+        "passed": 80,
+        "skipped": 16,
+        "total": 101
+      },
+      "critical_rule_ids": [],
+      "doc_id": "air_liquide_efi300625.pdf",
+      "doc_type": "native_pdf",
+      "dot_millimes_cells": 0,
+      "ensemble": {
+        "arithmetic_override": false,
+        "conflict_count": 0,
+        "q_table": 1.0,
+        "source_count": 2
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+      ],
+      "green_flag_passed": false,
+      "hitl_reason": null,
+      "hitl_required": true,
+      "native_chars_per_page": [
+        453,
+        1794,
+        1405,
+        1214,
+        1762,
+        1490,
+        637,
+        44,
+        1908,
+        1914,
+        1803,
+        1512,
+        1870,
+        1801,
+        1160,
+        1506,
+        1439,
+        1449,
+        2803,
+        4254,
+        3724,
+        3594,
+        3591,
+        3389,
+        3311,
+        287,
+        1993,
+        584
+      ],
+      "nonempty_tables": 28,
+      "ok": true,
+      "page_count": 28,
+      "path": "Samples/Sample - OF/air_liquide_efi300625.pdf",
+      "public": true,
+      "qcs": 1.0,
+      "quarantined": 7,
+      "routing_reason": "high_consensus",
+      "schema_version": 2,
+      "score_kind": "q_table",
+      "seconds": 466.97,
+      "size_kb": 295.9,
+      "statements": [
+        {
+          "cols": 12,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.054,
+          "pages": [
+            6
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 37,
+          "statement_id": 0,
+          "values_sha": "c35169c5a9f54e424a55b26aafffc147b87d16dae24a41d916b1e593319c1e91"
+        },
+        {
+          "cols": 15,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 1,
+          "match_rate": 0.333,
+          "pages": [
+            7
+          ],
+          "qualified_type": null,
+          "rows": 12,
+          "statement_id": 1,
+          "values_sha": "db5dbeb21fb78df67386fedce87f0104722ded9130404abf16f469102411944e"
+        },
+        {
+          "cols": 6,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 2,
+          "match_rate": 0.273,
+          "pages": [
+            19
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 11,
+          "statement_id": 2,
+          "values_sha": "8a1415bfa82ce53f816632be8edb59402bb5271795dac4987ae82c70cf664a4a"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 3,
+          "match_rate": 0.174,
+          "pages": [
+            5
+          ],
+          "qualified_type": "flux_tresorerie",
+          "rows": 23,
+          "statement_id": 3,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "cols": 8,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 4,
+          "match_rate": 0.429,
+          "pages": [
+            6
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 14,
+          "statement_id": 4,
+          "values_sha": "9f69ec3648f2eeed61578eef8381850fa2542f659ec61ea001525c547a5cba35"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 5,
+          "match_rate": 0.333,
+          "pages": [
+            7
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 6,
+          "statement_id": 5,
+          "values_sha": "f296d6cad99f5d173e7970542e0d6e0b537af1dba53a13309a19927cb7250191"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 6,
+          "match_rate": 0.0,
+          "pages": [
+            9
+          ],
+          "qualified_type": null,
+          "rows": 7,
+          "statement_id": 6,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 7,
+          "match_rate": 0.333,
+          "pages": [
+            11
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 12,
+          "statement_id": 7,
+          "values_sha": "bf707e20daa80f12015acf6fa5f762b4864140822c9fb6bb18a312e205ed63bc"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 8,
+          "match_rate": 0.333,
+          "pages": [
+            11
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 9,
+          "statement_id": 8,
+          "values_sha": "f7c32d47d08f4583d15447a8b7c5afc4a20d6b1bbf6292d013bbc1ce70a356c9"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 9,
+          "match_rate": 0.333,
+          "pages": [
+            12
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 6,
+          "statement_id": 9,
+          "values_sha": "c7f74ac1678e4a5fb515bcc83e3ff2914d70ed2c737926f6c32e0ef793d0d3c4"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 10,
+          "match_rate": 0.286,
+          "pages": [
+            12
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 7,
+          "statement_id": 10,
+          "values_sha": "0ef829efa307cfa836aa6528c8343e226112f009b7b0f22017615dc7b461b37b"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 11,
+          "match_rate": 0.2,
+          "pages": [
+            12
+          ],
+          "qualified_type": "bilan",
+          "rows": 5,
+          "statement_id": 11,
+          "values_sha": "2503ffd9417c649384ce23bca3a1dd75e6387c29fa5f7017b7249656da2a626f"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 12,
+          "match_rate": 0.273,
+          "pages": [
+            13
+          ],
+          "qualified_type": "bilan",
+          "rows": 11,
+          "statement_id": 12,
+          "values_sha": "b67f4be6881d496fb19ba532a4ccc8f983b9462d55209f5de7d2d6c456b23275"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 13,
+          "match_rate": 0.25,
+          "pages": [
+            13
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 4,
+          "statement_id": 13,
+          "values_sha": "3400afbe104b651c1bd60426b9933e19138e39243cc6726d8eb97ef2cf9b4d89"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 14,
+          "match_rate": 0.333,
+          "pages": [
+            13
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 6,
+          "statement_id": 14,
+          "values_sha": "1171bfc96eeebc954103755cf09e1d4f89fbeec91f8432442017fc2fc87ce3f7"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 15,
+          "match_rate": 0.857,
+          "pages": [
+            14
+          ],
+          "qualified_type": "bilan",
+          "rows": 7,
+          "statement_id": 15,
+          "values_sha": "b1b20890f4459f0acff5cd83e0c803619d627160628bf0829225e0660a06fd99"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 16,
+          "match_rate": 0.4,
+          "pages": [
+            14
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 5,
+          "statement_id": 16,
+          "values_sha": "0692a25ca3bfa46a20ae0748672d5d51a259f9d383c3bbf28db9a749467e3536"
+        },
+        {
+          "cols": 3,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 17,
+          "match_rate": 0.4,
+          "pages": [
+            14
+          ],
+          "qualified_type": null,
+          "rows": 5,
+          "statement_id": 17,
+          "values_sha": "3b15b08cc38c91d338cf4e76b408d310e45d341f1af7d9cbd272a3f4d5bb413e"
+        },
+        {
+          "cols": 3,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 18,
+          "match_rate": 0.25,
+          "pages": [
+            15
+          ],
+          "qualified_type": null,
+          "rows": 8,
+          "statement_id": 18,
+          "values_sha": "4e6d54f17b0f2cf3c96980028286a3e3a60707f7e9db7da89ff3ce0126c766e9"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 19,
+          "match_rate": 0.5,
+          "pages": [
+            15
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 4,
+          "statement_id": 19,
+          "values_sha": "2a2efb3103f2d1c066131fee986bcecfe3fb5cc3d522336ad77a66dff52acd8a"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 20,
+          "match_rate": 1.0,
+          "pages": [
+            16
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 5,
+          "statement_id": 20,
+          "values_sha": "f55ca205a123f948f97c22973c5e8e3e91bc71de1c7f342f64cd57555cc36368"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 21,
+          "match_rate": 0.25,
+          "pages": [
+            16
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 4,
+          "statement_id": 21,
+          "values_sha": "efa0d2d109b8bf7ab038378f51ac70a7fdec39f1b60ea26bc79bb21056414b1e"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 22,
+          "match_rate": 0.4,
+          "pages": [
+            16
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 5,
+          "statement_id": 22,
+          "values_sha": "3690fb7f86fb713d60fc1cd87866437f655e439f72e3b4692913cac1c3afcfb3"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 23,
+          "match_rate": 0.4,
+          "pages": [
+            17
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 5,
+          "statement_id": 23,
+          "values_sha": "2f7df6f73c6c7268b48dd614461a9924295b6ff743643c6ee808ad31deb91324"
+        },
+        {
+          "cols": 3,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 24,
+          "match_rate": 0.25,
+          "pages": [
+            17
+          ],
+          "qualified_type": null,
+          "rows": 8,
+          "statement_id": 24,
+          "values_sha": "2ebffbb4f3e6abeed28ebb9a74f11f16aa2520fbc255cba207d4f99b9f9d9c83"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 25,
+          "match_rate": 0.333,
+          "pages": [
+            18
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 6,
+          "statement_id": 25,
+          "values_sha": "7932cf8422bcce9ecec8c74757063e714d5a4458c8f6e04f26db3b2bfbda3177"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 26,
+          "match_rate": 0.0,
+          "pages": [
+            19
+          ],
+          "qualified_type": null,
+          "rows": 11,
+          "statement_id": 26,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 27,
+          "match_rate": 0.0,
+          "pages": [
+            28
+          ],
+          "qualified_type": null,
+          "rows": 2,
+          "statement_id": 27,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      ],
+      "table_count": 28,
+      "table_shapes": [
+        [
+          37,
+          14
+        ],
+        [
+          12,
+          17
+        ],
+        [
+          11,
+          8
+        ],
+        [
+          23,
+          7
+        ],
+        [
+          14,
+          10
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          9,
+          6
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          11,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "text_chars": 54165,
+      "text_sha": "edfe13b99386596729d976d90b5ba6b7dfb353ecc04ae93a0bd3135798f7f06b",
+      "tier": 3,
+      "tier_attempts": [
+        {
+          "name": "Native PDF",
+          "passed": false,
+          "tier": 0
+        },
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": true,
+          "tier": 3
+        }
+      ],
+      "unit": {
+        "conflict": false,
+        "source": "caption",
+        "value": "DT"
+      }
+    },
+    "bilab2.docx": {
+      "canonical_count": 2,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 0,
+        "passed": 7,
+        "skipped": 4,
+        "total": 11
+      },
+      "critical_rule_ids": [],
+      "doc_id": "bilab2.docx",
+      "doc_type": "docling_ocr",
+      "dot_millimes_cells": 1,
+      "ensemble": null,
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [],
+      "green_flag_passed": null,
+      "hitl_reason": null,
+      "hitl_required": null,
+      "native_chars_per_page": null,
+      "nonempty_tables": 2,
+      "ok": true,
+      "page_count": null,
+      "path": "Samples/bilab2.docx",
+      "public": true,
+      "qcs": 0.773,
+      "quarantined": 0,
+      "routing_reason": null,
+      "schema_version": 2,
+      "score_kind": "qcs",
+      "seconds": 41.52,
+      "size_kb": 593.4,
+      "statements": [
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.652,
+          "pages": [
+            1
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 23,
+          "statement_id": 0,
+          "values_sha": "795d5c538cb649bf9ee31e00488b49daa2219e365e4c3e85616cc2525eccc95a"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 1,
+          "match_rate": 0.429,
+          "pages": [
+            1
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 28,
+          "statement_id": 1,
+          "values_sha": "6d442556f90b602c9e0ca752e0b88d78b070d81cdee3e089d82cd5c0d792258f"
+        }
+      ],
+      "table_count": 2,
+      "table_shapes": [
+        [
+          23,
+          4
+        ],
+        [
+          28,
+          4
+        ]
+      ],
+      "text_chars": 4852,
+      "text_sha": "6f12039fd0fed858daabc5072957f8062a3d25e78b8703cd5c283e8f27a2de09",
+      "tier": 1,
+      "tier_attempts": [
+        {
+          "name": "Docling OCR",
+          "passed": true,
+          "tier": 1
+        }
+      ],
+      "unit": null
+    },
+    "bilan1.docx": {
+      "canonical_count": 2,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 4,
+        "passed": 11,
+        "skipped": 3,
+        "total": 18
+      },
+      "critical_rule_ids": [],
+      "doc_id": "bilan1.docx",
+      "doc_type": "docling_ocr",
+      "dot_millimes_cells": 0,
+      "ensemble": {
+        "arithmetic_override": null,
+        "conflict_count": null,
+        "q_table": null,
+        "source_count": 1
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [],
+      "green_flag_passed": null,
+      "hitl_reason": null,
+      "hitl_required": true,
+      "native_chars_per_page": null,
+      "nonempty_tables": 2,
+      "ok": true,
+      "page_count": null,
+      "path": "Samples/bilan1.docx",
+      "public": true,
+      "qcs": 0.746,
+      "quarantined": 0,
+      "routing_reason": null,
+      "schema_version": 2,
+      "score_kind": "qcs",
+      "seconds": 59.41,
+      "size_kb": 652.6,
+      "statements": [
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.706,
+          "pages": [
+            1
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 17,
+          "statement_id": 0,
+          "values_sha": "761e86f1e08147304ef9e8b000bfccea142c9682a00f0b460b7da5bf3aa8a3c6"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 1,
+          "match_rate": 0.556,
+          "pages": [
+            1
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 18,
+          "statement_id": 1,
+          "values_sha": "b17e18e1e322890474d28f9075cdf62d4b2c983a39f98d90f6713a8ac3777301"
+        }
+      ],
+      "table_count": 2,
+      "table_shapes": [
+        [
+          17,
+          4
+        ],
+        [
+          18,
+          4
+        ]
+      ],
+      "text_chars": 3289,
+      "text_sha": "707fdb05befcd6447e7be1122a40a86ac53858eb755503045577933d475d58c2",
+      "tier": 1,
+      "tier_attempts": [
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": false,
+          "tier": 3
+        }
+      ],
+      "unit": null
+    },
+    "bilan3.docx": {
+      "canonical_count": 2,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 2,
+        "passed": 19,
+        "skipped": 4,
+        "total": 25
+      },
+      "critical_rule_ids": [],
+      "doc_id": "bilan3.docx",
+      "doc_type": "docling_ocr",
+      "dot_millimes_cells": 2,
+      "ensemble": null,
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [],
+      "green_flag_passed": null,
+      "hitl_reason": null,
+      "hitl_required": null,
+      "native_chars_per_page": null,
+      "nonempty_tables": 2,
+      "ok": true,
+      "page_count": null,
+      "path": "Samples/bilan3.docx",
+      "public": true,
+      "qcs": 0.767,
+      "quarantined": 0,
+      "routing_reason": null,
+      "schema_version": 2,
+      "score_kind": "qcs",
+      "seconds": 38.0,
+      "size_kb": 131.5,
+      "statements": [
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.773,
+          "pages": [
+            1
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 22,
+          "statement_id": 0,
+          "values_sha": "9cda72758c914d7d1df67ac7d3797d3f50ea834c39c2b1bf1684e421ed069602"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 1,
+          "match_rate": 0.414,
+          "pages": [
+            1
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 29,
+          "statement_id": 1,
+          "values_sha": "36886782ac4b1f61bc5662888852c60863f16009f807e623982b72f8be89ef58"
+        }
+      ],
+      "table_count": 2,
+      "table_shapes": [
+        [
+          22,
+          6
+        ],
+        [
+          29,
+          6
+        ]
+      ],
+      "text_chars": 6020,
+      "text_sha": "df4a5e7d66734d292bf9dc5b5e8a94390ec208b4ea99f983ccbdf09c2ed5fe8f",
+      "tier": 1,
+      "tier_attempts": [
+        {
+          "name": "Docling OCR",
+          "passed": true,
+          "tier": 1
+        }
+      ],
+      "unit": null
+    },
+    "ciments_bizerte_efi300625.pdf": {
+      "canonical_count": 62,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 2,
+        "failed": 104,
+        "passed": 142,
+        "skipped": 2,
+        "total": 248
+      },
+      "critical_rule_ids": [
+        "Balance Sheet Balance",
+        "V2: Resultat Net Match (Bilan-CR)"
+      ],
+      "doc_id": "ciments_bizerte_efi300625.pdf",
+      "doc_type": "native_pdf",
+      "dot_millimes_cells": 254,
+      "ensemble": {
+        "arithmetic_override": true,
+        "conflict_count": 167,
+        "q_table": 0.7778,
+        "source_count": 2
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [
+        "G1",
+        "G2"
+      ],
+      "green_flag_passed": false,
+      "hitl_reason": null,
+      "hitl_required": true,
+      "native_chars_per_page": [
+        373,
+        1665,
+        1387,
+        1326,
+        2264,
+        2126,
+        1341,
+        1683,
+        1443,
+        527,
+        2318,
+        2961,
+        2862,
+        2644,
+        607,
+        44,
+        3595,
+        1326,
+        697,
+        807,
+        589,
+        1776,
+        535,
+        194,
+        260,
+        579,
+        577,
+        669,
+        1142,
+        1760,
+        302,
+        561,
+        1862,
+        1050,
+        2015,
+        554,
+        912,
+        1173,
+        1749,
+        1740,
+        1107,
+        556,
+        546,
+        1434,
+        746,
+        981,
+        1319,
+        1254,
+        686,
+        567,
+        575,
+        3609,
+        816,
+        1494,
+        793,
+        2,
+        2
+      ],
+      "nonempty_tables": 65,
+      "ok": true,
+      "page_count": 57,
+      "path": "Samples/Sample - OF/ciments_bizerte_efi300625.pdf",
+      "public": true,
+      "qcs": 0.778,
+      "quarantined": 10,
+      "routing_reason": "arithmetic_failure",
+      "schema_version": 2,
+      "score_kind": "q_table",
+      "seconds": 1147.82,
+      "size_kb": 1828.5,
+      "statements": [
+        {
+          "cols": 6,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.433,
+          "pages": [
+            2
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 30,
+          "statement_id": 0,
+          "values_sha": "c722bc48fcbb0de86c71580d01c89739392f04e8cd9bd3f6d41dbb1938ba2ced"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 1,
+          "match_rate": 0.75,
+          "pages": [
+            3
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 20,
+          "statement_id": 1,
+          "values_sha": "ed6de68ad125cdeeb0fa494d1eeab58aba063ed3ae7fa0120e312325984601c8"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 2,
+          "match_rate": 0.55,
+          "pages": [
+            4
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 20,
+          "statement_id": 2,
+          "values_sha": "11909048c7e1bedf512de294921e0fd22a10b4c2ea2884eab609705b844c63a1"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 3,
+          "match_rate": 0.1,
+          "pages": [
+            5
+          ],
+          "qualified_type": "bilan",
+          "rows": 30,
+          "statement_id": 3,
+          "values_sha": "09f50f0b261c7dc8d1b051d738b0c3f26abb105d2b577dd7db201a46a2434cf8"
+        },
+        {
+          "cols": 20,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 4,
+          "match_rate": 0.045,
+          "pages": [
+            6
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 22,
+          "statement_id": 4,
+          "values_sha": "308e26959934878d93899cd9bc8d886625a63eb7a2967d667650a8365dddcbed"
+        },
+        {
+          "cols": 46,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 5,
+          "match_rate": 0.091,
+          "pages": [
+            7
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 22,
+          "statement_id": 5,
+          "values_sha": "9ba2e7609f877e2ed17c0e33666673fec9408ef16f95218501f3887314f6ab73"
+        },
+        {
+          "cols": 17,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 6,
+          "match_rate": 0.139,
+          "pages": [
+            8
+          ],
+          "qualified_type": null,
+          "rows": 36,
+          "statement_id": 6,
+          "values_sha": "427cd08b62a8a4cec996644029c0440050457c8c1a5f086458d6468920cd8da5"
+        },
+        {
+          "cols": 18,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 7,
+          "match_rate": 0.167,
+          "pages": [
+            9
+          ],
+          "qualified_type": "bilan",
+          "rows": 30,
+          "statement_id": 7,
+          "values_sha": "2e465424d9421f7431fa95e7f83fe5eea5a6c55d356b3f387976033cd59badc7"
+        },
+        {
+          "cols": 11,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 8,
+          "match_rate": 0.167,
+          "pages": [
+            10
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 12,
+          "statement_id": 8,
+          "values_sha": "f3d2ce9fdb6c1f747bad53ab96fd4020272a651c18a8593136038f917d62298a"
+        },
+        {
+          "cols": 26,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 9,
+          "match_rate": 0.088,
+          "pages": [
+            17
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 57,
+          "statement_id": 9,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "cols": 17,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 10,
+          "match_rate": 0.048,
+          "pages": [
+            18
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 42,
+          "statement_id": 10,
+          "values_sha": "c96a0977c35e03372c878c285a02df54c2e553ecfb7d155aaeb5047d8cf1c330"
+        },
+        {
+          "cols": 13,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 11,
+          "match_rate": 0.6,
+          "pages": [
+            19
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 5,
+          "statement_id": 11,
+          "values_sha": "6a40520f6fd823d2f33760222b95968ab024dd160e7dec83234d48ab3a9883ab"
+        },
+        {
+          "cols": 22,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 12,
+          "match_rate": 0.048,
+          "pages": [
+            20
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 21,
+          "statement_id": 12,
+          "values_sha": "4e8e9dc9f859579234723add6c8ea320c3a7f532566723e33baedf172c8824b7"
+        },
+        {
+          "cols": 10,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 13,
+          "match_rate": 0.143,
+          "pages": [
+            21
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 14,
+          "statement_id": 13,
+          "values_sha": "a8735abb0bb41903be5e37ac821b7976e6ac6f51e70ff61acf68f9f23a63461e"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 14,
+          "match_rate": 0.056,
+          "pages": [
+            22
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 18,
+          "statement_id": 14,
+          "values_sha": "d47bf18972cd5db88f9d92ff0ce5a53fcb3db4a8bb2f176f98e384627fc384a9"
+        },
+        {
+          "cols": 8,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 15,
+          "match_rate": 0.6,
+          "pages": [
+            23
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 5,
+          "statement_id": 15,
+          "values_sha": "cf84255c761d3df02b550be68b1f6574aa11d4fb4ccb3a384da770281b65ce84"
+        },
+        {
+          "cols": 14,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 16,
+          "match_rate": 0.444,
+          "pages": [
+            26
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 18,
+          "statement_id": 16,
+          "values_sha": "20debf6b5a78bfa4e57abf86e0e06b5e08d7a7ad8187a9fc8df85414a66be91a"
+        },
+        {
+          "cols": 12,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 17,
+          "match_rate": 0.167,
+          "pages": [
+            27
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 18,
+          "statement_id": 17,
+          "values_sha": "1376e1d596dee7c36c3d979ad0b5e569a9d7bdaa8ac9df58ae0295e35ee23092"
+        },
+        {
+          "cols": 10,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 18,
+          "match_rate": 0.071,
+          "pages": [
+            28
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 14,
+          "statement_id": 18,
+          "values_sha": "54db921299d844e8627b87e71d7b14a5541ba578f7dab0a9d6594c32305e202d"
+        },
+        {
+          "cols": 14,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 19,
+          "match_rate": 0.054,
+          "pages": [
+            29
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 37,
+          "statement_id": 19,
+          "values_sha": "23a9c6080c399ad02fef0f5505c59593c6ae9fb464e8cd405e20db76cde38873"
+        },
+        {
+          "cols": 6,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 20,
+          "match_rate": 0.111,
+          "pages": [
+            30
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 36,
+          "statement_id": 20,
+          "values_sha": "a1fbf555368642265b06c2382b3dc3880f6f619c9343f5466343953612a211c6"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 21,
+          "match_rate": 0.333,
+          "pages": [
+            31
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 3,
+          "statement_id": 21,
+          "values_sha": "2fceb75a5ade541452652b08626039df5110035d9564e1024084e23ae0a47ff6"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 22,
+          "match_rate": 0.08,
+          "pages": [
+            32
+          ],
+          "qualified_type": "bilan",
+          "rows": 25,
+          "statement_id": 22,
+          "values_sha": "b82bb94a2697f4318bdc0abf6e1479d3915c9b7549ece7a7b9c8e99680830e3c"
+        },
+        {
+          "cols": 7,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 23,
+          "match_rate": 0.5,
+          "pages": [
+            33
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 8,
+          "statement_id": 23,
+          "values_sha": "d2e31938d8b23fdf82635455bbd00adfd8d0bb9831613ae6ebd1db22575e46fd"
+        },
+        {
+          "cols": 11,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 24,
+          "match_rate": 0.171,
+          "pages": [
+            34
+          ],
+          "qualified_type": "bilan",
+          "rows": 41,
+          "statement_id": 24,
+          "values_sha": "96d11827bfe98ec5a40a3847243db66c499ca519188f3a3c1e8adf0c4185bb97"
+        },
+        {
+          "cols": 9,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 25,
+          "match_rate": 0.192,
+          "pages": [
+            35
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 52,
+          "statement_id": 25,
+          "values_sha": "1cb50351523ad18fc7265da24292f707b9013f93ebd7abb8d464340a6b26c6c2"
+        },
+        {
+          "cols": 8,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 26,
+          "match_rate": 0.222,
+          "pages": [
+            36
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 18,
+          "statement_id": 26,
+          "values_sha": "a9a96a59241c8ab53fd8925bab0658f5a30d81e85023d1371f66e3c60bca1b9f"
+        },
+        {
+          "cols": 7,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 27,
+          "match_rate": 0.231,
+          "pages": [
+            37
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 26,
+          "statement_id": 27,
+          "values_sha": "018c91b8c9a945d0d3b9f3c0aea77bff95bf7d0049d732628684cab4a134f5ad"
+        },
+        {
+          "cols": 11,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 28,
+          "match_rate": 0.192,
+          "pages": [
+            38
+          ],
+          "qualified_type": "bilan",
+          "rows": 26,
+          "statement_id": 28,
+          "values_sha": "bcd7452b80839f73462912aeb93d507c16c9984c3f3c2e626566a402fd03f39e"
+        },
+        {
+          "cols": 10,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 29,
+          "match_rate": 0.048,
+          "pages": [
+            39
+          ],
+          "qualified_type": "bilan",
+          "rows": 63,
+          "statement_id": 29,
+          "values_sha": "9b77c76d4bcc08003f40659660d24da2ff49ab9b47e5817c5d18dcfa2d756e1a"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 30,
+          "match_rate": 0.011,
+          "pages": [
+            40
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 87,
+          "statement_id": 30,
+          "values_sha": "5edd821bee10e7b1c57b445a6955c4144e6a5d5c9f4f092eed1ac06fa8571d28"
+        },
+        {
+          "cols": 10,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 31,
+          "match_rate": 0.0,
+          "pages": [
+            41
+          ],
+          "qualified_type": "bilan",
+          "rows": 54,
+          "statement_id": 31,
+          "values_sha": "6e4cb94d04c5d3b756966b5e1f5e5b5c284fbebb737c7f986625a46f76241af2"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 32,
+          "match_rate": 0.067,
+          "pages": [
+            42
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 30,
+          "statement_id": 32,
+          "values_sha": "c3ffac8dbdeb5c93a5bf91dc94fd71c6effd52634c990640d6dd6769f0b5b22f"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 33,
+          "match_rate": 0.5,
+          "pages": [
+            43
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 6,
+          "statement_id": 33,
+          "values_sha": "7f6389c5d868d1eb3517a56e05bd8e5b3034a8c3788ca3670d3554c86d93a004"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 34,
+          "match_rate": 0.368,
+          "pages": [
+            44
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 19,
+          "statement_id": 34,
+          "values_sha": "6468ebe9b031f958885fde1dccbc4da1c3c0c7df13f15f6a12c1fec23d0b5246"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 35,
+          "match_rate": 0.444,
+          "pages": [
+            45
+          ],
+          "qualified_type": "bilan",
+          "rows": 9,
+          "statement_id": 35,
+          "values_sha": "eaca866275b13e2cf9c9b8543bf3759937022948a85f2ed3c6f3682f6cbd04ea"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 36,
+          "match_rate": 0.077,
+          "pages": [
+            46
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 13,
+          "statement_id": 36,
+          "values_sha": "6656669576acf891f422e17520e1d76a8f1da76823ff524e339838efe8155b48"
+        },
+        {
+          "cols": 6,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 37,
+          "match_rate": 0.294,
+          "pages": [
+            47
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 17,
+          "statement_id": 37,
+          "values_sha": "502bb05f25d6d9036a90ff638fb881a878b7ece480898e6ea1988d9bcd6324ce"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 38,
+          "match_rate": 0.25,
+          "pages": [
+            48
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 16,
+          "statement_id": 38,
+          "values_sha": "4e43c000d91e093da456e0d2a08590eeae6b159865d992db0d59e71a006c5f08"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 39,
+          "match_rate": 0.375,
+          "pages": [
+            49
+          ],
+          "qualified_type": "bilan",
+          "rows": 8,
+          "statement_id": 39,
+          "values_sha": "cbf8076a7a2638a718e6753da95e74c0de82c2259993dcecfff6936aabab3b71"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 40,
+          "match_rate": 0.286,
+          "pages": [
+            50
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 7,
+          "statement_id": 40,
+          "values_sha": "2261b86290ffacdd8d113f697762bfa1783382f7d71fa356660507ce9b84c5d6"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 41,
+          "match_rate": 0.167,
+          "pages": [
+            51
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 6,
+          "statement_id": 41,
+          "values_sha": "ca1f63b18d55130b6599247344eeed3d9d75e03127de26bc16fccc2ae48e1511"
+        },
+        {
+          "cols": 18,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 42,
+          "match_rate": 0.08,
+          "pages": [
+            52
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 75,
+          "statement_id": 42,
+          "values_sha": "55305f490faf205cf3df244a5d6407042d16f1e849447efe91efd4be09ec0081"
+        },
+        {
+          "cols": 6,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 43,
+          "match_rate": 0.0,
+          "pages": [
+            53
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 43,
+          "values_sha": "cd5eb4e47bd6975fce0087eea2f325d33c23675f2214c7fb3b20136b5711eea4"
+        },
+        {
+          "cols": 6,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 44,
+          "match_rate": 0.0,
+          "pages": [
+            53
+          ],
+          "qualified_type": "flux_tresorerie",
+          "rows": 3,
+          "statement_id": 44,
+          "values_sha": "86eb77c129087760f5167428f74ff4ee8f8ec19cd5d117b9eeefb36d9a230d61"
+        },
+        {
+          "cols": 15,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 45,
+          "match_rate": 0.0,
+          "pages": [
+            54
+          ],
+          "qualified_type": null,
+          "rows": 40,
+          "statement_id": 45,
+          "values_sha": "949b6ad87f8589383f0af16f976d5616599ce7497a5ce7896a476e571848dfba"
+        },
+        {
+          "cols": 8,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 46,
+          "match_rate": 0.0,
+          "pages": [
+            55
+          ],
+          "qualified_type": null,
+          "rows": 5,
+          "statement_id": 46,
+          "values_sha": "8e7ffda7e2926a7749589f326e75769e9d80014a59a0ee41d6fd5f47667c217c"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 47,
+          "match_rate": 0.333,
+          "pages": [
+            55
+          ],
+          "qualified_type": "bilan",
+          "rows": 3,
+          "statement_id": 47,
+          "values_sha": "3d8251f5e957800ed2f2c904bf8f8de8f6642f2b32a20c7e7aa2525aae6877b4"
+        },
+        {
+          "cols": 1,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 48,
+          "match_rate": 0.214,
+          "pages": [
+            41,
+            42
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 14,
+          "statement_id": 48,
+          "values_sha": "ebd49278c1502003249b71ae423f635088440d6f5bad365597d8bd3e89925d7b"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 49,
+          "match_rate": 0.167,
+          "pages": [
+            43
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 6,
+          "statement_id": 49,
+          "values_sha": "afd65d008e5dc4c0a75e87d1392d0aeefa21385964e68797e5dfa5da45d06251"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 50,
+          "match_rate": 0.333,
+          "pages": [
+            44
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 18,
+          "statement_id": 50,
+          "values_sha": "5cc0b910f7229cc45330903a76bf0a2f388eebc34ee324a99d65276dccabf73d"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 51,
+          "match_rate": 0.556,
+          "pages": [
+            45
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 9,
+          "statement_id": 51,
+          "values_sha": "a77cdcb68f31896d11ce832383c81adf8b12747fd4473c6486f18b5a19dfc241"
+        },
+        {
+          "cols": 6,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 52,
+          "match_rate": 0.261,
+          "pages": [
+            46,
+            47,
+            48
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 46,
+          "statement_id": 52,
+          "values_sha": "65490723e6c9171c7a00bfc94ff034461eaff59514f76ed21257b1e3ddaa483d"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 53,
+          "match_rate": 0.429,
+          "pages": [
+            49
+          ],
+          "qualified_type": "bilan",
+          "rows": 7,
+          "statement_id": 53,
+          "values_sha": "cbf8076a7a2638a718e6753da95e74c0de82c2259993dcecfff6936aabab3b71"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 54,
+          "match_rate": 0.286,
+          "pages": [
+            50
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 7,
+          "statement_id": 54,
+          "values_sha": "8f3d9c92a69f187b3297b311ca29e58699aab5a73bd9dc9781a1d13bab37b915"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 55,
+          "match_rate": 0.167,
+          "pages": [
+            51
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 6,
+          "statement_id": 55,
+          "values_sha": "5ee232e0faf134712906c8ae3e12125038407676476216e1a6320043e3eb4394"
+        },
+        {
+          "cols": 5,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 56,
+          "match_rate": 0.0,
+          "pages": [
+            52
+          ],
+          "qualified_type": null,
+          "rows": 15,
+          "statement_id": 56,
+          "values_sha": "bda5636a6d822c60055ced528b00df16dc9bd543f08e532a152f0a2b9cfc88dc"
+        },
+        {
+          "cols": 4,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 57,
+          "match_rate": 0.0,
+          "pages": [
+            53
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 57,
+          "values_sha": "61624c093a4dacc9eaab018672469996ad95838724cc03ae031e86fa958e8ceb"
+        },
+        {
+          "cols": 3,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 58,
+          "match_rate": 0.0,
+          "pages": [
+            53
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 58,
+          "values_sha": "bf7aea56bbdb908ef8dec9a969d14ace1899a55c5c5f6ee2098c9ebc6b672cd5"
+        },
+        {
+          "cols": 5,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 59,
+          "match_rate": 0.0,
+          "pages": [
+            54
+          ],
+          "qualified_type": null,
+          "rows": 15,
+          "statement_id": 59,
+          "values_sha": "cd0a9a7105fad275a105ffb01a446ecde7b2c84dcff6b3814510ede5ac358a31"
+        },
+        {
+          "cols": 7,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 60,
+          "match_rate": 0.0,
+          "pages": [
+            55
+          ],
+          "qualified_type": null,
+          "rows": 7,
+          "statement_id": 60,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "cols": 5,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 61,
+          "match_rate": 0.0,
+          "pages": [
+            55
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 61,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      ],
+      "table_count": 65,
+      "table_shapes": [
+        [
+          30,
+          8
+        ],
+        [
+          20,
+          7
+        ],
+        [
+          20,
+          6
+        ],
+        [
+          30,
+          6
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          22,
+          48
+        ],
+        [
+          36,
+          19
+        ],
+        [
+          30,
+          20
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          57,
+          28
+        ],
+        [
+          42,
+          19
+        ],
+        [
+          5,
+          15
+        ],
+        [
+          21,
+          24
+        ],
+        [
+          14,
+          12
+        ],
+        [
+          18,
+          7
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          18,
+          16
+        ],
+        [
+          18,
+          14
+        ],
+        [
+          14,
+          12
+        ],
+        [
+          37,
+          16
+        ],
+        [
+          36,
+          8
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          25,
+          7
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          41,
+          13
+        ],
+        [
+          52,
+          11
+        ],
+        [
+          18,
+          10
+        ],
+        [
+          26,
+          9
+        ],
+        [
+          26,
+          13
+        ],
+        [
+          63,
+          12
+        ],
+        [
+          87,
+          7
+        ],
+        [
+          54,
+          12
+        ],
+        [
+          30,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          19,
+          7
+        ],
+        [
+          9,
+          7
+        ],
+        [
+          13,
+          7
+        ],
+        [
+          17,
+          8
+        ],
+        [
+          16,
+          7
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          75,
+          20
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          40,
+          17
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          12,
+          3
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          18,
+          6
+        ],
+        [
+          9,
+          6
+        ],
+        [
+          13,
+          6
+        ],
+        [
+          17,
+          6
+        ],
+        [
+          16,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          15,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          15,
+          7
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "text_chars": 69611,
+      "text_sha": "8792c679ca1bdc3dc276893a58b8d4fcb0b8e62b93bcf9030b99ed4c11835714",
+      "tier": 3,
+      "tier_attempts": [
+        {
+          "name": "Native PDF",
+          "passed": false,
+          "tier": 0
+        },
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": false,
+          "tier": 3
+        }
+      ],
+      "unit": {
+        "conflict": false,
+        "source": "header",
+        "value": "DT"
+      }
+    },
+    "fis_innov_invest_efd311223.pdf": {
+      "canonical_count": 16,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 4,
+        "passed": 13,
+        "skipped": 4,
+        "total": 21
+      },
+      "critical_rule_ids": [],
+      "doc_id": "fis_innov_invest_efd311223.pdf",
+      "doc_type": "docling_ocr",
+      "dot_millimes_cells": 0,
+      "ensemble": {
+        "arithmetic_override": null,
+        "conflict_count": null,
+        "q_table": null,
+        "source_count": 1
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [],
+      "green_flag_passed": null,
+      "hitl_reason": null,
+      "hitl_required": true,
+      "native_chars_per_page": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonempty_tables": 16,
+      "ok": true,
+      "page_count": 18,
+      "path": "Samples/Sample - OF/fis_innov_invest_efd311223.pdf",
+      "public": true,
+      "qcs": 0.558,
+      "quarantined": 12,
+      "routing_reason": null,
+      "schema_version": 2,
+      "score_kind": "qcs",
+      "seconds": 813.0,
+      "size_kb": 3817.1,
+      "statements": [
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.08,
+          "pages": [
+            5
+          ],
+          "qualified_type": "bilan",
+          "rows": 25,
+          "statement_id": 0,
+          "values_sha": "1065009a41efaf45502083f993a6d9315a1f735d845b81666dc35470bca58d40"
+        },
+        {
+          "cols": 1,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 1,
+          "match_rate": 0.444,
+          "pages": [
+            6
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 18,
+          "statement_id": 1,
+          "values_sha": "609d4087e54bfd5eabefb8b02d31d4feaaf85272bed256b170373dd6c6676bbb"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 2,
+          "match_rate": 0.071,
+          "pages": [
+            7
+          ],
+          "qualified_type": null,
+          "rows": 28,
+          "statement_id": 2,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 3,
+          "match_rate": 0.333,
+          "pages": [
+            8
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 3,
+          "values_sha": "12405c28ff7d84ce43b8c211a232cf0535d717856ddd0dc93d42aa509f4c10ca"
+        },
+        {
+          "cols": 1,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 4,
+          "match_rate": 0.0,
+          "pages": [
+            12
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 4,
+          "values_sha": "6e7b58f94c780fc4cda06f45a07f40e013633fe840975c41a4dad4121852dccd"
+        },
+        {
+          "cols": 6,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 5,
+          "match_rate": 0.0,
+          "pages": [
+            12
+          ],
+          "qualified_type": null,
+          "rows": 2,
+          "statement_id": 5,
+          "values_sha": "5c889e23b199c289ee4336d97614430ed47b197399464e683fcd6521acce9c05"
+        },
+        {
+          "cols": 1,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 6,
+          "match_rate": 0.0,
+          "pages": [
+            12
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 6,
+          "values_sha": "f5de92ff0c819df8d281cbd9fb414768f76606d9cc24765cbb952ad87397241d"
+        },
+        {
+          "cols": 1,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 7,
+          "match_rate": 0.0,
+          "pages": [
+            13
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 7,
+          "values_sha": "091ccd624ffcd95934a7343ad1dcb441747ff8ad2416b6f117a256f10418ae32"
+        },
+        {
+          "cols": 1,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 8,
+          "match_rate": 0.0,
+          "pages": [
+            13
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 8,
+          "values_sha": "111389f144bc765f52e60ea7a0a6be7415bba8ec3271bb77cb551d0edd4a9d24"
+        },
+        {
+          "cols": 3,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 9,
+          "match_rate": 0.0,
+          "pages": [
+            14
+          ],
+          "qualified_type": null,
+          "rows": 18,
+          "statement_id": 9,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "cols": 1,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 10,
+          "match_rate": 0.5,
+          "pages": [
+            15
+          ],
+          "qualified_type": null,
+          "rows": 2,
+          "statement_id": 10,
+          "values_sha": "0d18e0e555c518e8db667b24b5faaf23bb309237ee77bc39dd5c25c507a2a5cb"
+        },
+        {
+          "cols": 1,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 11,
+          "match_rate": 0.0,
+          "pages": [
+            15
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 11,
+          "values_sha": "091ccd624ffcd95934a7343ad1dcb441747ff8ad2416b6f117a256f10418ae32"
+        },
+        {
+          "cols": 1,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 12,
+          "match_rate": 0.2,
+          "pages": [
+            15
+          ],
+          "qualified_type": null,
+          "rows": 5,
+          "statement_id": 12,
+          "values_sha": "111389f144bc765f52e60ea7a0a6be7415bba8ec3271bb77cb551d0edd4a9d24"
+        },
+        {
+          "cols": 1,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 13,
+          "match_rate": 0.333,
+          "pages": [
+            16
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 3,
+          "statement_id": 13,
+          "values_sha": "33502c6580eb8630b7db4392b214884fefdefbffeec1192c3251da6bc5aea29a"
+        },
+        {
+          "cols": 1,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 14,
+          "match_rate": 0.333,
+          "pages": [
+            17
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 15,
+          "statement_id": 14,
+          "values_sha": "d074e34c19635e6fe1540f1641aa09c16fdfeb0eba9fa317162abffdaff7f0b3"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 15,
+          "match_rate": 0.0,
+          "pages": [
+            18
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 15,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      ],
+      "table_count": 16,
+      "table_shapes": [
+        [
+          25,
+          3
+        ],
+        [
+          18,
+          2
+        ],
+        [
+          28,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          18,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          15,
+          2
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "text_chars": 36292,
+      "text_sha": "20f8bd4a15f4a29e1a5857d7d6c0417e2a6799b7de0196de0f3b18db3be27abc",
+      "tier": 1,
+      "tier_attempts": [
+        {
+          "name": "Native PDF",
+          "passed": false,
+          "tier": 0
+        },
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": false,
+          "tier": 3
+        }
+      ],
+      "unit": {
+        "conflict": false,
+        "source": "header",
+        "value": "DT"
+      }
+    },
+    "somocer_efc311224.pdf": {
+      "canonical_count": 36,
+      "canonical_none_count": 0,
+      "checks": {
+        "critical": 0,
+        "failed": 8,
+        "passed": 82,
+        "skipped": 5,
+        "total": 95
+      },
+      "critical_rule_ids": [],
+      "doc_id": "somocer_efc311224.pdf",
+      "doc_type": "native_pdf",
+      "dot_millimes_cells": 0,
+      "ensemble": {
+        "arithmetic_override": true,
+        "conflict_count": 19,
+        "q_table": 0.7963,
+        "source_count": 2
+      },
+      "env": {
+        "PIL_version": "11.3.0",
+        "docling_version": "?",
+        "engine": "auto",
+        "host": "local",
+        "numpy_version": "2.4.1",
+        "python_hash_seed": "0",
+        "rapidocr_version": "?",
+        "torch_version": "2.10.0+cpu"
+      },
+      "error": null,
+      "green_flag_failures": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "green_flag_passed": false,
+      "hitl_reason": null,
+      "hitl_required": true,
+      "native_chars_per_page": [
+        638,
+        1759,
+        1699,
+        1486,
+        1833,
+        96,
+        3791,
+        3420,
+        2356,
+        3357,
+        3305,
+        1521,
+        2993,
+        3354,
+        2734,
+        2540,
+        1242,
+        1655,
+        2570,
+        2119,
+        2169,
+        2091,
+        1859,
+        2010,
+        2027,
+        708,
+        2876,
+        3543,
+        2295,
+        2006,
+        512,
+        2740,
+        2563,
+        2611,
+        1851,
+        2875,
+        3303,
+        3297,
+        3504,
+        3128,
+        3925,
+        3123
+      ],
+      "nonempty_tables": 36,
+      "ok": true,
+      "page_count": 42,
+      "path": "Samples/Sample - OF/somocer_efc311224.pdf",
+      "public": true,
+      "qcs": 0.796,
+      "quarantined": 12,
+      "routing_reason": "arithmetic_failure",
+      "schema_version": 2,
+      "score_kind": "q_table",
+      "seconds": 15713.35,
+      "size_kb": 329.0,
+      "statements": [
+        {
+          "cols": 7,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 0,
+          "match_rate": 0.167,
+          "pages": [
+            8
+          ],
+          "qualified_type": "bilan",
+          "rows": 6,
+          "statement_id": 0,
+          "values_sha": "0747947d9edc2ff061be2ce150b57041d46e3f8ce97a85e456fe792412613c16"
+        },
+        {
+          "cols": 7,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 1,
+          "match_rate": 0.333,
+          "pages": [
+            9
+          ],
+          "qualified_type": "bilan",
+          "rows": 3,
+          "statement_id": 1,
+          "values_sha": "bb5993cc7ea10f429c2a0130470a59d5126ab5ed83a3f22dcac017b503d482ba"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 2,
+          "match_rate": 0.375,
+          "pages": [
+            18
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 8,
+          "statement_id": 2,
+          "values_sha": "f4d2b15026fc08e070b66692fce0374da2184e54e087c9d6dcc837a6e8b9022b"
+        },
+        {
+          "cols": 5,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 3,
+          "match_rate": 0.25,
+          "pages": [
+            20
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 3,
+          "values_sha": "1b7b854a31264bb90b533e574b33f56e747555d65763930a143fa79eff4c9b0e"
+        },
+        {
+          "cols": 7,
+          "gate": "quarantined",
+          "gate_reason": "margin_below_threshold",
+          "idx": 4,
+          "match_rate": 0.25,
+          "pages": [
+            20
+          ],
+          "qualified_type": null,
+          "rows": 8,
+          "statement_id": 4,
+          "values_sha": "97961394becf8e268909b9c31d97b0cdcc473cb18f3bfa970a9d3946b86d6b4e"
+        },
+        {
+          "cols": 6,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 5,
+          "match_rate": 0.143,
+          "pages": [
+            21
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 7,
+          "statement_id": 5,
+          "values_sha": "75e1833204ed5d37ebac374397c766e53093c925b928761af89f3bc83fcb1427"
+        },
+        {
+          "cols": 4,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 6,
+          "match_rate": 0.8,
+          "pages": [
+            21
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 10,
+          "statement_id": 6,
+          "values_sha": "18704d983987f8429d2a80d113f6d6e1a09a8b15859331a64924f7d0e6041769"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 7,
+          "match_rate": 1.0,
+          "pages": [
+            22
+          ],
+          "qualified_type": "bilan",
+          "rows": 5,
+          "statement_id": 7,
+          "values_sha": "724afec9c824e0cba0ea68679efd05226a848311eee048d00c33e763e4c568fe"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 8,
+          "match_rate": 0.25,
+          "pages": [
+            23
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 4,
+          "statement_id": 8,
+          "values_sha": "6b608cbc09202bde8ffbb9dec44d8ee4cbccb3d3b107cc8b501f483f2136c571"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 9,
+          "match_rate": 0.167,
+          "pages": [
+            27
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 6,
+          "statement_id": 9,
+          "values_sha": "c62755288268c76afdb11a35127ef6a308e9688d98ab8ef575a05d8c91424760"
+        },
+        {
+          "cols": 4,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 10,
+          "match_rate": 0.0,
+          "pages": [
+            30
+          ],
+          "qualified_type": null,
+          "rows": 49,
+          "statement_id": 10,
+          "values_sha": "1b582710fdf1a00c1515be709e564784609555828591b3e466b4a00d255961f2"
+        },
+        {
+          "cols": 3,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 11,
+          "match_rate": 0.133,
+          "pages": [
+            31
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 15,
+          "statement_id": 11,
+          "values_sha": "ef8baf203cf80ba177ddd3bc8700bb26b054597d24afe840e90686d796fb09a6"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 12,
+          "match_rate": 0.036,
+          "pages": [
+            32
+          ],
+          "qualified_type": "bilan",
+          "rows": 28,
+          "statement_id": 12,
+          "values_sha": "e989fc4cd17d604639ce964b9b906f4d8614f4bb58a37b7ca5f64c6be2aaa8a3"
+        },
+        {
+          "cols": 5,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 13,
+          "match_rate": 0.167,
+          "pages": [
+            33
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 6,
+          "statement_id": 13,
+          "values_sha": "8d1c2046fc4d17ba8ba5348547aed3acb3724ed020a68703dd66d72885f24f67"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 14,
+          "match_rate": 0.125,
+          "pages": [
+            21
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 8,
+          "statement_id": 14,
+          "values_sha": "aa0c547eac04adbc412aa031d96ae2e7ff521cbbc542463136bc60557f3e7248"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 15,
+          "match_rate": 0.25,
+          "pages": [
+            21
+          ],
+          "qualified_type": "flux_tresorerie",
+          "rows": 4,
+          "statement_id": 15,
+          "values_sha": "9e8ae69f3a1ae28bd52de8d6503d94d30fc305b4b0ce4403f14e0964eaafd82f"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 16,
+          "match_rate": 0.688,
+          "pages": [
+            21
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 16,
+          "statement_id": 16,
+          "values_sha": "dce628d4cfe8b6d89edda6672a74fa300875f26da5967add22bf74500c81c0d7"
+        },
+        {
+          "cols": 6,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 17,
+          "match_rate": 0.688,
+          "pages": [
+            22
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 16,
+          "statement_id": 17,
+          "values_sha": "31e841bab9a47bd203fc4000eeaeae789e9f5b500697eb9ff6b699288aa2167d"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 18,
+          "match_rate": 0.636,
+          "pages": [
+            22
+          ],
+          "qualified_type": "bilan",
+          "rows": 11,
+          "statement_id": 18,
+          "values_sha": "e72e4b99b4e5e3dcad4a890480de67a5a9f2859cf35d3f3eea557c19cdb93082"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 19,
+          "match_rate": 0.25,
+          "pages": [
+            23
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 4,
+          "statement_id": 19,
+          "values_sha": "4ca2c6a8a4c651b2e52e815e9c18a81d463e922fcb20c8d0688163df0258233b"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 20,
+          "match_rate": 0.111,
+          "pages": [
+            23
+          ],
+          "qualified_type": "bilan_passif",
+          "rows": 9,
+          "statement_id": 20,
+          "values_sha": "27dede18a918858c44066a1e4ff6494c326902ee1909336d6832a606b0a5620a"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 21,
+          "match_rate": 0.273,
+          "pages": [
+            23
+          ],
+          "qualified_type": "bilan",
+          "rows": 11,
+          "statement_id": 21,
+          "values_sha": "3d1f419059bd1d2619205e46f0dc8ee8af78c39ef3a3e404f6228d961793f6aa"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 22,
+          "match_rate": 0.0,
+          "pages": [
+            24
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 22,
+          "values_sha": "5cd39fd59a2299237c5caa31211e4d813b1cadbc92495693606aae88c2389a01"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 23,
+          "match_rate": 0.4,
+          "pages": [
+            24
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 5,
+          "statement_id": 23,
+          "values_sha": "be8b6ae0c4ae92f1bc847dbe5d9ce9c031bd4df8b30da4f1350a339676567223"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 24,
+          "match_rate": 0.167,
+          "pages": [
+            24
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 6,
+          "statement_id": 24,
+          "values_sha": "f8b06c91be512b36798126ce8620b8ee4d47ff9067be7245882410ac5c5c1f04"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "no_term_evidence",
+          "idx": 25,
+          "match_rate": 0.0,
+          "pages": [
+            24
+          ],
+          "qualified_type": null,
+          "rows": 3,
+          "statement_id": 25,
+          "values_sha": "80ad70a17f0f485ec376a0efc64b64841fae50cc5c478a89e37b4e01e0aee3b9"
+        },
+        {
+          "cols": 3,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 26,
+          "match_rate": 0.0,
+          "pages": [
+            24
+          ],
+          "qualified_type": null,
+          "rows": 1,
+          "statement_id": 26,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 27,
+          "match_rate": 0.4,
+          "pages": [
+            25
+          ],
+          "qualified_type": "bilan",
+          "rows": 5,
+          "statement_id": 27,
+          "values_sha": "9f254a86ecbfb9deca8da1c562f021396e9298a969a30c02fd9880a2241900da"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 28,
+          "match_rate": 0.059,
+          "pages": [
+            25
+          ],
+          "qualified_type": "compte_resultat",
+          "rows": 17,
+          "statement_id": 28,
+          "values_sha": "0219a63f8b8af1d5e53d348c24673e2b9a37b5b5bbb63b893dea9ce06ce4262b"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 29,
+          "match_rate": 0.0,
+          "pages": [
+            25
+          ],
+          "qualified_type": null,
+          "rows": 5,
+          "statement_id": 29,
+          "values_sha": "8f4be2a32188285e8c86630cec4cc34d9b5d462fbdb1aabd0f64cc20db7969a3"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 30,
+          "match_rate": 0.0,
+          "pages": [
+            26
+          ],
+          "qualified_type": null,
+          "rows": 4,
+          "statement_id": 30,
+          "values_sha": "c1ae2c7f133c0ecd810c52ddfb06487157dccdfed38b107d92e5e183e5bfa072"
+        },
+        {
+          "cols": 2,
+          "gate": "pass",
+          "gate_reason": null,
+          "idx": 31,
+          "match_rate": 0.167,
+          "pages": [
+            27
+          ],
+          "qualified_type": "bilan_actif",
+          "rows": 6,
+          "statement_id": 31,
+          "values_sha": "75c2106784661b6384a4f8b11291c8d92a661b8eb179f14ef764190a8703d6e9"
+        },
+        {
+          "cols": 3,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 32,
+          "match_rate": 0.0,
+          "pages": [
+            30
+          ],
+          "qualified_type": null,
+          "rows": 25,
+          "statement_id": 32,
+          "values_sha": "0e816a1a4c6999b23c14778feba9330976a65fc77ea9750a70e9fe99be6ecf9f"
+        },
+        {
+          "cols": 2,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 33,
+          "match_rate": 0.0,
+          "pages": [
+            31
+          ],
+          "qualified_type": null,
+          "rows": 11,
+          "statement_id": 33,
+          "values_sha": "f48f324d3a4c84b37d98772ee70b7e9043c5d2db4b618948f6f0201c4911ee88"
+        },
+        {
+          "cols": 3,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 34,
+          "match_rate": 0.0,
+          "pages": [
+            32
+          ],
+          "qualified_type": null,
+          "rows": 26,
+          "statement_id": 34,
+          "values_sha": "a22a207a11a2a18d92dae30d9b9716258baabf692234145086a12c6bd9182b66"
+        },
+        {
+          "cols": 3,
+          "gate": "quarantined",
+          "gate_reason": "unclassified",
+          "idx": 35,
+          "match_rate": 0.0,
+          "pages": [
+            33
+          ],
+          "qualified_type": null,
+          "rows": 6,
+          "statement_id": 35,
+          "values_sha": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      ],
+      "table_count": 36,
+      "table_shapes": [
+        [
+          6,
+          9
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          49,
+          6
+        ],
+        [
+          15,
+          5
+        ],
+        [
+          28,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          16,
+          4
+        ],
+        [
+          16,
+          8
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          17,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          25,
+          5
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          26,
+          5
+        ],
+        [
+          6,
+          5
+        ]
+      ],
+      "text_chars": 101995,
+      "text_sha": "5bd38f1ce38880bafdc9b136c9e975122dbbbcd2c764b2dea7d809381232420e",
+      "tier": 3,
+      "tier_attempts": [
+        {
+          "name": "Native PDF",
+          "passed": false,
+          "tier": 0
+        },
+        {
+          "name": "Docling OCR",
+          "passed": false,
+          "tier": 1
+        },
+        {
+          "name": "VLM",
+          "passed": false,
+          "tier": 2
+        },
+        {
+          "name": "Ensemble",
+          "passed": false,
+          "tier": 3
+        }
+      ],
+      "unit": {
+        "conflict": true,
+        "source": "header",
+        "value": "DT"
+      }
+    }
+  },
+  "generated_at": "2026-09-19T18:14:36-0400",
+  "schema": "golden-sweep/1"
+}

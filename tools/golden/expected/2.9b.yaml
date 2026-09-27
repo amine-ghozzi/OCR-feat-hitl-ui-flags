@@ -1,0 +1,73 @@
+# WP-2.9b — the unit caption path made LIVE at both tiers (VAL-7 follow-up, decision
+# E-2 A: record + flag, never rescale). VAL-11 (Tier-1 per-page text), VAL-12 (the
+# dual-tier merge stopped from discarding table metadata).
+#
+# WP-2.9 taught Stage 3b to read a unit off the caption line above a table. Neither
+# tier could tell it WHICH page a table sat on: both handed it the whole document's
+# text under key 0, so the EARLIEST unit statement anywhere in the document decided
+# every table in it, and a caption further down was unreachable. This package hands
+# each tier's per-page text over under its 1-based page number. Tier 0 keeps the map
+# its Step-2 text loop already walks; Tier 1 exposes one built in a single pass over
+# `doc.texts` keyed by `prov[0].page_no`. Both are the RAW text: the text
+# post-processor rewrites "(en DT)" to "(en D)" — measured on this build — which
+# matches no unit pattern, so post-processing the page text would destroy the very
+# statement Stage 3b exists to read.
+#
+# Why NOTHING but `unit` can move. The package adds one READ. Nothing is reparsed, no
+# cell is re-keyed, no threshold is touched, and — E-2 — no `parsed_value` is read or
+# written anywhere in it. `detect_unit` consults the caption only when the table states
+# no unit itself, and its return is recorded on `CanonicalTable.metadata` and nowhere
+# else. `reconcile_pair` now carries `ensemble._CARRY_FORWARD_METADATA` forward from
+# the Tier-0 anchor instead of rebuilding its metadata from scratch: it copies keys, it
+# does not merge, vote or re-derive a single value. `ExtractionResult.metadata["unit"]`
+# is a new key on a dict the snapshot record does not read — the record's `unit` comes
+# from `_document_unit(canonical_tables)` — so that write cannot move a field at all.
+#
+# Hence `statements` (and therefore every `values_sha`), `checks`, `qcs`,
+# `hitl_required`, `quarantined`, `tier`, `table_count`, `table_shapes`, `text_chars`,
+# `text_sha`, `canonical_count`, `dot_millimes_cells`, `routing_reason`, `ensemble`,
+# `green_flag_passed` and `green_flag_failures` are NOT named below: a diff on any of
+# them is UNEXPECTED and the compare exits 1. Measured against
+# tools/golden/baseline-60f4cc8.json (the branch's newest, taken after WP-2.11):
+# 16 documents, 3 diffs, every one of them `unit`, and on no document does any other
+# field move.
+#
+# --- the three documents whose unit record moves ---------------------------------
+# air_liquide: `source` document_default -> caption. Its unit was previously reachable
+# only through the key-0 document fallback, which fires after every table has failed to
+# state one and is therefore recorded as an inheritance at confidence 0.60. The
+# statement is written in a caption on the page, and it now reads as one at 0.80. The
+# VALUE is unchanged (DT) and no figure moves — the same fact, correctly sourced.
+#
+# somocer: `conflict` false -> true. Its pages do not agree with each other, and until
+# now nothing could see that: one table's header supplied the whole document's unit and
+# the disagreeing page was never read. This is the Known-Gaps D1 condition the package
+# exists to surface — "a statement headed (en mDT) read as though it were (en DT) is
+# wrong by a factor of 1000" — and E-2 A is explicit about what happens next: it is
+# FLAGGED for a human, and the pipeline rescales nothing. `values_sha` is identical
+# before and after on every statement of this document, which is the proof that it did
+# not. The document's `unit.value` is likewise unchanged; only the flag is new.
+#
+# Rapport_CAC_2024_sign___1_1_ (non-public — what follows is a structural fact about
+# the detector's own provenance, nothing from the document): the same `source` move as
+# air_liquide, document_default -> caption. `value` and `conflict` are byte-identical
+# before and after, and so is every other field of its record. Field-level detail goes
+# to tools/golden/diffs/ (gitignored), never to stdout.
+#
+# The other 13 documents' unit records are byte-identical, so no rule is written for
+# them: ciments_bizerte and fis_innov keep their header-sourced DT, the other four
+# non-public PDFs keep the unit they already reported, and the six DOCX plus the one
+# JPG keep `null`. F-UNIT and F-UNIT-SILENT are therefore unmoved (measured: 0 flips).
+# If one of those records changes, the compare says so instead of waving it through.
+change: WP-2.9b — unit read off the caption on each table's OWN page, at both tiers; nothing rescaled
+
+docs:
+  # --- public ------------------------------------------------------------
+  air_liquide_efi300625.pdf:
+    unit: any                   # source document_default -> caption; value, conflict unchanged
+  somocer_efc311224.pdf:
+    unit: any                   # conflict false -> true; value, source unchanged
+
+  # --- non-public (counts and provenance only) ---------------------------
+  Rapport_CAC_2024_sign___1_1_.pdf:
+    unit: any                   # source document_default -> caption; value, conflict unchanged

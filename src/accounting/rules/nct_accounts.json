@@ -1,0 +1,194 @@
+{
+  "standard": "NCT",
+  "description": "NCT Plan de regroupement de reference (NCG paragraphs 38-40)",
+  "reference": "EF Standard + Plan de regroupement de reference.pdf",
+  "structure": {
+    "bilan": {
+      "actifs_non_courants": {
+        "label": "ACTIFS NON COURANTS",
+        "presentation": "brut_amort_net",
+        "children": {
+          "immobilisations_incorporelles": {
+            "label": "Immobilisations incorporelles",
+            "accounts": ["211", "212", "213", "214", "215", "216", "217"],
+            "keywords": ["immobilisations incorporelles", "goodwill", "logiciel", "brevets", "fonds commercial"]
+          },
+          "immobilisations_corporelles": {
+            "label": "Immobilisations corporelles",
+            "accounts": ["221", "222", "223", "224", "225", "228"],
+            "keywords": ["immobilisations corporelles", "terrains", "constructions", "materiel", "equipement"]
+          },
+          "immobilisations_financieres": {
+            "label": "Immobilisations financieres",
+            "accounts": ["251", "252", "261", "262", "271"],
+            "keywords": ["immobilisations financieres", "participations", "prets", "depots", "cautionnements"]
+          },
+          "autres_actifs_non_courants": {
+            "label": "Autres actifs non courants",
+            "accounts": ["231", "237"],
+            "keywords": ["autres actifs non courants", "charges reportees"]
+          }
+        },
+        "total_keywords": ["total actifs non courants", "total des actifs non courants"]
+      },
+      "actifs_courants": {
+        "label": "ACTIFS COURANTS",
+        "children": {
+          "stocks": {
+            "label": "Stocks",
+            "accounts": ["31", "32", "33", "34", "35", "36", "37"],
+            "keywords": ["stocks", "en-cours", "matieres premieres", "produits finis", "marchandises"]
+          },
+          "clients_comptes_rattaches": {
+            "label": "Clients et comptes rattaches",
+            "accounts": ["411", "413", "416", "418"],
+            "keywords": ["clients", "comptes rattaches", "creances clients"]
+          },
+          "autres_actifs_courants": {
+            "label": "Autres actifs courants",
+            "accounts": ["42", "43", "44", "45", "46"],
+            "keywords": ["autres actifs courants", "debiteurs divers", "etat", "avances"]
+          },
+          "placements_autres_actifs_financiers": {
+            "label": "Placements et autres actifs financiers",
+            "accounts": ["50", "51", "52"],
+            "keywords": ["placements", "actifs financiers", "valeurs mobilieres"]
+          },
+          "liquidites_equivalents": {
+            "label": "Liquidites et equivalents de liquidites",
+            "accounts": ["53", "54", "531", "532"],
+            "keywords": ["liquidites", "equivalents", "banque", "caisse", "tresorerie"]
+          }
+        },
+        "total_keywords": ["total actifs courants", "total des actifs courants"]
+      },
+      "total_actif_keywords": ["total actif", "total des actifs", "total de l'actif"],
+      "capitaux_propres": {
+        "label": "CAPITAUX PROPRES",
+        "children": {
+          "capital_social": {
+            "label": "Capital social",
+            "accounts": ["101"],
+            "keywords": ["capital social", "capital emis", "capital"]
+          },
+          "reserves": {
+            "label": "Reserves",
+            "accounts": ["111", "112", "113", "114", "115", "116"],
+            "keywords": ["reserves", "reserve legale", "reserves statutaires", "reserves facultatives"]
+          },
+          "autres_capitaux_propres": {
+            "label": "Autres capitaux propres",
+            "accounts": ["117", "118", "119"],
+            "keywords": ["autres capitaux propres", "primes", "ecarts", "subventions"]
+          },
+          "resultats_reportes": {
+            "label": "Resultats reportes",
+            "accounts": ["121"],
+            "keywords": ["resultats reportes", "report a nouveau"]
+          },
+          "resultat_exercice": {
+            "label": "Resultat de l'exercice",
+            "accounts": ["13"],
+            "keywords": ["resultat de l'exercice", "resultat net", "benefice", "perte"]
+          }
+        },
+        "total_keywords": ["total capitaux propres", "total des capitaux propres"]
+      },
+      "passifs_non_courants": {
+        "label": "PASSIFS NON COURANTS",
+        "children": {
+          "emprunts": {
+            "label": "Emprunts",
+            "accounts": ["161", "162", "163", "164"],
+            "keywords": ["emprunts", "emprunts obligataires", "emprunts bancaires"]
+          },
+          "autres_passifs_non_courants": {
+            "label": "Autres passifs financiers non courants",
+            "accounts": ["165", "166", "167"],
+            "keywords": ["autres passifs non courants", "dettes financieres"]
+          },
+          "provisions": {
+            "label": "Provisions",
+            "accounts": ["141", "142", "143", "148"],
+            "keywords": ["provisions", "provisions pour risques", "provisions pour charges"]
+          }
+        },
+        "total_keywords": ["total passifs non courants", "total des passifs non courants"]
+      },
+      "passifs_courants": {
+        "label": "PASSIFS COURANTS",
+        "children": {
+          "fournisseurs": {
+            "label": "Fournisseurs et comptes rattaches",
+            "accounts": ["401", "403", "408"],
+            "keywords": ["fournisseurs", "comptes rattaches", "dettes fournisseurs"]
+          },
+          "autres_passifs_courants": {
+            "label": "Autres passifs courants",
+            "accounts": ["42", "43", "44", "45", "46"],
+            "keywords": ["autres passifs courants", "crediteurs divers", "dettes fiscales", "dettes sociales"]
+          },
+          "concours_bancaires": {
+            "label": "Concours bancaires et autres passifs financiers",
+            "accounts": ["50", "51", "52"],
+            "keywords": ["concours bancaires", "decouverts", "passifs financiers courants"]
+          }
+        },
+        "total_keywords": ["total passifs courants", "total des passifs courants"]
+      },
+      "total_passif_keywords": ["total passif", "total des passifs", "total du passif", "total capitaux propres et passifs"]
+    },
+    "compte_resultat": {
+      "produits_exploitation": {
+        "label": "PRODUITS D'EXPLOITATION",
+        "children": {
+          "revenus": {
+            "label": "Revenus",
+            "accounts": ["70"],
+            "keywords": ["revenus", "chiffre d'affaires", "ventes", "prestations"]
+          },
+          "autres_produits": {
+            "label": "Autres produits d'exploitation",
+            "accounts": ["71", "72", "73", "74", "75"],
+            "keywords": ["autres produits", "production stockee", "production immobilisee", "subventions"]
+          }
+        },
+        "total_keywords": ["total produits d'exploitation", "total des produits d'exploitation"]
+      },
+      "charges_exploitation": {
+        "label": "CHARGES D'EXPLOITATION",
+        "children": {
+          "achats_consommes": {
+            "label": "Achats consommes",
+            "accounts": ["60"],
+            "keywords": ["achats", "achats consommes", "matieres consommees"]
+          },
+          "charges_personnel": {
+            "label": "Charges de personnel",
+            "accounts": ["64"],
+            "keywords": ["charges de personnel", "salaires", "charges sociales"]
+          },
+          "dotations_amortissements": {
+            "label": "Dotations aux amortissements et provisions",
+            "accounts": ["68"],
+            "keywords": ["dotations", "amortissements", "provisions"]
+          },
+          "autres_charges": {
+            "label": "Autres charges d'exploitation",
+            "accounts": ["61", "62", "63", "65"],
+            "keywords": ["autres charges", "services exterieurs", "impots et taxes"]
+          }
+        },
+        "total_keywords": ["total charges d'exploitation", "total des charges d'exploitation"]
+      },
+      "resultat_exploitation_keywords": ["resultat d'exploitation"],
+      "produits_financiers_keywords": ["produits financiers", "produits des placements"],
+      "charges_financieres_keywords": ["charges financieres", "interets", "charges des emprunts"],
+      "resultat_financier_keywords": ["resultat financier", "resultat des activites financieres"],
+      "produits_exceptionnels_keywords": ["produits exceptionnels", "gains extraordinaires", "elements extraordinaires"],
+      "charges_exceptionnelles_keywords": ["charges exceptionnelles", "pertes extraordinaires"],
+      "impots_keywords": ["impots sur les benefices", "impots sur les societes", "impot", "charge fiscale"],
+      "resultat_net_keywords": ["resultat net", "resultat de l'exercice", "resultat net de l'exercice", "benefice net", "perte nette"]
+    }
+  }
+}

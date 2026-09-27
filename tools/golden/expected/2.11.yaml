@@ -1,0 +1,71 @@
+# WP-2.11 — green-flag G3 write + G4 pass-through (RTE-7, decision E-4 A).
+#
+# STRICTER ONLY, AND ON THE GATE REPORT ALONE. The package changes what the
+# green-flag check is *told*, never what any tier extracts. Two facts the code
+# review established were dropped between the module that computed them and the
+# gate that asks for them:
+#
+#   * `ColumnLayout.confidence` was computed by the column identifier and
+#     discarded at the Stage-3 hand-off (only `.model` was kept). G3 therefore
+#     read the `metadata.get("column_confidence", 0.0)` default — 0.00 on every
+#     table — and failed on every document. It now lands in the table metadata.
+#   * Stage 8's footing verdicts were computed and thrown away, so G4 was never
+#     given a `footing_results` argument and always took its "no subtotals"
+#     default pass. They are now collected and passed.
+#
+# Why NOTHING but the gate report can move. Both changes are writes into
+# `CanonicalTable.metadata` plus one extra keyword argument at the single
+# `check_green_flag` call in `pipeline.py`. No cell is reparsed, no value is
+# rescaled, no row is re-keyed, no threshold is touched (`_COLUMN_CONF_THRESHOLD`
+# 0.80 and `tau_native_high` 0.95 are unchanged). `metadata` is round-tripped
+# verbatim by `CanonicalTable.to_dict/from_dict` and both new keys are registered
+# in `_CARRY_FORWARD_METADATA`, so the ensemble vote carries them instead of
+# dropping them — again without changing a single voted value. Hence `tier`,
+# `statements`, `checks`, `qcs`, `hitl_required`, `quarantined`, `table_shapes`,
+# `text_sha`, `unit`, `dot_millimes_cells`, `routing_reason` and `ensemble` are
+# NOT named below: a diff on any of them is UNEXPECTED and the compare exits 1.
+#
+# The one field that legitimately moves is `green_flag_failures` — the list of
+# gate IDs. G3 can now clear its 0.80 bar on a document whose columns were
+# identified confidently (its "G3" leaves the list), and G4 can now fail on a
+# document whose subtotals were all checked and none footed (a "G4" joins it).
+# That is the measurement this package exists to take, and its direction is
+# one-way with respect to acceptance: G4 can only ever LOSE a pass it used to
+# get for free, never gain one, and a verdict of `None` (a subtotal nobody could
+# check) still passes.
+#
+# Tier 0 still cannot accept. G1 — the 95 % label-match bar — fails on every PDF
+# that reaches the gate, so `green_flag_passed` stays false wherever it is
+# false today and stays null wherever Tier 0 produced no canonical table. It is
+# deliberately NOT whitelisted: if it moves anywhere, the compare says so. A
+# Tier-0 acceptance appearing on any document (a `tier` diff to 0) is likewise
+# unexpected by construction and is a stop-the-line finding, not a line here.
+#
+# Scope: the nine PDFs. The green-flag gate lives on the Tier-0 native path,
+# which is PDF-only — the six DOCX and the one JPG never reach it, so their
+# records are untouched by construction and no rule is written for them. If one
+# of them moves, that is an unexpected diff and the compare exits 1.
+change: WP-2.11 — column_confidence written for G3, footing_results passed to G4; gate report only, stricter only
+
+docs:
+  # --- public PDFs --------------------------------------------------------
+  air_liquide_efi300625.pdf:
+    green_flag_failures: any
+  ciments_bizerte_efi300625.pdf:
+    green_flag_failures: any
+  fis_innov_invest_efd311223.pdf:
+    green_flag_failures: any
+  somocer_efc311224.pdf:
+    green_flag_failures: any
+
+  # --- non-public PDFs (counts and gate IDs only) -------------------------
+  EF_CLB_2024_Provisoire_1_.pdf:
+    green_flag_failures: any
+  EF_LA_VIANDE_BLANCHE_2024.pdf:
+    green_flag_failures: any
+  "EF_PROV._COHAPROM_2024_VCAD.pdf":
+    green_flag_failures: any
+  Rapport_CAC_2024_Aquaculture.pdf:
+    green_flag_failures: any
+  Rapport_CAC_2024_sign___1_1_.pdf:
+    green_flag_failures: any

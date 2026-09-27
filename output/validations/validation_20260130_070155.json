@@ -1,0 +1,245 @@
+{
+  "timestamp": "2026-01-30T07:01:55.944377",
+  "file": "C:\\Users\\chouaib houes\\Desktop\\OCR\\Samples\\Bilan 1.jpg",
+  "status": "approved",
+  "quality": "Acceptable",
+  "notes": "Some spaces are lacking",
+  "qcs_score": 0.75,
+  "tier_used": 1,
+  "tables": [
+    [
+      {
+        "": "ACTIFSNONCOURANTS",
+        "Notes": "",
+        "2023": "",
+        "2022": "",
+        "Variation": "",
+        "%": ""
+      },
+      {
+        "": "Actifsimmobilises",
+        "Notes": "",
+        "2023": "",
+        "2022": "",
+        "Variation": "",
+        "%": ""
+      },
+      {
+        "": "Immobilisations incorporelles",
+        "Notes": "A1",
+        "2023": "37430",
+        "2022": "37430",
+        "Variation": "",
+        "%": ""
+      },
+      {
+        "": "Amortissements.",
+        "Notes": "",
+        "2023": "-37.430",
+        "2022": "=37430",
+        "Variation": "",
+        "%": ""
+      },
+      {
+        "": "VNC",
+        "Notes": "",
+        "2023": "",
+        "2022": "0",
+        "Variation": "",
+        "%": ""
+      },
+      {
+        "": "Immobilisations corporelles",
+        "Notes": "A2",
+        "2023": "17210 298",
+        "2022": "16 759 552",
+        "Variation": "450746",
+        "%": ""
+      },
+      {
+        "": "Amortissements",
+        "Notes": "",
+        "2023": "-13473.644",
+        "2022": "-12 969 942",
+        "Variation": "-503 702",
+        "%": "3,9%"
+      },
+      {
+        "": "VNC",
+        "Notes": "",
+        "2023": "3736 654",
+        "2022": "3789 609",
+        "Variation": "-52955",
+        "%": "-1,4%"
+      },
+      {
+        "": "Immobilisations Financieres",
+        "Notes": "A3",
+        "2023": "19 032 672",
+        "2022": "19 032 672",
+        "Variation": "0",
+        "%": "0,0%"
+      },
+      {
+        "": "Provisions",
+        "Notes": "",
+        "2023": "-216.982",
+        "2022": "-41219",
+        "Variation": "-175 763",
+        "%": "426,4%"
+      },
+      {
+        "": "Net",
+        "Notes": "",
+        "2023": "18 815 690",
+        "2022": "18 991453",
+        "Variation": "-175763",
+        "%": ""
+      },
+      {
+        "": "TotalActifsImmobilises",
+        "Notes": "",
+        "2023": "22552344",
+        "2022": "22 781 062",
+        "Variation": "-228718",
+        "%": "-1,0%"
+      },
+      {
+        "": "Total des actifs non courants",
+        "Notes": "",
+        "2023": "22552 344",
+        "2022": "22 781 062",
+        "Variation": "-228718",
+        "%": "-1,0%"
+      },
+      {
+        "": "ACTIFS COURANTS",
+        "Notes": "",
+        "2023": "",
+        "2022": "",
+        "Variation": "0",
+        "%": ""
+      },
+      {
+        "": "Stocks",
+        "Notes": "A4",
+        "2023": "11 202 126,240",
+        "2022": "9295099",
+        "Variation": "1907027",
+        "%": "20,5%"
+      },
+      {
+        "": "Moins provisions pour depreciation",
+        "Notes": "",
+        "2023": "-1.668 470",
+        "2022": "-1.603448",
+        "Variation": "-65022",
+        "%": "4,1%"
+      },
+      {
+        "": "VNC",
+        "Notes": "",
+        "2023": "9533 656",
+        "2022": "199 169",
+        "Variation": "1842005",
+        "%": "23,9%"
+      },
+      {
+        "": "Chients et comptes rattaches",
+        "Notes": "A5",
+        "2023": "9948395",
+        "2022": "5202093",
+        "Variation": "4746301",
+        "%": "91,2%"
+      },
+      {
+        "": "Moins provisions pour depreciation",
+        "Notes": "",
+        "2023": "2.736",
+        "2022": "-107090",
+        "Variation": "104.354",
+        "%": ""
+      },
+      {
+        "": "VNC",
+        "Notes": "",
+        "2023": "9945658",
+        "2022": "5095003",
+        "Variation": "4850655 。",
+        "%": "95,2%"
+      },
+      {
+        "": "Autres actifs courants",
+        "Notes": "A5",
+        "2023": "3544429",
+        "2022": "3 016547",
+        "Variation": "527 882",
+        "%": "17,5%"
+      },
+      {
+        "": "Moins provisions pour depreciation",
+        "Notes": "",
+        "2023": "=944",
+        "2022": "",
+        "Variation": "-944",
+        "%": ""
+      },
+      {
+        "": "VNC",
+        "Notes": "",
+        "2023": "3543485",
+        "2022": "3016547",
+        "Variation": "526 938",
+        "%": "17,5%"
+      },
+      {
+        "": "Placements & autres actifs financiers",
+        "Notes": "A7",
+        "2023": "1405423",
+        "2022": "1358529",
+        "Variation": "46894",
+        "%": "3,5%"
+      },
+      {
+        "": "Moins provisions pour depreciation",
+        "Notes": "",
+        "2023": "-270134",
+        "2022": "-290.279",
+        "Variation": "20 145",
+        "%": "%6'9-"
+      },
+      {
+        "": "VNC",
+        "Notes": "",
+        "2023": "1135289",
+        "2022": "1068250",
+        "Variation": "67039",
+        "%": "6,3%"
+      },
+      {
+        "": "Liquidites et equiualents de liquidites",
+        "Notes": "A8",
+        "2023": "15 327 650",
+        "2022": "15 815018",
+        "Variation": "-487368",
+        "%": "-3,1%"
+      },
+      {
+        "": "Total des actifs courants",
+        "Notes": "",
+        "2023": "39 485 739",
+        "2022": "32 686 470",
+        "Variation": "6 799269",
+        "%": ""
+      },
+      {
+        "": "TOTALDESACTIFS",
+        "Notes": "",
+        "2023": "62 038 083",
+        "2022": "55467532",
+        "Variation": "6570550",
+        "%": "11,8%"
+      }
+    ]
+  ]
+}

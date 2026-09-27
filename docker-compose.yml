@@ -1,0 +1,219 @@
+# FinAlze backend — full stack. The GPU worker (Tier-2 VLM) is opt-in via `--profile gpu`.
+#   cp .env.example .env && $EDITOR .env      # every variable there is empty and required
+#   scripts/gen_selfsigned_cert.sh <host>     # or point TRAEFIK_CERT_FILE/KEY_FILE at the bank cert
+#   docker compose up -d --build
+#   docker compose --profile gpu up -d        # later, when Tier-2 lands
+#
+# Host lockdown (SEC-7/8/9/10, GOV-2): exactly ONE port is reachable from off-box —
+# 8000/tcp, TLS, terminated by traefik. Everything else (rabbitmq mgmt, minio console,
+# flower, the review UI) is bound to 127.0.0.1 and reached over an SSH tunnel, e.g.
+#   ssh -L 8501:127.0.0.1:8501 user@host      # then http://localhost:8501
+# No credential is written literally in this file: every one comes from .env, and
+# `docker compose config` refuses to render if any of them is unset OR empty.
+#
+# UPGRADING AN EXISTING DEPLOYMENT: the pgdata / rabbitmqdata volumes still hold the
+# old finalze/finalze and guest/guest accounts — see README "Upgrading an existing
+# deployment" before `up`, or the stack will fail to authenticate.
+name: finalze
+
+x-app-env: &app-env
+  FINALZE_DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:?}:${POSTGRES_PASSWORD:?}@postgres:5432/${POSTGRES_DB:?}
+  FINALZE_REDIS_URL: redis://redis:6379/0
+  FINALZE_BROKER_URL: amqp://${RABBITMQ_USER:?}:${RABBITMQ_PASS:?}@rabbitmq:5672//
+  FINALZE_RESULT_BACKEND_URL: redis://redis:6379/1
+  FINALZE_S3_ENDPOINT_URL: http://minio:9000
+  FINALZE_S3_ACCESS_KEY: ${MINIO_ROOT_USER:?}
+  FINALZE_S3_SECRET_KEY: ${MINIO_ROOT_PASSWORD:?}
+  FINALZE_S3_BUCKET: ${FINALZE_S3_BUCKET:-finalze-documents}
+  FINALZE_S3_SECURE: ${FINALZE_S3_SECURE:-false}
+  FINALZE_SECRET_KEY: ${FINALZE_SECRET_KEY:?}
+  FINALZE_ALLOWED_ORIGINS: '${FINALZE_ALLOWED_ORIGINS:-["https://localhost:8000","http://localhost:8501"]}'
+  FINALZE_MAX_UPLOAD_MB: ${FINALZE_MAX_UPLOAD_MB:-25}
+  # /docs + /redoc. Traefik blocks the paths regardless (allowlist routing), so this
+  # is the second of two locks, not the only one. Leave false outside a dev box.
+  FINALZE_DOCS_ENABLED: ${FINALZE_DOCS_ENABLED:-false}
+  FINALZE_DEFAULT_ACCOUNTING_STANDARD: ${FINALZE_DEFAULT_ACCOUNTING_STANDARD:-NCT}
+  # FINALZE_ROOT_PATH is deliberately NOT passed: the Traefik allowlist matches
+  # absolute paths, so a non-empty root_path makes the app unreachable and would
+  # re-expose /metrics and /openapi.json under the new prefix. See src/api/settings.py.
+  # Learning log (GOV-4): never a tracked repo file; {org_id} is substituted per tenant.
+  FINALZE_VARIATION_LOG: "/app/data/variation_candidates/{org_id}.jsonl"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
+      POSTGRES_DB: ${POSTGRES_DB:?}
+    volumes: [ "pgdata:/var/lib/postgresql/data" ]
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB" ]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  redis:
+    image: redis:7-alpine
+    command: [ "redis-server", "--save", "60", "1", "--appendonly", "yes" ]
+    volumes: [ "redisdata:/data" ]
+    healthcheck: { test: [ "CMD", "redis-cli", "ping" ], interval: 5s, timeout: 3s, retries: 12 }
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:?}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS:?}
+    # Management UI: loopback only (SSH-tunnel it).
+    ports: [ "127.0.0.1:15672:15672" ]
+    volumes: [ "rabbitmqdata:/var/lib/rabbitmq" ]
+    healthcheck: { test: [ "CMD", "rabbitmq-diagnostics", "-q", "ping" ], interval: 10s, timeout: 5s, retries: 12 }
+
+  minio:
+    # Pinned to an exact RELEASE: `minio/minio` alone is a moving :latest tag, so a
+    # rebuild months from now would silently change the object store under the stack.
+    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
+    command: [ "server", "/data", "--console-address", ":9001" ]
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?}
+    # Console: loopback only (SSH-tunnel it).
+    ports: [ "127.0.0.1:9001:9001" ]
+    volumes: [ "miniodata:/data" ]
+    healthcheck:
+      test: [ "CMD", "mc", "ready", "local" ]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  api:
+    build: { context: ., dockerfile: Dockerfile.api }
+    environment:
+      <<: *app-env
+      FINALZE_ADMIN_EMAIL: ${FINALZE_ADMIN_EMAIL:?} # avoid reserved .local TLD (email-validator rejects it)
+      FINALZE_ADMIN_PASSWORD: ${FINALZE_ADMIN_PASSWORD:?}
+    volumes: [ "finalze_data:/app/data" ]
+    # No `ports:` and no `expose:` — the api is reachable only through traefik on 8000/TLS.
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      rabbitmq: { condition: service_healthy }
+      minio: { condition: service_healthy }
+
+  worker:
+    build: { context: ., dockerfile: Dockerfile.worker }
+    environment:
+      <<: *app-env
+      # Pin the OCR backend to the engine the benchmark validated — Docling
+      # auto-detection would pick EasyOCR (installed in this image) and read
+      # scanned documents differently ('-'→'2', '%'→'8').
+      FINALZE_OCR_ENGINE: ${FINALZE_OCR_ENGINE:-rapidocr}
+    volumes: [ "finalze_data:/app/data" ]
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      rabbitmq: { condition: service_healthy }
+      minio: { condition: service_healthy }
+
+  flower:
+    build: { context: ., dockerfile: Dockerfile.api } # slim image has celery+flower
+    # Basic auth is mandatory: flower exposes task arguments (document ids, paths).
+    command: [ "celery", "-A", "worker.celery_app", "flower", "--port=5555", "--basic_auth=${FLOWER_BASIC_AUTH:?}" ]
+    environment: *app-env
+    ports: [ "127.0.0.1:5555:5555" ]
+    # Dockerfile.api's HEALTHCHECK probes :8000/healthz, which this container never
+    # serves — inherited, it reports unhealthy forever and poisons `up --wait`.
+    healthcheck: { disable: true }
+    depends_on:
+      rabbitmq: { condition: service_healthy }
+      redis: { condition: service_healthy }
+
+  # HITL review UI — THIN API client (F1/F5): extraction happens in the worker;
+  # Streamlit calls the API server-side via the in-network service URL.
+  # Bound to loopback until per-user login lands (SEC-5): reach it with
+  #   ssh -L 8501:127.0.0.1:8501 user@host
+  # output/ is a bind mount and must be writable by uid 10003.
+  ui:
+    build: { context: ., dockerfile: Dockerfile.ui }
+    environment:
+      FINALZE_API_URL: http://api:8000
+      FINALZE_API_KEY: ${FINALZE_API_KEY:-}
+      FINALZE_API_TOKEN: ${FINALZE_API_TOKEN:-}
+      # With no token/key the UI logs in as the bootstrap admin (same credentials the
+      # api service bootstraps with). Issue a real service token in production.
+      FINALZE_ADMIN_EMAIL: ${FINALZE_ADMIN_EMAIL:?}
+      FINALZE_ADMIN_PASSWORD: ${FINALZE_ADMIN_PASSWORD:?}
+    ports: [ "127.0.0.1:8501:8501" ]
+    volumes:
+      - ./output:/app/output
+    depends_on:
+      api: { condition: service_healthy }
+
+  # The single public surface: TLS on 8000, routed from a static file, no Docker
+  # socket, no dashboard, no API. Routing is an ALLOWLIST (/api/v1, /healthz,
+  # /readyz); everything else is rewritten to a dead path — see traefik/dynamic.yml.
+  traefik:
+    image: traefik:v3.1
+    command:
+      - --entrypoints.websecure.address=:8000
+      - --providers.file.filename=/etc/traefik/dynamic.yml
+      - --providers.file.watch=true
+      # Liveness only. It answers on the internal `traefik` entrypoint (:8080 inside
+      # the container), which is NOT published — nothing reaches it from the network.
+      - --ping=true
+      - --log.level=INFO
+    ports: [ "8000:8000" ]
+    volumes:
+      # Long syntax with create_host_path:false throughout: with the short form a
+      # typo in TRAEFIK_CERT_FILE makes Docker helpfully create an empty DIRECTORY
+      # in its place. Refusing to start is the correct outcome.
+      #
+      # MEASURED (2026-09-18), because the two failure modes are not alike:
+      #  * cert path resolves to a DIRECTORY → traefik aborts the handshake. Loud;
+      #    nothing is served. create_host_path:false is what prevents even this, and
+      #    it is honoured on the Linux target — but Docker Desktop for Windows
+      #    ignores it and creates the directory anyway.
+      #  * the TLS STORE is missing entirely (the `tls:` section dropped, or this
+      #    dynamic.yml mount failing) → traefik silently serves its own generated
+      #    "TRAEFIK DEFAULT CERT" and proxies normally. Nothing in compose catches
+      #    that; scripts/smoke_compose_ui.py reads the served certificate's subject
+      #    and fails on it, which is the defence for the silent case.
+      - type: bind
+        source: ./traefik/dynamic.yml
+        target: /etc/traefik/dynamic.yml
+        read_only: true
+        bind: { create_host_path: false }
+      - type: bind
+        source: ${TRAEFIK_CERT_FILE:?}
+        target: /etc/traefik/certs/server.crt
+        read_only: true
+        bind: { create_host_path: false }
+      - type: bind
+        source: ${TRAEFIK_KEY_FILE:?}
+        target: /etc/traefik/certs/server.key
+        read_only: true
+        bind: { create_host_path: false }
+    healthcheck:
+      test: [ "CMD", "traefik", "healthcheck", "--ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    depends_on: [ api ]
+
+  # Tier-2 GPU worker — opt-in (`--profile gpu`). Pair with a vLLM service serving Qwen2.5-VL.
+  worker-gpu:
+    profiles: [ "gpu" ]
+    build: { context: ., dockerfile: Dockerfile.worker }
+    command: [ "celery", "-A", "worker.celery_app", "worker", "-Q", "ocr.gpu", "--pool=prefork", "--concurrency=1" ]
+    environment: *app-env
+    depends_on:
+      rabbitmq: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      postgres: { condition: service_healthy }
+
+volumes:
+  pgdata:
+  redisdata:
+  rabbitmqdata:
+  miniodata:
+  finalze_data:

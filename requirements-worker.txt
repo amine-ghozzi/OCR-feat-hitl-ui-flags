@@ -1,0 +1,10 @@
+# FinAlze worker image deps = full ML/extraction stack + queue/DB/storage clients.
+# Build:  pip install -r requirements-worker.txt
+-r requirements.txt
+
+celery[redis]>=5.4
+sqlalchemy[asyncio]>=2.0
+asyncpg>=0.29
+redis>=5.0
+minio>=7.2
+pydantic-settings>=2.4

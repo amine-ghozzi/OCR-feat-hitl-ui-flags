@@ -1,0 +1,142 @@
+# WP-2.8 — Docling confidence RECORDED for Tier-1 (RTE-3) and the empty-read
+# floor that flags and never ends (RTE-4).
+#
+# MEASUREMENT, NOT POLICY. This package adds THREE record fields and moves
+# nothing else. No band, no threshold and no routing decision changes:
+# `tau_fast_high` is still 0.75, `tau_excellent` still 0.90, `tau_native_high`
+# 0.95, `tau_ensemble_high` 0.90, `tau_ensemble_arbiter` 0.70, and the four QCS
+# grade bands are exactly where WP-2.7 left them. `qcs`, `qcs_grade`, `tier`,
+# `tier_attempts`, `score_kind`, `hitl_required`, `hitl_reason`, `statements`,
+# `checks`, `table_count`, `table_shapes`, `quarantined`, `canonical_count`,
+# `text_sha`, `unit`, `dot_millimes_cells`, `green_flag_*`, `ensemble` and
+# `routing_reason` are NOT whitelisted for any document, so a diff on any of
+# them is unexpected and the compare exits 1.
+#
+# Measured against tools/golden/baseline-a52d1b8.json: 16 documents, 48 diffs,
+# every one of them one of the three new fields.
+#
+# ---------------------------------------------------------------------------
+# Why the grades are recorded and not used
+# ---------------------------------------------------------------------------
+# Until now every Tier-1 document reported ocr/layout/parse/low = FAIR, because
+# the extractor probed `ConversionResult.document` for a report that lives on
+# the `ConversionResult`, and then for per-signal `*_grade` attributes that do
+# not exist anywhere in docling (RTE-3). The probe returned None on every
+# document ever processed and the defaults were never overwritten.
+#
+# The obvious repair — hand the real grades to `calculate_qcs` — was built and
+# measured on this corpus first. It moves ROUTING:
+#
+#   * every Tier-1 QCS rises by +0.11 to +0.14 (the intrinsic layer is 40 % of
+#     the composite and was pinned at the all-FAIR value 0.55);
+#   * ciments_bizerte_efi300625.pdf (Tier-1 QCS 0.795) and
+#     EF_CLB_2024_Provisoire_1_.pdf (0.787) cross `tau_fast_high`, are accepted
+#     at Tier 1 and never reach the Tier-3 two-engine vote. ciments extracts
+#     measurably WORSE alone: 60 canonical tables against 62, and 24 quarantined
+#     statements against 10;
+#   * bilan3.docx (0.911) and Etat_r_sultat_2.docx (0.920) cross the 0.90
+#     no-human bar and lose their review flag, flipping corpus fact F-DOCX-hitl.
+#
+# The plan's ruling on RTE-3 is "record now, adopt into routing in P7 (WP-7.2,
+# after MEA-7 calibration)", and decisions Q5-A and G-4 say no automation widens
+# before it has been measured. Docling's confidence describes how well a PAGE
+# WAS READ; it does not describe whether the extraction is right, and the
+# ciments result is the first corpus evidence that the cascade must not treat
+# the two as the same thing. So the grades become evidence: recorded per
+# document, with the QCS they WOULD have produced recorded beside the real one,
+# and the adoption decision left to the package that owns it.
+#
+# ---------------------------------------------------------------------------
+# The three fields
+# ---------------------------------------------------------------------------
+# 1. `docling_confidence` — `{ocr, layout, parse, low, mean}`, each one of the
+#    four grade words UPPERCASE or null. Grades only; the raw scores and the
+#    per-page breakdown stay in `metadata` and out of the record, because a
+#    float drifts with every model update without telling anyone anything a
+#    grade does not. A grade is a structural fact about the READ — never a
+#    value, never a label — so it is safe to print for a non-public document.
+#
+# 2. `read_floor_flagged` — the RTE-4 verdict. It flags NOTHING on this corpus:
+#    false on all ten documents that have a floor at all. That is the intended
+#    reading — every one of them does read something, and a floor that fired
+#    here would be measuring the wrong thing. Declared, recorded, inert.
+#
+# 3. `qcs_docling` — the QCS the document WOULD have scored on Docling's grades.
+#    This is the P7 input, and the only reason the measurement above can be
+#    repeated by anyone without rebuilding the experiment. It routes nothing:
+#    `qcs` is still the score the pipeline acted on, and it does not move.
+#    Measured pre-quarantine, so on a document with `quarantined > 0` compare it
+#    against the pre-quarantine QCS in `confidence_details`, not against `qcs`.
+#
+# All three are absent from every older baseline, so a compare reports them
+# `added` — except on the six documents that have no Docling pass behind the
+# record at all, where null is the right answer and is declared by name.
+change: WP-2.8 — ConversionResult.confidence and a would-be QCS recorded for P7; empty-read floor flags, never ends
+
+docs:
+  # Defaults for every document. Per-document blocks below MERGE over these
+  # field by field (`ExpectedRules.rules_for`).
+  "*":
+    docling_confidence: added
+    read_floor_flagged: added
+    qcs_docling: added
+
+  # --- the six documents with no Docling pass behind the record ------------
+  # A Tier-3 record carries `**best_prior.metadata`, and on these six the tier
+  # whose extraction scored highest is Tier 0 — which never runs the extractor.
+  # There is no confidence report, no read evidence and no second QCS to record,
+  # and the record says so instead of inventing an answer. `added` requires a
+  # value after (`rule_allows`: after not in (None, [], {})), so absent-before
+  # vs null-after is still a diff and `added` rejects it; `{to: null}` is the
+  # declaration that null is correct, and that it is these six documents by name
+  # for which it is correct. If one of them ever starts carrying a Docling pass
+  # — or one of the other ten stops — the compare says so instead of waving it
+  # through with a blanket `any`.
+  #
+  # KNOWN GAP, and it is the awkward one: ciments_bizerte and EF_CLB are exactly
+  # the two documents the adoption measurement is most interesting for — they
+  # are the pair that would leave the Tier-3 vote if the grades were routed —
+  # and their record carries no `qcs_docling`, because their Tier-1 result is
+  # not `best_prior`. The numbers exist (their Tier-1 pass computes and logs
+  # both: ciments routes 0.615 and would score 0.795; EF_CLB routes 0.711 and
+  # would score 0.787) and they are written into the package's commit body for
+  # P7. Lifting them onto the Tier-3 record means writing in `_tier3_ensemble`,
+  # which this package does not touch.
+  air_liquide_efi300625.pdf:
+    docling_confidence: {to: null}
+    read_floor_flagged: {to: null}
+    qcs_docling: {to: null}
+  somocer_efc311224.pdf:
+    docling_confidence: {to: null}
+    read_floor_flagged: {to: null}
+    qcs_docling: {to: null}
+  EF_LA_VIANDE_BLANCHE_2024.pdf:
+    docling_confidence: {to: null}
+    read_floor_flagged: {to: null}
+    qcs_docling: {to: null}
+  "EF_PROV._COHAPROM_2024_VCAD.pdf":
+    docling_confidence: {to: null}
+    read_floor_flagged: {to: null}
+    qcs_docling: {to: null}
+  ciments_bizerte_efi300625.pdf:
+    docling_confidence: {to: null}
+    read_floor_flagged: {to: null}
+    qcs_docling: {to: null}
+  EF_CLB_2024_Provisoire_1_.pdf:
+    docling_confidence: {to: null}
+    read_floor_flagged: {to: null}
+    qcs_docling: {to: null}
+
+  # --- everything else -----------------------------------------------------
+  # Ten documents gain all three fields and change in no other way. There is
+  # deliberately no per-document block for any of them: `qcs`, `qcs_grade`,
+  # `hitl_required`, `hitl_reason`, `tier`, `tier_attempts`, `statements`,
+  # `checks` and the rest are unwhitelisted everywhere, which is the whole claim
+  # of the package — the pipeline behaves exactly as it did at a52d1b8, and now
+  # it also writes down what Docling thought of the read and what that would
+  # have been worth.
+  #
+  # tools/golden/corpus_facts.yaml is untouched and every fact holds, F-DOCX-hitl
+  # included: all four of its DOCX keep `hitl_required: true`, because the score
+  # that decides it is still computed from the grades it has always been
+  # computed from.

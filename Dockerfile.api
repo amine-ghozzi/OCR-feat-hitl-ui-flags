@@ -1,0 +1,29 @@
+# FinAlze API image — slim (no ML stack), multi-stage, non-root.
+# syntax=docker/dockerfile:1
+FROM python:3.13-slim AS deps
+ENV PIP_NO_CACHE_DIR=1
+WORKDIR /app
+# constraints.txt = pip freeze of the verified dev venv (same versions the test
+# suite validated); prevents `>=` floor drift between builds.
+COPY requirements-api.txt constraints.txt ./
+RUN pip install --no-cache-dir -c constraints.txt -r requirements-api.txt
+
+FROM python:3.13-slim AS runtime
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/app/src
+WORKDIR /app
+# non-root
+RUN useradd -m -u 10001 appuser
+# bring in installed site-packages + console scripts
+COPY --from=deps /usr/local/lib/python3.13/site-packages /usr/local/lib/python3.13/site-packages
+COPY --from=deps /usr/local/bin /usr/local/bin
+COPY src/ /app/src/
+COPY alembic/ /app/alembic/
+COPY alembic.ini /app/alembic.ini
+USER appuser
+EXPOSE 8000
+HEALTHCHECK --interval=15s --timeout=3s --retries=10 \
+  CMD python -c "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/healthz').status==200 else 1)"
+# create_all + bootstrap admin, then `api.migrate` (reads the live schema to decide whether a
+# stamp is owed before `upgrade head` — a bare upgrade fails on a create_all volume), then serve.
+# `&&` is load-bearing: a failed migration exits the container instead of starting uvicorn.
+CMD ["sh", "-c", "python -m api.bootstrap && python -m api.migrate && uvicorn api.main:app --host 0.0.0.0 --port 8000 --forwarded-allow-ips='*'"]

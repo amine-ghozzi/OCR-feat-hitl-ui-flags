@@ -1,0 +1,15 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.git/
+output/
+Samples/
+context/
+tests/
+*.md
+.env
+*.pem
+*.key
+alembic/versions/__pycache__/

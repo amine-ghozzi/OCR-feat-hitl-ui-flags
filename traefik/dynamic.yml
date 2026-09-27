@@ -1,0 +1,102 @@
+# Traefik v3 dynamic configuration — FILE provider (SEC-7/8/9/10).
+#
+# Mounted read-only at /etc/traefik/dynamic.yml; traefik is started with
+#   --providers.file.filename=/etc/traefik/dynamic.yml --providers.file.watch=true
+# and NO docker provider, so no container can publish a route by writing a label,
+# and the Docker socket is never mounted.
+#
+# ROUTING IS AN ALLOWLIST, NOT A DENYLIST.
+# An earlier revision listed the four paths to block (/docs, /redoc, /openapi.json,
+# /metrics). That is unsound: it only blocks the spellings someone remembered. With
+# FINALZE_ROOT_PATH=/finalze the app re-mounts every route under that prefix and
+# /finalze/openapi.json sails straight through — measured, 200. Any future router,
+# any prefix, any new FastAPI mount is exposed by default under a denylist.
+#
+# So: the `api` router matches ONLY what the product actually serves —
+#   PathPrefix(`/api/v1`)  the whole REST surface
+#   Path(`/healthz`)       liveness  (probed by the compose healthcheck)
+#   Path(`/readyz`)        readiness
+# and a catch-all router at priority 1 swallows EVERYTHING else into the
+# `block-internal` middleware, which rewrites the path (replacePath) to a route
+# FastAPI has never registered. The api answers 404 {"detail":"Not Found"} and the
+# real handler is never reached. /docs, /redoc, /openapi.json, /metrics and anything
+# added tomorrow are blocked by construction, not by enumeration.
+#
+# replacePath was chosen over the alternatives because it is the only one that works
+# here: the file provider has no null backend (an empty loadBalancer yields 502, not
+# 404), and the `errors` middleware only substitutes a body for a status the backend
+# already returned — it cannot manufacture one.
+#
+# Belt and braces: FINALZE_DOCS_ENABLED defaults to false, so /docs and /redoc do not
+# exist on the app either; /metrics and /openapi.json DO, which is why this matters.
+# src/api/settings.py documents that root_path must stay empty for this to hold.
+
+http:
+  routers:
+    # The product surface. Priority 100 so it is evaluated before the catch-all
+    # regardless of how Traefik would otherwise rank the two rules by length.
+    api:
+      rule: "PathPrefix(`/api/v1`) || Path(`/healthz`) || Path(`/readyz`)"
+      entryPoints: [ websecure ]
+      priority: 100
+      service: api
+      tls: {}
+
+    # Everything else. Never remove this: it is what makes the list above an
+    # allowlist rather than a suggestion.
+    block-internal:
+      rule: "PathPrefix(`/`)"
+      entryPoints: [ websecure ]
+      priority: 1
+      middlewares: [ block-internal ]
+      service: api
+      tls: {}
+
+  services:
+    api:
+      loadBalancer:
+        passHostHeader: true
+        servers:
+          - url: "http://api:8000"
+
+  middlewares:
+    block-internal:
+      replacePath:
+        path: "/__blocked__"
+
+# Server certificate. The two files are bind-mounted read-only by compose from
+# ${TRAEFIK_CERT_FILE} / ${TRAEFIK_KEY_FILE} — a self-signed pair from
+# scripts/gen_selfsigned_cert.sh, or the bank-provided cert, which uses the same
+# two variables and needs no change here. A bank cert delivered as a leaf plus a
+# separate intermediate must be concatenated LEAF FIRST into one PEM file, or
+# clients that do not already hold the intermediate reject the chain (Traefik
+# serves an incomplete chain without complaining).
+#
+# `stores.default.defaultCertificate` is what answers a request with no matching
+# SNI (e.g. `curl https://127.0.0.1:8000/`); without it traefik would serve its
+# own throwaway self-signed certificate instead.
+tls:
+  options:
+    default:
+      # TLS 1.2 floor. Without this the accepted range is whatever the Traefik
+      # build happens to default to — a policy nobody reviewed.
+      minVersion: VersionTLS12
+      # TLS 1.2 suites only; TLS 1.3 suites are not configurable in Go and are
+      # always enabled. Forward secrecy (ECDHE) + AEAD (GCM / CHACHA20) only.
+      cipherSuites:
+        - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
+        - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+      # NOT sniStrict: the smoke script and every SSH-tunnelled client connect to
+      # an IP literal, which sends no SNI. sniStrict would refuse all of them.
+  stores:
+    default:
+      defaultCertificate:
+        certFile: /etc/traefik/certs/server.crt
+        keyFile: /etc/traefik/certs/server.key
+  certificates:
+    - certFile: /etc/traefik/certs/server.crt
+      keyFile: /etc/traefik/certs/server.key

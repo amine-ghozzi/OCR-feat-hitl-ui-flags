@@ -1,0 +1,137 @@
+# WP-2.7 — HITL plumbing (RTE-1, RTE-2, RTE-5, RTE-6, VAL-5, RTE-10).
+#
+# PLUMBING, NOT THRESHOLDS. Not one band moved: `tau_fast_high` is still 0.75,
+# `tau_excellent` still 0.90, `tau_native_high` 0.95, `tau_ensemble_high` 0.90,
+# `tau_ensemble_arbiter` 0.70, and the four QCS grade bands are untouched. There
+# are two bars by design — 0.75 is "stop escalating", 0.90 is "no human needed" —
+# and this package does nothing but carry the second answer to the place that
+# reads it. No tier routes differently because of anything here, so `tier` is NOT
+# whitelisted below: a tier diff on any document is an unexpected diff and the
+# compare exits 1. Neither is `statements`, `table_count`, `checks`,
+# `table_shapes`, `text_sha`, `text_chars`, `unit`, `dot_millimes_cells`,
+# `green_flag_passed`, `green_flag_failures`, `routing_reason` or `ensemble`.
+# Nothing re-extracts, re-parses, re-keys or re-validates. The corpus's numbers
+# are the same numbers.
+#
+# What moves, and why:
+#
+# 1. `qcs_grade` (every document) — a NEW record field, so it is absent from
+#    every baseline and present in every candidate. `added` is exactly that. The
+#    grade was always computed; the record just never carried it. One of four
+#    lowercase words, never a value and never a label.
+#
+# 2. `hitl_reason` (every document) — an EXISTING record field that has read
+#    `null` on all 16 documents since it was introduced, because the reason lived
+#    in `confidence_details` and the record reads `metadata`. Now it is written
+#    there. `added` covers both shapes the candidate takes: a sentence on a
+#    flagged document, and the empty string on an unflagged one.
+#
+# 3. `score_kind` (every document) — declared for completeness and expected to
+#    produce NO diff at all. The record used to derive it from the tier
+#    ("q_table" if tier == 3 else "qcs"); it now reads `metadata['score_kind']`,
+#    which the pipeline writes, and falls back to the old expression. The two
+#    agree on every document in this corpus, including the three that reach Tier
+#    3's single-source branch and keep `tier_used == 1` with a QCS in
+#    `qcs_score`. If this rule ever fires, the two disagree and that is worth
+#    reading, not waving through — which is why it is `added` (absent-to-present)
+#    rather than `any`.
+#
+# 4. `hitl_required` on four DOCX — the point of the package (RTE-1). See below.
+#
+# 5. `qcs` on the documents that quarantine a statement — RTE-6. See below.
+change: WP-2.7 — needs_hitl reaches every tier; score_kind labelled; skipped is not passed; QCS recomputed after quarantine
+
+docs:
+  # Defaults for every document. Per-document blocks below MERGE over these
+  # field by field (`ExpectedRules.rules_for`), so a document that names `qcs`
+  # still keeps these three.
+  "*":
+    qcs_grade: added
+    score_kind: added
+    hitl_reason: added
+
+  # --- RTE-1: the four documents the register row is about ----------------
+  # These score 0.767–0.790: above the 0.75 cascade bar, below the 0.90
+  # no-human bar. `calculate_qcs` has always returned `needs_hitl=True` for that
+  # band; the Tier-1 accept path never copied the answer into `metadata`, so the
+  # worker read the False default and persisted "no review needed". The record
+  # shows `hitl_required: null` for them today — the key was never written, not
+  # written false — so the rule is `{to: true}`, not `{from: false, to: true}`.
+  # This is the one behavioural change in the package and it is one-way:
+  # documents gain a review, none loses one.
+  #
+  # Scores as tools/golden/baseline-e0bb91f.json records them:
+  #
+  #   bilab2.docx            qcs 0.773   (7 passed, 4 skipped, 0 failed — and one
+  #                                       of the skips is a CRITICAL, so VAL-5's
+  #                                       override flags it independently of the band)
+  #   bilan3.docx            qcs 0.767
+  #   Etat_r_sultat_2.docx   qcs 0.776
+  #   Etat_r_sultat_3.docx   qcs 0.790
+  #
+  # `qcs` is NOT whitelisted for any of the four: none of them quarantines a
+  # statement, so nothing in this package may touch their score. A probe run of
+  # bilab2 on the clean tree at e0bb91f and on this package's code both give
+  # 0.773 — the QCS does not move, and if it does here the compare says so.
+  #
+  # tools/golden/corpus_facts.yaml F-DOCX-hitl flips from known-fail to pass on
+  # exactly these four.
+  bilab2.docx:
+    hitl_required: {to: true}
+  bilan3.docx:
+    hitl_required: {to: true}
+  Etat_r_sultat_2.docx:
+    hitl_required: {to: true}
+  Etat_r_sultat_3.docx:
+    hitl_required: {to: true}
+
+  # --- RTE-6: the documents that quarantine at least one statement --------
+  # The gate already recomputed the validation report over the surviving
+  # statements and left the SCORE describing the statements it had just thrown
+  # out. The QCS is now recomputed on the same survivors, and — only where
+  # `score_kind == "qcs"` — replaces the stale one. `qcs: any` rather than a
+  # direction: the recomputed score can legitimately go either way (dropping a
+  # failing statement raises it, dropping a clean one lowers it) and pinning a
+  # direction here would be asserting something the package does not claim.
+  # `hitl_required` is deliberately NOT whitelisted for any of them — all eight
+  # are already flagged (quarantine raises the flag, and the recomputation may
+  # only ever raise it further), so a diff would mean something LOWERED it and
+  # the compare must say so.
+  #
+  # Three carry a QCS and can therefore move:
+  #   fis_innov_invest_efd311223.pdf    12 quarantined, score_kind qcs
+  #   Rapport_CAC_2024_Aquaculture.pdf  18 quarantined, score_kind qcs
+  #   Rapport_CAC_2024_sign___1_1_.pdf   5 quarantined, score_kind qcs
+  # Five hold Q_table at Tier 3, where the recomputed QCS is recorded beside the
+  # score but must never be written over it (RTE-10). Their `qcs` is expected NOT
+  # to move; the rule is written so that if the guard ever fails the diff is
+  # attributed here rather than fired as a mystery.
+  fis_innov_invest_efd311223.pdf:
+    qcs: any
+  Rapport_CAC_2024_Aquaculture.pdf:
+    qcs: any
+  Rapport_CAC_2024_sign___1_1_.pdf:
+    qcs: any
+  air_liquide_efi300625.pdf:
+    qcs: any
+  ciments_bizerte_efi300625.pdf:
+    qcs: any
+  somocer_efc311224.pdf:
+    qcs: any
+  EF_LA_VIANDE_BLANCHE_2024.pdf:
+    qcs: any
+  "EF_PROV._COHAPROM_2024_VCAD.pdf":
+    qcs: any
+
+  # --- the one Tier-3 document the ensemble accepts -----------------------
+  # EF_CLB is the only document in the corpus with `hitl_required: false`. Tier 3
+  # used to overwrite the flag with its own verdict unconditionally; it now ORs,
+  # like every other HITL writer on this path ("may only ever RAISE", see
+  # `_attach_statements`). If the prior tier whose extraction won the vote had
+  # itself asked for a review, that ask now survives the ensemble and this
+  # document flips to true. Whether it does depends on that tier's QCS band and
+  # is not knowable from a record — so the rule is declared and may simply go
+  # unused. It is `{to: true}` and nothing else: the flag may rise here, never
+  # fall.
+  EF_CLB_2024_Provisoire_1_.pdf:
+    hitl_required: {to: true}

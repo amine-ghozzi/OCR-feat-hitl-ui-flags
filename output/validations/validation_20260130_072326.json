@@ -1,0 +1,315 @@
+{
+  "timestamp": "2026-01-30T07:23:26.896937",
+  "file": "C:\\Users\\chouaib houes\\Desktop\\OCR\\Samples\\bilab2.docx",
+  "status": "approved",
+  "quality": "Acceptable",
+  "notes": "Some spaces are lacking",
+  "qcs_score": 0.75,
+  "tier_used": 1,
+  "tables": [
+    [
+      {
+        "CAPITAUXPROPRESETPASSIFS": "CAPITAUXPROPRESETPASSIFS",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Capitanx propres",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Capital social",
+        "Notes": "",
+        "31/12/2023": "700 000",
+        "31/12/2022": "700 000"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Reserve legale",
+        "Notes": "",
+        "31/12/2023": "70 000",
+        "31/12/2022": "70000"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Resultat reporte",
+        "Notes": "",
+        "31/12/2023": "2 235 555",
+        "31/12/2022": "2 422 046"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Reserve de reinvestissement",
+        "Notes": "",
+        "31/12/2023": "430 000",
+        "31/12/2022": "430 000"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Total capitaux propres avant resultat",
+        "Notes": "",
+        "31/12/2023": "3435555",
+        "31/12/2022": "3622046"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Resultat de I'exercice",
+        "Notes": "",
+        "31/12/2023": "2 265 525",
+        "31/12/2022": "1313 509"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "TOTALCAPITAUXPROPRES",
+        "Notes": "3.8",
+        "31/12/2023": "5701080",
+        "31/12/2022": "4935555"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "PASSIFS",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Passifs mon courants",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Emprunts",
+        "Notes": "3.9",
+        "31/12/2023": "6 234 245",
+        "31/12/2022": "5 234 277"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Autres passifs financiers",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Provisions pour risques et charges",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Total passifs non courants",
+        "Notes": "",
+        "31/12/2023": "6 234245",
+        "31/12/2022": "5 234277"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Passifs courants",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Fournisseurs et comptes rattaches",
+        "Notes": "3.10",
+        "31/12/2023": "4 104 255",
+        "31/12/2022": "1832 045"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Autres passifs courants",
+        "Notes": "3.11",
+        "31/12/2023": "3 061 392",
+        "31/12/2022": "3 512729"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Concours bancaires et autres passifs financiers",
+        "Notes": "3.12",
+        "31/12/2023": "14 761 966",
+        "31/12/2022": "13267 737"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "Total passifs couraunts",
+        "Notes": "",
+        "31/12/2023": "21927613",
+        "31/12/2022": "18 612 511"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "",
+        "Notes": "",
+        "31/12/2023": "28161858",
+        "31/12/2022": "23846788"
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "TOTALDESPASSIFS",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUXPROPRESETPASSIFS": "TOTALDESCAPITAUXPROPRESETPASSIFS",
+        "Notes": "",
+        "31/12/2023": "33862 938",
+        "31/12/2022": "28782343"
+      }
+    ],
+    [
+      {
+        "ACTIFS": "ACTIFSNONCOURANTS",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "ACTIFS": "Actifsimmobilises",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "ACTIFS": "Immobilisations incorporelles",
+        "Notes": "",
+        "31/12/2023": "9 122",
+        "31/12/2022": "950"
+      },
+      {
+        "ACTIFS": "Moins : amortissements",
+        "Notes": "",
+        "31/12/2023": "<2419>",
+        "31/12/2022": "<950>"
+      },
+      {
+        "ACTIFS": "",
+        "Notes": "",
+        "31/12/2023": "6 703",
+        "31/12/2022": ""
+      },
+      {
+        "ACTIFS": "Immobilisations corporelles",
+        "Notes": "",
+        "31/12/2023": "15 052 080",
+        "31/12/2022": "10 483 307"
+      },
+      {
+        "ACTIFS": "Moins : amortissements",
+        "Notes": "",
+        "31/12/2023": "<7788327>",
+        "31/12/2022": "<6 784657>"
+      },
+      {
+        "ACTIFS": "",
+        "Notes": "3.1",
+        "31/12/2023": "7 263753",
+        "31/12/2022": "3 698 650"
+      },
+      {
+        "ACTIFS": "Immobilisations financieres",
+        "Notes": "3.2",
+        "31/12/2023": "484 333",
+        "31/12/2022": "483333"
+      },
+      {
+        "ACTIFS": "Moins : provisions",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "ACTIFS": "",
+        "Notes": "",
+        "31/12/2023": "484333",
+        "31/12/2022": "483333"
+      },
+      {
+        "ACTIFS": "Total des actifs immobilises",
+        "Notes": "",
+        "31/12/2023": "7754 789",
+        "31/12/2022": "4181983"
+      },
+      {
+        "ACTIFS": "Autres actifs non courants",
+        "Notes": "",
+        "31/12/2023": "139 734",
+        "31/12/2022": "86 836"
+      },
+      {
+        "ACTIFS": "TOTALDESACTIFSNONCOURANTS",
+        "Notes": "",
+        "31/12/2023": "7894523",
+        "31/12/2022": "4268819"
+      },
+      {
+        "ACTIFS": "Stocks",
+        "Notes": "",
+        "31/12/2023": "10 070.594",
+        "31/12/2022": "9 058 001"
+      },
+      {
+        "ACTIFS": "Moins : provisions",
+        "Notes": "",
+        "31/12/2023": "<1 885 533>",
+        "31/12/2022": "<2095 893>"
+      },
+      {
+        "ACTIFS": "",
+        "Notes": "3.3",
+        "31/12/2023": "8184 961",
+        "31/12/2022": "6 962108"
+      },
+      {
+        "ACTIFS": "Clients et comptes rattaches",
+        "Notes": "",
+        "31/12/2023": "520 501",
+        "31/12/2022": "384 632"
+      },
+      {
+        "ACTIFS": "Moins : provisions",
+        "Notes": "",
+        "31/12/2023": "<187375>",
+        "31/12/2022": "<171 790>"
+      },
+      {
+        "ACTIFS": "",
+        "Notes": "3.4",
+        "31/12/2023": "332626",
+        "31/12/2022": "212 842"
+      },
+      {
+        "ACTIFS": "Autres actifs courants",
+        "Notes": "",
+        "31/12/2023": "7184573",
+        "31/12/2022": "11 764 725"
+      },
+      {
+        "ACTIFS": "Moins : provisions",
+        "Notes": "",
+        "31/12/2023": "<81 000>",
+        "31/12/2022": "<81000>"
+      },
+      {
+        "ACTIFS": "",
+        "Notes": "3.5",
+        "31/12/2023": "7103573",
+        "31/12/2022": "11 683 725"
+      },
+      {
+        "ACTIFS": "Placements et autres actifs financiers",
+        "Notes": "3.6",
+        "31/12/2023": "8 250 000",
+        "31/12/2022": "4 750000"
+      },
+      {
+        "ACTIFS": "Liquidites et equivalents de liquidites",
+        "Notes": "3.7",
+        "31/12/2023": "2 097 255",
+        "31/12/2022": "904849"
+      },
+      {
+        "ACTIFS": "TOTALDESACTIFSCOURANTS",
+        "Notes": "",
+        "31/12/2023": "25968415 33862938",
+        "31/12/2022": "24513524"
+      },
+      {
+        "ACTIFS": "",
+        "Notes": "",
+        "31/12/2023": "",
+        "31/12/2022": "28782343"
+      }
+    ]
+  ]
+}

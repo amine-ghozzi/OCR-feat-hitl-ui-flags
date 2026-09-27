@@ -1,0 +1,51 @@
+# FinAlze HITL UI image — THIN API client (no ML stack), multi-stage, non-root.
+# Extraction runs in the worker container; this image only renders the review
+# UI and talks to the API via FINALZE_API_URL (F1/F5).
+# syntax=docker/dockerfile:1
+FROM python:3.13-slim AS deps
+ENV PIP_NO_CACHE_DIR=1
+WORKDIR /app
+COPY requirements-ui.txt .
+RUN pip install --no-cache-dir -r requirements-ui.txt \
+    # size trim: bundled test suites, bytecode caches and pip itself are dead
+    # weight at runtime (pyarrow+pandas+numpy ship ~80 MB of them)
+    && find /usr/local/lib/python3.13/site-packages -depth \
+         \( -name __pycache__ -o -name tests -o -name test \) -type d \
+         -exec rm -rf {} + \
+    && rm -rf /usr/local/lib/python3.13/site-packages/pip*
+
+FROM python:3.13-slim AS runtime
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/app/src \
+    STREAMLIT_SERVER_HEADLESS=true \
+    STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+WORKDIR /app
+# non-root (10003: api=10001, worker=10002)
+RUN useradd -m -u 10003 uiuser
+COPY --from=deps /usr/local/lib/python3.13/site-packages /usr/local/lib/python3.13/site-packages
+COPY --from=deps /usr/local/bin /usr/local/bin
+# Only the import-reachable source set (F2): the UI, the API client, the
+# accounting validators/canonical model, and the light pipeline types.
+COPY src/hitl/ /app/src/hitl/
+COPY src/client/ /app/src/client/
+COPY src/accounting/ /app/src/accounting/
+COPY src/pipeline.py /app/src/pipeline.py
+# F2 gate: the image must import the app's module graph WITHOUT the ML stack —
+# fails the build if a heavy import ever leaks in.
+RUN FINALZE_API_URL=http://api:8000 python - <<'EOF'
+import sys
+sys.path.insert(0, "/app/src")
+import pipeline  # noqa: F401
+from accounting import canonical_model, ensemble, rule_engine, validator  # noqa: F401
+from hitl import review_view  # noqa: F401
+from client.sdk import FinAlzeClient  # noqa: F401
+heavy = sorted({m.split(".")[0] for m in sys.modules
+                if m.split(".")[0] in ("torch", "docling", "easyocr", "surya",
+                                       "marker", "transformers", "paddle")})
+assert not heavy, f"heavy modules leaked into the thin UI image: {heavy}"
+print("thin-image import smoke: OK")
+EOF
+USER uiuser
+EXPOSE 8501
+HEALTHCHECK --interval=15s --timeout=3s --retries=10 \
+  CMD python -c "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8501/_stcore/health').status==200 else 1)"
+CMD ["streamlit", "run", "src/hitl/app.py", "--server.port=8501", "--server.address=0.0.0.0"]

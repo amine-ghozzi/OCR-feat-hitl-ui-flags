@@ -1,0 +1,10 @@
+# PaddleOCR PP-OCRv5 benchmark layer — separate from the main benchmark image so
+# paddlepaddle's heavy/version-sensitive deps can't abort the docTR build, and so
+# a paddle/numpy ABI clash (if any) is contained to this throwaway image.
+# paddlepaddle 3.3.1 has a cp313 wheel (probed), so the install is viable.
+FROM finalze-benchmark
+USER root
+# Install paddle WITHOUT touching the pinned numpy/pillow if possible; if paddle
+# forces a numpy bump it stays contained to this image (never production).
+RUN pip install --no-cache-dir paddlepaddle==3.3.1 paddleocr
+USER worker

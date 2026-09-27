@@ -1,0 +1,170 @@
+1 INTRODUCTION
+
+1. Contexte & Principales Fonctionnalités :
+
+Nom du produit : FinAlze
+· Version : v0.1
+. Objectif du document : présenter les fonctionnalités fonctionnelles et le fonctionnement
+global du produit.
+. Contexte metier : digitalisation et fiabilisation de l'entree des EF client pour accélérer
+l'analyse crédit, commercial et le reporting.
+. Périmètre : documents EF scannés ou annexés (PDF/image), extraction du bilan, état de
+résultat et tableau des flux de trésorerie; prise en charge des référentiels IFRS, NCT,
+SYSCOHADA; interface web + API.
+
+La solution proposée automatise la collecte, l'analyse et la centralisation des données issues des
+banque.
+Elle utilise des technologies avancees d'OCR et d'intelligence artificielle pour extraire les
+informations clés (chiffre d'affaires, coûts, immobilisations, etc.) directement à partir des
+financiers).
+Les données ainsi extraites sont standardisées et stockées dans un référentiel central, ce qui facilite
+leur utilisation ultérieure (reporting, scoring, analyses). (V2)
+
+2. Objectifs produit
+
+La solution vise à automatiser la lecture, l'extraction et la structuration des états financiers des
+entreprises, à partir de documents PDF, scannés ou importés, pour alimenter les outils métiers
+(CRM, scoring, analyse crédit ... ).
+
+Objectifs (liste priorisée) :
+1. Objectif 1 : Extraction & stockage : extraire les données du bilan et de l'état de résultat
+puis stocker ces donnees dans une base de donnees structuree.
+2. Objectif 2 : Modèle comptable paramétrable : permettre la configuration du plan
+comptable (IFRS, NCT, SYSCOHADA).
+3. Objectif 3 : Validation humaine : proposer une interface de verification/correction
+manuelle des extractions.
+4. Objectif 4 : API & intégration : exposer les données via API RESTful pour intégration SI
+bancaire (CRM, ERP, BI).
+5. Objectif 5 : Reporting & KPI : calcul automatique des ratios financiers et tableaux de bord.
+6. Objectif 6 : Sécurité & conformité : chiffrement, gestion des droits et tracabilite conforme
+RGPD et règles bancaires.
+7. Objectif 7 : Scalabilite & performance : traitement parallele de gros volumes et haute
+disponibilité.
+
+2 DESCRIPTION FONCTIONELLE
+
+1. Flux de traitement du document :
+
+1.1. Import des états financiers
+. Canaux : upload web, glisser-deposer, e-mail, import batch.
+. Formats : PDF, image scannee, fichier compresse.
+. Vérification automatique du format et de la complétude du document.
+
+1.2. Traitement par IA / OCR
+. Extraction automatique des données chiffrées depuis les bilans, comptes de résultat et flux
+de trésorerie.
+. Reconnaissance de zones clés, segmentation par tableaux, identification des rubriques
+(actif, passif, charges, produits ... ).
+· Traitement parallèle de gros volumes (scalabilité horizontale).
+
+1.3. Export et stockage
+
+. Structuration et normalisation des données.
+. Export possible vers Excel, QuickBooks, systèmes bancaires ou base de données interne.
+Archivage automatique et historisation par client.
+L'extraction IA prend en charge tous les champs usuels des états financiers. Par défaut, elle
+cible le bilan, le compte de résultat et le tableau des flux de trésorerie. Par exemple, la
+plateforme peut extraire le chiffre d'affaires, le coût des ventes, les charges d'exploitation,
+etc., et les affecter aux comptes correspondants. Tous les libellés comptables et postes sont
+identifiés automatiquement.
+
+
+2. Flux de traitement du document :
+
+. Extraction automatique des principaux champs financiers : chiffre d'affaires, charges
+d'exploitation, resultat net, capitaux propres, etc.
+Modèle de donnees parametrable selon le type d'entreprise ou le référentiel comptable.
+· Vérification assistée (validation manuelle possible).
+. Sauvegarde des données structurées en SQL/ JSON pour réutilisation ou intégration.
+
+3. Modèle Comptable Paramétrable 
+• Référentiels supportés : IFRS, SYSCOHADA, Normes comptables tunisiennes (NCT/SCE). 
+• Personnalisation du plan comptable et des règles d’évaluation selon le référentiel choisi. 
+• Mapping automatique des postes comptables vers le référentiel sélectionné. 
+• Paramétrage flexible pour adapter les rapports aux exigences réglementaires locales. 
+• La solution supporte plusieurs référentiels comptables au choix. On peut sélectionner le 
+référentiel IFRS (normes comptables internationales), ainsi que des référentiels locaux 
+comme le SYSCOHADA (Système Comptable OHADA) ou les normes comptables 
+tunisiennes (NCT/SCE) 
+• Dans la solution, le plan comptable et les règles d’évaluation peuvent être configurés selon 
+le référentiel choisi. Par exemple, l’utilisateur peut indiquer que les comptes clients ou 
+provisions doivent être traités selon les méthodes IFRS, ou selon les règles OHADA/NCT. 
+Ce paramétrage assure la conformité légale (reporting cohérent avec le référentiel attendu) 
+tout en offrant de la souplesse pour les analyses internes. 
+4.  Interface Utilisateur 
+• Interface web ergonomique, responsive et intuitive. 
+• Modules : 
+• Tableau de bord de suivi des imports et statuts de traitement. 
+• Visualisation du document source + version extraite. 
+• Édition manuelle possible des champs extraits. 
+• Historique des versions et validation par l’utilisateur. 
+• Gestion des rôles et profils 
+5. API et Intégration : 
+• API RESTful disponible pour : 
+o Envoi automatique de documents à traiter. 
+o Récupération des données extraites au format JSON/XML. 
+o Intégration dans les systèmes bancaires existants (CRM, ERP, outils BI). 
+• Webhook de notification : permet d’informer un système tiers dès qu’un document est 
+traité. 
+• Gestion des clés API et des droits d’accès par client/système. 
+6. Stockage des Données et Intégration Centrale 
+• Consolidation dans une base de données centrale unique. 
+• Nettoyage et transformation automatique : 
+• Conversion des formats monétaires et dates. 
+• Élimination des doublons. 
+• Gestion des valeurs manquantes. 
+• Support des formats : SQL, CSV, API JSON. 
+• Intégration possible avec entrepôt de données et outils BI. 
+• Vision 360° sur les états financiers de chaque client. 
+7. Sécurité et Performance 
+7.1. 
+Sécurité 
+• Authentification via OAuth2 ou SSO. 
+• Chiffrement des données en transit et au repos (TLS 1.3, AES-256). 
+• Journalisation et traçabilité de tous les imports/exports. 
+• Gestion des droits utilisateurs granulaire. 
+• Hébergement cloud ou on-premise selon les contraintes bancaires. 
+7.2. 
+Performance 
+• Traitement en parallèle de 10 états financiers. 
+• Tests de charge planifiés pour valider la performance en conditions réelles. 
+• Objectif de performance: traitement < 30Sec par document. 
+• Architecture scalable
+
+3 FLUX OPERATIONNEL  
+1. Import 
+• Sources : upload web (drag & drop), e-mail, dépôt via API, import batch depuis dossier 
+partagé. 
+• Acceptés : PDF natif, PDF scanné, images (JPEG, PNG), ZIP contenant pièces annexes. 
+2. Prétraitement 
+• détection langue, détection type de document (bilan/CR/flux). 
+• Séparation multi-pages, segmentation zones (tableaux vs texte). 
+3. OCR / Extraction IA 
+• OCR texte + reconnaissance de tableaux. 
+• Identification sémantique des postes (ex : « Immobilisations corporelles », « Chiffre 
+d’affaires »). 
+• Mappage vers le plan comptable paramétré (référentiel choisi). 
+4. Normalisation & structuration 
+• Conversion montants (format, devises), standardisation des dates, nettoyage libellés. 
+• Génération d’un JSON/SQL conforme au modèle de données. 
+5. Validation & correction 
+• Interface UX affichant : document source, zones extraites mises en surbrillance, formulaire 
+de correction. 
+• Workflow : brouillon → validé → historisé (audit). 
+6. Stockage & export 
+• Persistance en base relationnelle / data warehouse. 
+• Exports : API JSON/XML, CSV, connecteurs vers BI/ERP/CRM. 
+7. Reporting & alerting 
+• Calcul de ratios, génération de rapports périodiques, alertes si incohérence (ex : actifs ≠ 
+passifs). 
+4 MODULE FONCTIONNELS 
+• Module Import : prise en charge multi-canaux, file d’attente, gestion métadonnées (client, 
+période). 
+• Moteur OCR & IDP (Intelligent Document Processing) : modèles ML, règles de 
+reconnaissance, bibliothèque de templates apprenante. 
+• Moteur de mapping comptable : tables de correspondance, règles métier paramétrables. 
+• Base centralisée : schéma normalisé, historiques, indexation pour recherche. 
+• UI métier : dashboard, validation, recherche, export. 
+• API & Intégration : endpoints sécurisés, webhooks, pagination, filtrage. 
+• Sécurité & Gouvernance : IAM, journaux, chiffrement, anonymisation si nécessaire. 
+• Monitoring & Observabilité : métriques (taux d’échec, latence, throughput), logs, alerting.

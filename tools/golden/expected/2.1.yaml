@@ -1,0 +1,39 @@
+change: WP-2.1 — PDF de-rotation helper (OCR-1/2/3, OCR-14, DOC-9)
+
+# fis_innov is the ONLY document the helper touches: its pages carry a page-level
+# /Rotate 270, so docling-parse handed the OCR stage no bitmap rectangles and the
+# document extracted as 29 characters in 16 EMPTY table frames (table_count was
+# already 16 at the baseline — the frames existed, they were just empty; the field
+# that actually moves is `nonempty_tables`, 0 -> 16).
+#
+# Every other PDF in the corpus was measured page by page before this sweep:
+#   air_liquide     /Rotate 0 + page-level /Rotate 90   -> untouched (page-level 90)
+#   LA VIANDE BL.   /Rotate 0 + page-level /Rotate 90   -> untouched (page-level 90)
+#   ciments, somocer, EF CLB, COHAPROM, Aquaculture     -> all /Rotate 0
+# and no page in the corpus has CropBox != MediaBox. So every rule below is scoped
+# to fis_innov; every other document must show 0 diffs. The six DOCX and the JPG
+# cannot be reached by a PDF-only code path and are outside the sweep.
+docs:
+  fis_innov_invest_efd311223.pdf:
+    # The read itself: an empty document becomes a real one.
+    text_chars: {from: 29, min: 20000}
+    text_sha: any
+    nonempty_tables: {from: 0, to: 16}
+    table_shapes: any            # 16 [0,0] frames -> 16 real shapes
+    canonical_count: {from: 0, to: 16}
+    qcs: {min: 0.5}              # 0.342 -> 0.558
+
+    # Downstream of the read: statements now exist, so the accounting layer runs
+    # for the first time on this document.
+    statements: any
+    quarantined: {from: 0, to: 12}
+    checks: any                  # 1 critical failure -> 21 checks, 0 critical
+    critical_rule_ids: {from: ["Tables Found"], to: []}
+    schema_version: {from: null, to: 2}
+    ensemble: any                # source_count 0 -> 1
+
+    # Declared by the package card; measured as unchanged in this sweep (tier 1,
+    # hitl_required True before and after). Left in place so the rule set still
+    # holds if the reviewer's re-run moves them.
+    tier: any
+    hitl_required: any

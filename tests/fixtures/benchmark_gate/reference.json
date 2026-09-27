@@ -1,0 +1,224 @@
+{
+  "statement_type": "bilan",
+  "standard": "NCT",
+  "tables": [
+    {
+      "title": "CAPITAUX PROPRES ET PASSIFS",
+      "rows": [
+        {
+          "raw_text": "CAPITAL SOCIAL",
+          "canonical_term": "Capital social",
+          "cells": {
+            "31/12/2023": {"raw_value": "2 000 000,000", "value": 2000000.000},
+            "31/12/2022": {"raw_value": "2 000 000,000", "value": 2000000.000}
+          }
+        },
+        {
+          "raw_text": "RÉSULTATS REPORTÉS",
+          "canonical_term": "Résultats reportés",
+          "cells": {
+            "31/12/2023": {"raw_value": "1 711 496,654", "value": 1711496.654},
+            "31/12/2022": {"raw_value": "1 595 279,083", "value": 1595279.083}
+          }
+        },
+        {
+          "raw_text": "TOTAL DES À AVANT RÉSULTAT",
+          "canonical_term": null,
+          "cells": {
+            "31/12/2023": {"raw_value": "3711 496,654", "value": 3711496.654},
+            "31/12/2022": {"raw_value": "3595279,083", "value": 3595279.083}
+          }
+        },
+        {
+          "raw_text": "RÉSULTAT DE EXERCICE BÉNÉFICE)",
+          "canonical_term": "Résultat de l'exercice",
+          "cells": {
+            "31/12/2023": {"raw_value": "100 106,899", "value": 100106.899},
+            "31/12/2022": {"raw_value": "116 217,571", "value": 116217.571}
+          }
+        },
+        {
+          "raw_text": "TOTAL DES CAPITAUX AVANT AFFECTATION",
+          "canonical_term": "Total des capitaux propres",
+          "cells": {
+            "31/12/2023": {"raw_value": "3811603,553", "value": 3811603.553},
+            "31/12/2022": {"raw_value": "3 711 496,654", "value": 3711496.654}
+          }
+        },
+        {
+          "raw_text": "EMPRUNTS",
+          "canonical_term": "Emprunts",
+          "cells": {
+            "31/12/2023": {"raw_value": "2 905 409,364", "value": 2905409.364},
+            "31/12/2022": {"raw_value": "4 304980,552", "value": 4304980.552}
+          }
+        },
+        {
+          "raw_text": "TOTAL PASSIFS NON COURANTS",
+          "canonical_term": "Total des passifs non courants",
+          "cells": {
+            "31/12/2023": {"raw_value": "2 905 409,364", "value": 2905409.364},
+            "31/12/2022": {"raw_value": "4304980,552", "value": 4304980.552}
+          }
+        },
+        {
+          "raw_text": "FOURNISSEURS ET COMPTES RATTACHÉS",
+          "canonical_term": "Fournisseurs et comptes rattachés",
+          "cells": {
+            "31/12/2023": {"raw_value": "797 627,024", "value": 797627.024},
+            "31/12/2022": {"raw_value": "1757534,624", "value": 1757534.624}
+          }
+        },
+        {
+          "raw_text": "AUTRES PASSIFS COURANTS",
+          "canonical_term": "Autres passifs courants",
+          "cells": {
+            "31/12/2023": {"raw_value": "1 044 839,451", "value": 1044839.451},
+            "31/12/2022": {"raw_value": "313653,853", "value": 313653.853}
+          }
+        },
+        {
+          "raw_text": "CONCOURS BANCAIRES ET AUTRES PASSIFS",
+          "canonical_term": "Concours bancaires et autres passifs financiers",
+          "cells": {
+            "31/12/2023": {"raw_value": "3 340029,062", "value": 3340029.062},
+            "31/12/2022": {"raw_value": "1995646,718", "value": 1995646.718}
+          }
+        },
+        {
+          "raw_text": "TOTAL PASSIFS COURANTS",
+          "canonical_term": "Total des passifs courants",
+          "cells": {
+            "31/12/2023": {"raw_value": "5182 495,537", "value": 5182495.537},
+            "31/12/2022": {"raw_value": "4 066 835,195", "value": 4066835.195}
+          }
+        },
+        {
+          "raw_text": "TOTAL DES PASSIFS",
+          "canonical_term": "Total des passifs",
+          "cells": {
+            "31/12/2023": {"raw_value": "8 087 904,901", "value": 8087904.901},
+            "31/12/2022": {"raw_value": "8371815,747", "value": 8371815.747}
+          }
+        },
+        {
+          "raw_text": "TOTAL DES CAPITAUX ET DES PASSIFS",
+          "canonical_term": "Total des capitaux propres et des passifs",
+          "cells": {
+            "31/12/2023": {"raw_value": "11 899 508,454", "value": 11899508.454},
+            "31/12/2022": {"raw_value": "12083312.401", "value": 12083312.401}
+          }
+        }
+      ]
+    },
+    {
+      "title": "ACTIFS",
+      "rows": [
+        {
+          "raw_text": "IMMOBILISATIONS CORPORELLES",
+          "canonical_term": "Immobilisations corporelles",
+          "cells": {
+            "31/12/2023": {"raw_value": "9 607 039,316", "value": 9607039.316},
+            "31/12/2022": {"raw_value": "9 474 508,782", "value": 9474508.782}
+          }
+        },
+        {
+          "raw_text": "MOINS AMORTISSEMENT",
+          "canonical_term": null,
+          "cells": {
+            "31/12/2023": {"raw_value": "-4 997 056,035", "value": -4997056.035},
+            "31/12/2022": {"raw_value": "-4 608 417,067", "value": -4608417.067}
+          }
+        },
+        {
+          "raw_text": "TOTAL IMMOBILISATIONS CORPORELLES",
+          "canonical_term": null,
+          "cells": {
+            "31/12/2023": {"raw_value": "4 609 983,281", "value": 4609983.281},
+            "31/12/2022": {"raw_value": "4 866091,715", "value": 4866091.715}
+          }
+        },
+        {
+          "raw_text": "IMMOBILISATIONS FINANCIÈRES",
+          "canonical_term": "Immobilisations financières",
+          "cells": {
+            "31/12/2023": {"raw_value": "982 500,000", "value": 982500.000},
+            "31/12/2022": {"raw_value": "1005000,000", "value": 1005000.000}
+          }
+        },
+        {
+          "raw_text": "TOTAL ACTIFS NON IMMOBILISÉS",
+          "canonical_term": "Total des actifs immobilisés",
+          "cells": {
+            "31/12/2023": {"raw_value": "5 592 483,281", "value": 5592483.281},
+            "31/12/2022": {"raw_value": "5 871091,715", "value": 5871091.715}
+          }
+        },
+        {
+          "raw_text": "TOTAL ACTIFS NON COURANTS",
+          "canonical_term": "Total des actifs non courants",
+          "cells": {
+            "31/12/2023": {"raw_value": "5 592 483,281", "value": 5592483.281},
+            "31/12/2022": {"raw_value": "5871091,715", "value": 5871091.715}
+          }
+        },
+        {
+          "raw_text": "STOCKS",
+          "canonical_term": "Stocks",
+          "cells": {
+            "31/12/2023": {"raw_value": "214 270,000", "value": 214270.000},
+            "31/12/2022": {"raw_value": "219210,000", "value": 219210.000}
+          }
+        },
+        {
+          "raw_text": "CLIENTS ET COMPTES RATTACHÉS",
+          "canonical_term": "Clients et comptes rattachés",
+          "cells": {
+            "31/12/2023": {"raw_value": "1782 162,592", "value": 1782162.592},
+            "31/12/2022": {"raw_value": "2 907 914,707", "value": 2907914.707}
+          }
+        },
+        {
+          "raw_text": "TOTAL CLIENTS",
+          "canonical_term": null,
+          "cells": {
+            "31/12/2023": {"raw_value": "1 782 162,592", "value": 1782162.592},
+            "31/12/2022": {"raw_value": "2 907 914,707", "value": 2907914.707}
+          }
+        },
+        {
+          "raw_text": "AUTRES ACTIFS COURANTS",
+          "canonical_term": "Autres actifs courants",
+          "cells": {
+            "31/12/2023": {"raw_value": "854 095,170", "value": 854095.170},
+            "31/12/2022": {"raw_value": "820 985,221", "value": 820985.221}
+          }
+        },
+        {
+          "raw_text": "LIQUIDITÉS ET ÉQUIVALENTS DE LIQUIDITÉS",
+          "canonical_term": "Liquidités et équivalents de liquidités",
+          "cells": {
+            "31/12/2023": {"raw_value": "3 456 497,411", "value": 3456497.411},
+            "31/12/2022": {"raw_value": "2 264 110,758", "value": 2264110.758}
+          }
+        },
+        {
+          "raw_text": "TOTAL DES ACTIFS COURANTS",
+          "canonical_term": "Total des actifs courants",
+          "cells": {
+            "31/12/2023": {"raw_value": "6 307 025,173", "value": 6307025.173},
+            "31/12/2022": {"raw_value": "6 212 220,686", "value": 6212220.686}
+          }
+        },
+        {
+          "raw_text": "TOTAL DES ACTIFS",
+          "canonical_term": "Total des actifs",
+          "cells": {
+            "31/12/2023": {"raw_value": "11 899 508,454", "value": 11899508.454},
+            "31/12/2022": {"raw_value": "12 083 312,401", "value": 12083312.401}
+          }
+        }
+      ]
+    }
+  ]
+}

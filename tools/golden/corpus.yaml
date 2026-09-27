@@ -1,0 +1,90 @@
+# Golden corpus manifest — the authority on which documents the regression gate covers
+# and which of them are non-public (decision G-2 / GOV-3).
+#
+# doc_id   the stable id `tools/extraction_benchmark/config.case_id()` derives from the
+#          FILE NAME. Both copies of "EF CLB 2024 Provisoire (1).pdf" slugify to the
+#          same id, which is one more reason only one of them is listed.
+# path     repo-relative, forward slashes, so a snapshot taken on Windows compares
+#          byte-for-byte against one taken in the container.
+# public   false for the five client financial statements. Sessions may read counts and
+#          page numbers for those, never values, labels or text, and no external-AI
+#          stage may be pointed at them. `compare` keeps their field-level detail off
+#          stdout and writes it to the gitignored diffs/ directory instead.
+# unstable documents whose record is known to vary between two identical runs. None so
+#          far — the flag exists so a genuinely non-deterministic document can be
+#          recorded as such rather than quietly weakening the whole gate.
+#
+# 17 files live under Samples/; `Samples/EF CLB 2024 Provisoire (1).pdf` is BYTE-IDENTICAL
+# to the copy under `Samples/Sample - OF/`, so only the `Sample - OF` copy is listed.
+# 16 documents: 11 public, 5 non-public.
+
+docs:
+  # --- public: the four OF reference PDFs ---------------------------------
+  - doc_id: air_liquide_efi300625.pdf
+    path: Samples/Sample - OF/air_liquide_efi300625.pdf
+    public: true
+    unstable: false
+  - doc_id: ciments_bizerte_efi300625.pdf
+    path: Samples/Sample - OF/ciments_bizerte_efi300625.pdf
+    public: true
+    unstable: false
+  - doc_id: fis_innov_invest_efd311223.pdf
+    path: Samples/Sample - OF/fis_innov_invest_efd311223.pdf
+    public: true
+    unstable: false
+  - doc_id: somocer_efc311224.pdf
+    path: Samples/Sample - OF/somocer_efc311224.pdf
+    public: true
+    unstable: false
+
+  # --- public: the image + the six DOCX (the fast documents) ---------------
+  - doc_id: Bilan_1.jpg
+    path: Samples/Bilan 1.jpg
+    public: true
+    unstable: false
+  - doc_id: bilan1.docx
+    path: Samples/bilan1.docx
+    public: true
+    unstable: false
+  - doc_id: bilab2.docx
+    path: Samples/bilab2.docx
+    public: true
+    unstable: false
+  - doc_id: bilan3.docx
+    path: Samples/bilan3.docx
+    public: true
+    unstable: false
+  - doc_id: Etat_r_sultat_1.docx
+    path: Samples/Etat résultat 1.docx
+    public: true
+    unstable: false
+  - doc_id: Etat_r_sultat_2.docx
+    path: Samples/Etat résultat 2.docx
+    public: true
+    unstable: false
+  - doc_id: Etat_r_sultat_3.docx
+    path: Samples/Etat résultat 3.docx
+    public: true
+    unstable: false
+
+  # --- NON-PUBLIC: client financial statements -----------------------------
+  - doc_id: EF_CLB_2024_Provisoire_1_.pdf
+    path: Samples/Sample - OF/EF CLB 2024 Provisoire (1).pdf
+    public: false
+    unstable: false
+  - doc_id: EF_LA_VIANDE_BLANCHE_2024.pdf
+    path: Samples/Sample - OF/EF LA VIANDE BLANCHE 2024.pdf
+    public: false
+    unstable: false
+  - doc_id: EF_PROV._COHAPROM_2024_VCAD.pdf
+    path: Samples/Sample - OF/EF PROV. COHAPROM 2024 VCAD.pdf
+    public: false
+    unstable: false
+  - doc_id: Rapport_CAC_2024_Aquaculture.pdf
+    path: Samples/Sample - OF/Rapport CAC 2024 Aquaculture.pdf
+    public: false
+    unstable: false
+  - doc_id: Rapport_CAC_2024_sign___1_1_.pdf
+    path: Samples/Sample - OF/Rapport_CAC_2024_signé_(1)[1].pdf
+    public: false
+    unstable: false

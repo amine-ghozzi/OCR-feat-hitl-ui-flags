@@ -1,0 +1,225 @@
+{
+  "timestamp": "2026-02-06T01:38:12.795079",
+  "file": "C:\\Users\\chouaib houes\\Desktop\\OCR\\Samples\\bilan1.docx",
+  "status": "approved",
+  "quality": "Good",
+  "notes": "",
+  "qcs_score": 0.6303273322422259,
+  "tier_used": 1,
+  "tables": [
+    [
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "CAPITAUX PROPRES",
+        "Note": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "CAPITALSOCIAL",
+        "Note": "(5111)",
+        "31/12/2023": "2 000 000,000",
+        "31/12/2022": "2 000 000,000"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "RESULTATSREPORTES",
+        "Note": "(5141)",
+        "31/12/2023": "1 711 496,654",
+        "31/12/2022": "1 595 279,083"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "TOTALDESCAP.AVANTRESULTAT",
+        "Note": "",
+        "31/12/2023": "3711 496,654",
+        "31/12/2022": "3595279,083"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "RESULTATDELEXERCICE(BENEFICE)",
+        "Note": "(5RES)",
+        "31/12/2023": "100 106,899",
+        "31/12/2022": "116 217,571"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "TOTALDESCAPITAUXAVANTAFFECTATION",
+        "Note": "",
+        "31/12/2023": "3811603,553",
+        "31/12/2022": "3 711 496,654"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "PASSIFS",
+        "Note": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "PASSIFS NON COURANTS",
+        "Note": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "EMPRUNTS",
+        "Note": "(6111)",
+        "31/12/2023": "2 905 409,364",
+        "31/12/2022": "4 304980,552"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "TOTAL PASSIFS NON COURANTS",
+        "Note": "",
+        "31/12/2023": "2 905 409,364",
+        "31/12/2022": "4304980,552"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "PASSIFS COURANTS",
+        "Note": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "FOURNISSEURS ET COMPTES RATTACHÉS",
+        "Note": "(6211)",
+        "31/12/2023": "797 627,024",
+        "31/12/2022": "1757534,624"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "AUTRES PASSIFS COURANTS",
+        "Note": "(6221)",
+        "31/12/2023": "1 044 839,451",
+        "31/12/2022": "313653,853"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "CONCOURSBANCAIRESETAUTRES PASSIFSI",
+        "Note": "(6231)",
+        "31/12/2023": "3 340029,062",
+        "31/12/2022": "1995646,718"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "TOTAL PASSIFS COURANTS",
+        "Note": "",
+        "31/12/2023": "5182 495,537",
+        "31/12/2022": "4 066 835,195"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "TOTALDESPASSIFS",
+        "Note": "",
+        "31/12/2023": "8 087 904,901",
+        "31/12/2022": "8371815,747"
+      },
+      {
+        "CAPITAUX PROPRES ET PASSIFS": "TOTAL DES CAPITAUX ET DES PASSIFS",
+        "Note": "",
+        "31/12/2023": "11 899 508,454",
+        "31/12/2022": "12083312.401"
+      }
+    ],
+    [
+      {
+        "ACTIFS": "ACTIFS NON COURANTS",
+        "Note": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "ACTIFS": "ACTIFSNONIMMOBILISES",
+        "Note": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "ACTIFS": "IMMOBILISATIONCORPORELLES",
+        "Note": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "ACTIFS": "IIMMOBILISATIONS CORPORELLES",
+        "Note": "(1121)",
+        "31/12/2023": "9 607 039,316",
+        "31/12/2022": "9 474 508,782"
+      },
+      {
+        "ACTIFS": "MOINSAMMORTISSEMENT",
+        "Note": "(1122)",
+        "31/12/2023": "-4 997 056,035",
+        "31/12/2022": "-4 608 417,067"
+      },
+      {
+        "ACTIFS": "TOTALIMMOBILISATIONCORPORELLES",
+        "Note": "",
+        "31/12/2023": "4 609 983,281",
+        "31/12/2022": "4 866091,715"
+      },
+      {
+        "ACTIFS": "IMMOBILISATIONSFINANCIERES",
+        "Note": "(1130)",
+        "31/12/2023": "982 500,000",
+        "31/12/2022": "1005000,000"
+      },
+      {
+        "ACTIFS": "TOTAL ACTIFSNONIMMOBILISES",
+        "Note": "",
+        "31/12/2023": "5 592 483,281",
+        "31/12/2022": "5 871091,715"
+      },
+      {
+        "ACTIFS": "TOTAL ACTIFS NON COURANTS",
+        "Note": "",
+        "31/12/2023": "5 592 483,281",
+        "31/12/2022": "5871091,715"
+      },
+      {
+        "ACTIFS": "ACTIFS COURANTS",
+        "Note": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "ACTIFS": "STOCKS",
+        "Note": "(2111)",
+        "31/12/2023": "214 270,000",
+        "31/12/2022": "219210,000"
+      },
+      {
+        "ACTIFS": "CLIENTS",
+        "Note": "",
+        "31/12/2023": "",
+        "31/12/2022": ""
+      },
+      {
+        "ACTIFS": "CLIENTS ET COMPTES RATTACHÉS",
+        "Note": "(2211)",
+        "31/12/2023": "1782 162,592",
+        "31/12/2022": "2 907 914,707"
+      },
+      {
+        "ACTIFS": "TOTALCLIENTS",
+        "Note": "",
+        "31/12/2023": "1 782 162,592",
+        "31/12/2022": "2 907 914,707"
+      },
+      {
+        "ACTIFS": "AUTRES ACTIFS COURANTS",
+        "Note": "(2311)",
+        "31/12/2023": "854 095,170",
+        "31/12/2022": "820 985,221"
+      },
+      {
+        "ACTIFS": "LIQUIDITÉS ET ÉQUIVALENTSDELIQUIDITES",
+        "Note": "(2331)",
+        "31/12/2023": "3 456 497,411",
+        "31/12/2022": "2 264 110,758"
+      },
+      {
+        "ACTIFS": "TOTALDESACTIFS COURANTS",
+        "Note": "",
+        "31/12/2023": "6 307 025,173",
+        "31/12/2022": "6 212 220,686"
+      },
+      {
+        "ACTIFS": "TOTALDES ACTIFS",
+        "Note": "",
+        "31/12/2023": "11 899 508,454",
+        "31/12/2022": "12 083 312,401"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,1859 @@
+{
+  "canonical_tables": [
+    {
+      "column_model": "n_n1",
+      "conflicts": [],
+      "custom_row_count": 1,
+      "match_rate": 0.7058823529411765,
+      "metadata": {},
+      "overall_flag": "yellow",
+      "page_range": null,
+      "rows": [
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "CAPITAUX PROPRES"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": true,
+          "is_subtotal": false,
+          "match_confidence": 0.0,
+          "match_type": "header",
+          "raw_text": "CAPITAUX PROPRES",
+          "section": "capitaux_propres",
+          "validation_field": null
+        },
+        {
+          "account_code": "101",
+          "canonical_term": "Capital social",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "2000000.000",
+              "provenance": "tier1",
+              "raw_value": "2 000 000,000"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "CAPITAL SOCIAL"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(5111)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "2000000.000",
+              "provenance": "tier1",
+              "raw_value": "2 000 000,000"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "CAPITAL SOCIAL",
+          "section": "capitaux_propres",
+          "validation_field": "capital_social"
+        },
+        {
+          "account_code": "121",
+          "canonical_term": "Résultats reportés",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "1595279.083",
+              "provenance": "tier1",
+              "raw_value": "1 595 279,083"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "RÉSULTATS REPORTÉS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(5141)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "1711496.654",
+              "provenance": "tier1",
+              "raw_value": "1 711 496,654"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "RÉSULTATS REPORTÉS",
+          "section": "capitaux_propres",
+          "validation_field": "resultats_reportes"
+        },
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "3595279083",
+              "provenance": "tier1",
+              "raw_value": "3595279,083"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL DES A AVANT RÉSULTAT"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "3711496.654",
+              "provenance": "tier1",
+              "raw_value": "3711 496,654"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": true,
+          "match_confidence": 0.0,
+          "match_type": "custom",
+          "raw_text": "TOTAL DES A AVANT RÉSULTAT",
+          "section": "capitaux_propres",
+          "validation_field": null
+        },
+        {
+          "account_code": "13",
+          "canonical_term": "Résultat de l'exercice",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "116217.571",
+              "provenance": "tier1",
+              "raw_value": "116 217,571"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "RÉSULTAT DE EXERCICE BÉNÉFICE)"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(5DES)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "100106.899",
+              "provenance": "tier1",
+              "raw_value": "100 106,899"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 0.9523809523809522,
+          "match_type": "fuzzy",
+          "raw_text": "RÉSULTAT DE EXERCICE BÉNÉFICE)",
+          "section": "capitaux_propres",
+          "validation_field": "resultat_exercice"
+        },
+        {
+          "account_code": null,
+          "canonical_term": "Total des capitaux propres",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "yellow",
+              "parsed_value": "3711496.654",
+              "provenance": "tier1",
+              "raw_value": "3 711 496,654"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL DES CAPITAUX AVANT AFFECTATION"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "yellow",
+              "parsed_value": "3811603553",
+              "provenance": "tier1",
+              "raw_value": "3811603,553"
+            }
+          },
+          "flag": "yellow",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": true,
+          "match_confidence": 0.98,
+          "match_type": "resolved",
+          "raw_text": "TOTAL DES CAPITAUX AVANT AFFECTATION",
+          "section": "capitaux_propres",
+          "validation_field": "total_capitaux_propres"
+        },
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "PASSIFS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": true,
+          "is_subtotal": false,
+          "match_confidence": 0.0,
+          "match_type": "header",
+          "raw_text": "PASSIFS",
+          "section": "passifs_non_courants",
+          "validation_field": null
+        },
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "PASSIFS NON COURANTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": true,
+          "is_subtotal": false,
+          "match_confidence": 0.0,
+          "match_type": "header",
+          "raw_text": "PASSIFS NON COURANTS",
+          "section": "passifs_non_courants",
+          "validation_field": null
+        },
+        {
+          "account_code": "16",
+          "canonical_term": "Emprunts",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "4304980552",
+              "provenance": "tier1",
+              "raw_value": "4 304980,552"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "EMPRUNTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(6111)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "2905409.364",
+              "provenance": "tier1",
+              "raw_value": "2 905 409,364"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "EMPRUNTS",
+          "section": "passifs_non_courants",
+          "validation_field": "emprunts"
+        },
+        {
+          "account_code": null,
+          "canonical_term": "Total des passifs non courants",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "4304980552",
+              "provenance": "tier1",
+              "raw_value": "4304980,552"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL PASSIFS NON COURANTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "2905409.364",
+              "provenance": "tier1",
+              "raw_value": "2 905 409,364"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": true,
+          "match_confidence": 0.98,
+          "match_type": "resolved",
+          "raw_text": "TOTAL PASSIFS NON COURANTS",
+          "section": "passifs_non_courants",
+          "validation_field": "total_passifs_non_courants"
+        },
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "PASSIFS COURANTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": true,
+          "is_subtotal": false,
+          "match_confidence": 0.0,
+          "match_type": "header",
+          "raw_text": "PASSIFS COURANTS",
+          "section": "passifs_courants",
+          "validation_field": null
+        },
+        {
+          "account_code": "40",
+          "canonical_term": "Fournisseurs et comptes rattachés",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "1757534624",
+              "provenance": "tier1",
+              "raw_value": "1757534,624"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "FOURNISSEURS ET COMPTES RATTACHÉS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(6211)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "797627.024",
+              "provenance": "tier1",
+              "raw_value": "797 627,024"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "FOURNISSEURS ET COMPTES RATTACHÉS",
+          "section": "passifs_courants",
+          "validation_field": "fournisseurs"
+        },
+        {
+          "account_code": null,
+          "canonical_term": "Autres passifs courants",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "313653853",
+              "provenance": "tier1",
+              "raw_value": "313653,853"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "AUTRES PASSIFS COURANTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(6221)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "1044839.451",
+              "provenance": "tier1",
+              "raw_value": "1 044 839,451"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "AUTRES PASSIFS COURANTS",
+          "section": "passifs_courants",
+          "validation_field": "autres_passifs_courants"
+        },
+        {
+          "account_code": "50",
+          "canonical_term": "Concours bancaires et autres passifs financiers",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "1995646718",
+              "provenance": "tier1",
+              "raw_value": "1995646,718"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "CONCOURS BANCAIRES ET AUTRES PASSIFS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(6231)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "3340029062",
+              "provenance": "tier1",
+              "raw_value": "3 340029,062"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 0.8674698795180723,
+          "match_type": "fuzzy",
+          "raw_text": "CONCOURS BANCAIRES ET AUTRES PASSIFS",
+          "section": "passifs_courants",
+          "validation_field": "concours_bancaires"
+        },
+        {
+          "account_code": null,
+          "canonical_term": "Total des passifs courants",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "yellow",
+              "parsed_value": "4066835.195",
+              "provenance": "tier1",
+              "raw_value": "4 066 835,195"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL PASSIFS COURANTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "yellow",
+              "parsed_value": "5182495.537",
+              "provenance": "tier1",
+              "raw_value": "5182 495,537"
+            }
+          },
+          "flag": "yellow",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": true,
+          "match_confidence": 0.98,
+          "match_type": "resolved",
+          "raw_text": "TOTAL PASSIFS COURANTS",
+          "section": "passifs_courants",
+          "validation_field": "total_passifs_courants"
+        },
+        {
+          "account_code": null,
+          "canonical_term": "Total des passifs",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "8371815747",
+              "provenance": "tier1",
+              "raw_value": "8371815,747"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL DES PASSIFS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "8087904.901",
+              "provenance": "tier1",
+              "raw_value": "8 087 904,901"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": true,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "TOTAL DES PASSIFS",
+          "section": null,
+          "validation_field": "total_passif"
+        },
+        {
+          "account_code": null,
+          "canonical_term": "Total des capitaux propres et des passifs",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "12083312401",
+              "provenance": "tier1",
+              "raw_value": "12083312.401"
+            },
+            "CAPITAUX PROPRES ET PASSIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL DES CAPITAUX ET DES PASSIFS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "11899508.454",
+              "provenance": "tier1",
+              "raw_value": "11 899 508,454"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": true,
+          "match_confidence": 0.98,
+          "match_type": "resolved",
+          "raw_text": "TOTAL DES CAPITAUX ET DES PASSIFS",
+          "section": null,
+          "validation_field": "total_capitaux_propres_et_passifs"
+        }
+      ],
+      "statement_type": "bilan"
+    },
+    {
+      "column_model": "n_n1",
+      "conflicts": [],
+      "custom_row_count": 3,
+      "match_rate": 0.5555555555555556,
+      "metadata": {},
+      "overall_flag": "yellow",
+      "page_range": null,
+      "rows": [
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "ACTIFS NON COURANTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": true,
+          "is_subtotal": false,
+          "match_confidence": 0.0,
+          "match_type": "header",
+          "raw_text": "ACTIFS NON COURANTS",
+          "section": "actifs_non_courants",
+          "validation_field": null
+        },
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "ACTIFS NON IMMOBILISÉS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": true,
+          "is_subtotal": false,
+          "match_confidence": 0.0,
+          "match_type": "header",
+          "raw_text": "ACTIFS NON IMMOBILISÉS",
+          "section": "actifs_non_courants",
+          "validation_field": null
+        },
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "IMMOBILISATIONS CORPORELLES"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": true,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "header",
+          "raw_text": "IMMOBILISATIONS CORPORELLES",
+          "section": "actifs_non_courants",
+          "validation_field": null
+        },
+        {
+          "account_code": "22",
+          "canonical_term": "Immobilisations corporelles",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "9474508.782",
+              "provenance": "tier1",
+              "raw_value": "9 474 508,782"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "IMMOBILISATIONS CORPORELLES"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(1121)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "9607039.316",
+              "provenance": "tier1",
+              "raw_value": "9 607 039,316"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "IMMOBILISATIONS CORPORELLES",
+          "section": "actifs_non_courants",
+          "validation_field": "immobilisations_corporelles"
+        },
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "-4608417.067",
+              "provenance": "tier1",
+              "raw_value": "-4 608 417,067"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "MOINS AMORTISSEMENT"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(1122)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "-4997056.035",
+              "provenance": "tier1",
+              "raw_value": "-4 997 056,035"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 0.0,
+          "match_type": "custom",
+          "raw_text": "MOINS AMORTISSEMENT",
+          "section": "actifs_non_courants",
+          "validation_field": null
+        },
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "4866091715",
+              "provenance": "tier1",
+              "raw_value": "4 866091,715"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL IMMOBILISATIONS CORPORELLES"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "4609983.281",
+              "provenance": "tier1",
+              "raw_value": "4 609 983,281"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 0.0,
+          "match_type": "custom",
+          "raw_text": "TOTAL IMMOBILISATIONS CORPORELLES",
+          "section": "actifs_non_courants",
+          "validation_field": null
+        },
+        {
+          "account_code": "26",
+          "canonical_term": "Immobilisations financières",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "1005000000",
+              "provenance": "tier1",
+              "raw_value": "1005000,000"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "IMMOBILISATIONS FINANCIÈRES"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(1130)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "982500.000",
+              "provenance": "tier1",
+              "raw_value": "982 500,000"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "IMMOBILISATIONS FINANCIÈRES",
+          "section": "actifs_non_courants",
+          "validation_field": "immobilisations_financieres"
+        },
+        {
+          "account_code": null,
+          "canonical_term": "Total des actifs immobilisés",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "yellow",
+              "parsed_value": "5871091715",
+              "provenance": "tier1",
+              "raw_value": "5 871091,715"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL ACTIFS NON IMMOBILISÉS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "yellow",
+              "parsed_value": "5592483.281",
+              "provenance": "tier1",
+              "raw_value": "5 592 483,281"
+            }
+          },
+          "flag": "yellow",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": true,
+          "match_confidence": 0.8571428571428572,
+          "match_type": "fuzzy",
+          "raw_text": "TOTAL ACTIFS NON IMMOBILISÉS",
+          "section": "actifs_non_courants",
+          "validation_field": "total_actifs_immobilises"
+        },
+        {
+          "account_code": null,
+          "canonical_term": "Total des actifs non courants",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "5871091715",
+              "provenance": "tier1",
+              "raw_value": "5871091,715"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL ACTIFS NON COURANTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "5592483.281",
+              "provenance": "tier1",
+              "raw_value": "5 592 483,281"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": true,
+          "match_confidence": 0.98,
+          "match_type": "resolved",
+          "raw_text": "TOTAL ACTIFS NON COURANTS",
+          "section": "actifs_non_courants",
+          "validation_field": "total_actifs_non_courants"
+        },
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "ACTIFS COURANTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": true,
+          "is_subtotal": false,
+          "match_confidence": 0.0,
+          "match_type": "header",
+          "raw_text": "ACTIFS COURANTS",
+          "section": "actifs_courants",
+          "validation_field": null
+        },
+        {
+          "account_code": "31",
+          "canonical_term": "Stocks",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "219210000",
+              "provenance": "tier1",
+              "raw_value": "219210,000"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "STOCKS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(2111)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "214270.000",
+              "provenance": "tier1",
+              "raw_value": "214 270,000"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "STOCKS",
+          "section": "actifs_courants",
+          "validation_field": "stocks"
+        },
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "CLIENTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": true,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "header",
+          "raw_text": "CLIENTS",
+          "section": "actifs_courants",
+          "validation_field": null
+        },
+        {
+          "account_code": "41",
+          "canonical_term": "Clients et comptes rattachés",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "2907914.707",
+              "provenance": "tier1",
+              "raw_value": "2 907 914,707"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "CLIENTS ET COMPTES RATTACHÉS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(2211)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "1782162.592",
+              "provenance": "tier1",
+              "raw_value": "1782 162,592"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "CLIENTS ET COMPTES RATTACHÉS",
+          "section": "actifs_courants",
+          "validation_field": "clients_comptes_rattaches"
+        },
+        {
+          "account_code": null,
+          "canonical_term": null,
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "2907914.707",
+              "provenance": "tier1",
+              "raw_value": "2 907 914,707"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL CLIENTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "1782162.592",
+              "provenance": "tier1",
+              "raw_value": "1 782 162,592"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 0.0,
+          "match_type": "custom",
+          "raw_text": "TOTAL CLIENTS",
+          "section": "actifs_courants",
+          "validation_field": null
+        },
+        {
+          "account_code": null,
+          "canonical_term": "Autres actifs courants",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "820985.221",
+              "provenance": "tier1",
+              "raw_value": "820 985,221"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "AUTRES ACTIFS COURANTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(2311)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "854095.170",
+              "provenance": "tier1",
+              "raw_value": "854 095,170"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "AUTRES ACTIFS COURANTS",
+          "section": "actifs_courants",
+          "validation_field": "autres_actifs_courants"
+        },
+        {
+          "account_code": "53",
+          "canonical_term": "Liquidités et équivalents de liquidités",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "2264110.758",
+              "provenance": "tier1",
+              "raw_value": "2 264 110,758"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "LIQUIDITÉS ET ÉQUIVALENTS DE LIQUIDITÉS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "(2331)"
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "3456497.411",
+              "provenance": "tier1",
+              "raw_value": "3 456 497,411"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": false,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "LIQUIDITÉS ET ÉQUIVALENTS DE LIQUIDITÉS",
+          "section": "actifs_courants",
+          "validation_field": "liquidites_equivalents"
+        },
+        {
+          "account_code": null,
+          "canonical_term": "Total des actifs courants",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "yellow",
+              "parsed_value": "6212220.686",
+              "provenance": "tier1",
+              "raw_value": "6 212 220,686"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL DES ACTIFS COURANTS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "yellow",
+              "parsed_value": "6307025.173",
+              "provenance": "tier1",
+              "raw_value": "6 307 025,173"
+            }
+          },
+          "flag": "yellow",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": true,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "TOTAL DES ACTIFS COURANTS",
+          "section": "actifs_courants",
+          "validation_field": "total_actifs_courants"
+        },
+        {
+          "account_code": null,
+          "canonical_term": "Total des actifs",
+          "cells": {
+            "31/12/2022": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "12083312.401",
+              "provenance": "tier1",
+              "raw_value": "12 083 312,401"
+            },
+            "ACTIFS": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": "TOTAL DES ACTIFS"
+            },
+            "note": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": null,
+              "provenance": "tier1",
+              "raw_value": ""
+            },
+            "value_n": {
+              "confidence": 1.0,
+              "flag": "green",
+              "parsed_value": "11899508.454",
+              "provenance": "tier1",
+              "raw_value": "11 899 508,454"
+            }
+          },
+          "flag": "green",
+          "grouped_from": [],
+          "is_header": false,
+          "is_subtotal": true,
+          "match_confidence": 1.0,
+          "match_type": "exact",
+          "raw_text": "TOTAL DES ACTIFS",
+          "section": null,
+          "validation_field": "total_actif"
+        }
+      ],
+      "statement_type": "bilan"
+    }
+  ],
+  "confidence_details": {
+    "correction_penalty": 0.0,
+    "corrections_made": 0,
+    "critical_failures": 0,
+    "details": {
+      "entropy_score": 1.0,
+      "layout_grade": "FAIR",
+      "lexical_density": 1.0,
+      "mapping_confidence": null,
+      "numeric_density": 0.8388067870826492,
+      "ocr_grade": "FAIR",
+      "parse_grade": "FAIR",
+      "segmentation_confidence": null,
+      "validation_pass_rate": 1.0
+    },
+    "docling_confidence": 0.0,
+    "grade": "good",
+    "heuristic_score": 0.936,
+    "hitl_reason": "QCS grade is 'good' — quick review recommended",
+    "intrinsic_score": 0.55,
+    "layout_grade": "FAIR",
+    "low_grade": "FAIR",
+    "low_grade_gated": false,
+    "needs_hitl": true,
+    "needs_vlm": false,
+    "ocr_grade": "FAIR",
+    "parse_grade": "FAIR",
+    "qcs_grade": "good",
+    "qcs_score": 0.801,
+    "semantic_score": 1.0,
+    "tier_attempts": [
+      {
+        "name": "Docling OCR",
+        "passed": true,
+        "qcs": 0.801,
+        "threshold": 0.75,
+        "tier": 1
+      }
+    ],
+    "tier_recommendation": 1
+  },
+  "metadata": {
+    "doc_type": "bilan",
+    "image_count": 2,
+    "preprocess_grayscale": true,
+    "preprocess_resize": true,
+    "reconciliation": {},
+    "source": "docx_embedded",
+    "table_count": 2,
+    "tier0_tables_supplemented": 0,
+    "tier0_text_used": false,
+    "validation_report": {
+      "checks": [
+        {
+          "actual": null,
+          "difference": null,
+          "expected": null,
+          "message": "Found 2 table(s)",
+          "name": "Tables Found",
+          "passed": true,
+          "severity": "CRITICAL"
+        },
+        {
+          "actual": null,
+          "difference": null,
+          "expected": null,
+          "message": "Segments: {'bilan': 2, 'bilan_actif': 1, 'bilan_passif': 1}",
+          "name": "Statement Segmentation",
+          "passed": true,
+          "severity": "WARNING"
+        },
+        {
+          "actual": null,
+          "difference": null,
+          "expected": null,
+          "message": "All numeric fields contain valid values ✓",
+          "name": "[bilan] Field Type Check",
+          "passed": true,
+          "severity": "WARNING"
+        },
+        {
+          "actual": null,
+          "difference": null,
+          "expected": null,
+          "message": "All numeric fields contain valid values ✓",
+          "name": "[bilan] Field Type Check",
+          "passed": true,
+          "severity": "WARNING"
+        },
+        {
+          "actual": null,
+          "difference": null,
+          "expected": null,
+          "message": "Skipped — could not locate: Total Capitaux Propres. Found: Actif NC=5592483.281, CP=None, Passif NC=2905409.364. Columns used: actif val='31/12/2023', passif val='31/12/2023'",
+          "name": "V4: Fonds de Roulement (FR)",
+          "passed": true,
+          "severity": "WARNING"
+        }
+      ],
+      "critical_failures": 0,
+      "failed_checks": 0,
+      "overall_passed": true,
+      "passed_checks": 5,
+      "severity_weighted_score": 1.0,
+      "total_checks": 5
+    }
+  },
+  "qcs_score": 0.800656814449918,
+  "tables": [
+    [
+      {
+        "31/12/2022": "",
+        "31/12/2023": "",
+        "CAPITAUX PROPRES ET PASSIFS": "CAPITAUX PROPRES",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "2 000 000,000",
+        "31/12/2023": "2 000 000,000",
+        "CAPITAUX PROPRES ET PASSIFS": "CAPITAL SOCIAL",
+        "Note": "(5111)"
+      },
+      {
+        "31/12/2022": "1 595 279,083",
+        "31/12/2023": "1 711 496,654",
+        "CAPITAUX PROPRES ET PASSIFS": "RÉSULTATS REPORTÉS",
+        "Note": "(5141)"
+      },
+      {
+        "31/12/2022": "3595279,083",
+        "31/12/2023": "3711 496,654",
+        "CAPITAUX PROPRES ET PASSIFS": "TOTAL DES A AVANT RÉSULTAT",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "116 217,571",
+        "31/12/2023": "100 106,899",
+        "CAPITAUX PROPRES ET PASSIFS": "RÉSULTAT DE EXERCICE BÉNÉFICE)",
+        "Note": "(5DES)"
+      },
+      {
+        "31/12/2022": "3 711 496,654",
+        "31/12/2023": "3811603,553",
+        "CAPITAUX PROPRES ET PASSIFS": "TOTAL DES CAPITAUX AVANT AFFECTATION",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "",
+        "31/12/2023": "",
+        "CAPITAUX PROPRES ET PASSIFS": "PASSIFS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "",
+        "31/12/2023": "",
+        "CAPITAUX PROPRES ET PASSIFS": "PASSIFS NON COURANTS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "4 304980,552",
+        "31/12/2023": "2 905 409,364",
+        "CAPITAUX PROPRES ET PASSIFS": "EMPRUNTS",
+        "Note": "(6111)"
+      },
+      {
+        "31/12/2022": "4304980,552",
+        "31/12/2023": "2 905 409,364",
+        "CAPITAUX PROPRES ET PASSIFS": "TOTAL PASSIFS NON COURANTS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "",
+        "31/12/2023": "",
+        "CAPITAUX PROPRES ET PASSIFS": "PASSIFS COURANTS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "1757534,624",
+        "31/12/2023": "797 627,024",
+        "CAPITAUX PROPRES ET PASSIFS": "FOURNISSEURS ET COMPTES RATTACHÉS",
+        "Note": "(6211)"
+      },
+      {
+        "31/12/2022": "313653,853",
+        "31/12/2023": "1 044 839,451",
+        "CAPITAUX PROPRES ET PASSIFS": "AUTRES PASSIFS COURANTS",
+        "Note": "(6221)"
+      },
+      {
+        "31/12/2022": "1995646,718",
+        "31/12/2023": "3 340029,062",
+        "CAPITAUX PROPRES ET PASSIFS": "CONCOURS BANCAIRES ET AUTRES PASSIFS",
+        "Note": "(6231)"
+      },
+      {
+        "31/12/2022": "4 066 835,195",
+        "31/12/2023": "5182 495,537",
+        "CAPITAUX PROPRES ET PASSIFS": "TOTAL PASSIFS COURANTS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "8371815,747",
+        "31/12/2023": "8 087 904,901",
+        "CAPITAUX PROPRES ET PASSIFS": "TOTAL DES PASSIFS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "12083312.401",
+        "31/12/2023": "11 899 508,454",
+        "CAPITAUX PROPRES ET PASSIFS": "TOTAL DES CAPITAUX ET DES PASSIFS",
+        "Note": ""
+      }
+    ],
+    [
+      {
+        "31/12/2022": "",
+        "31/12/2023": "",
+        "ACTIFS": "ACTIFS NON COURANTS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "",
+        "31/12/2023": "",
+        "ACTIFS": "ACTIFS NON IMMOBILISÉS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "",
+        "31/12/2023": "",
+        "ACTIFS": "IMMOBILISATIONS CORPORELLES",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "9 474 508,782",
+        "31/12/2023": "9 607 039,316",
+        "ACTIFS": "IMMOBILISATIONS CORPORELLES",
+        "Note": "(1121)"
+      },
+      {
+        "31/12/2022": "-4 608 417,067",
+        "31/12/2023": "-4 997 056,035",
+        "ACTIFS": "MOINS AMORTISSEMENT",
+        "Note": "(1122)"
+      },
+      {
+        "31/12/2022": "4 866091,715",
+        "31/12/2023": "4 609 983,281",
+        "ACTIFS": "TOTAL IMMOBILISATIONS CORPORELLES",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "1005000,000",
+        "31/12/2023": "982 500,000",
+        "ACTIFS": "IMMOBILISATIONS FINANCIÈRES",
+        "Note": "(1130)"
+      },
+      {
+        "31/12/2022": "5 871091,715",
+        "31/12/2023": "5 592 483,281",
+        "ACTIFS": "TOTAL ACTIFS NON IMMOBILISÉS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "5871091,715",
+        "31/12/2023": "5 592 483,281",
+        "ACTIFS": "TOTAL ACTIFS NON COURANTS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "",
+        "31/12/2023": "",
+        "ACTIFS": "ACTIFS COURANTS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "219210,000",
+        "31/12/2023": "214 270,000",
+        "ACTIFS": "STOCKS",
+        "Note": "(2111)"
+      },
+      {
+        "31/12/2022": "",
+        "31/12/2023": "",
+        "ACTIFS": "CLIENTS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "2 907 914,707",
+        "31/12/2023": "1782 162,592",
+        "ACTIFS": "CLIENTS ET COMPTES RATTACHÉS",
+        "Note": "(2211)"
+      },
+      {
+        "31/12/2022": "2 907 914,707",
+        "31/12/2023": "1 782 162,592",
+        "ACTIFS": "TOTAL CLIENTS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "820 985,221",
+        "31/12/2023": "854 095,170",
+        "ACTIFS": "AUTRES ACTIFS COURANTS",
+        "Note": "(2311)"
+      },
+      {
+        "31/12/2022": "2 264 110,758",
+        "31/12/2023": "3 456 497,411",
+        "ACTIFS": "LIQUIDITÉS ET ÉQUIVALENTS DE LIQUIDITÉS",
+        "Note": "(2331)"
+      },
+      {
+        "31/12/2022": "6 212 220,686",
+        "31/12/2023": "6 307 025,173",
+        "ACTIFS": "TOTAL DES ACTIFS COURANTS",
+        "Note": ""
+      },
+      {
+        "31/12/2022": "12 083 312,401",
+        "31/12/2023": "11 899 508,454",
+        "ACTIFS": "TOTAL DES ACTIFS",
+        "Note": ""
+      }
+    ]
+  ],
+  "text": "D is le:31/07/202415:35 Un is un compte | CAPITAUX PROPRES ET PASSIFS | Notes | 31/12/2023 | 31/12/2022 | |-----------------------------------|--------|----------------|---------------| | CAPITAUX PROPRES | | | | | CAPITAL SOCIAL | (5111) | 2 000 000,000 | 2 000 000,000 | | RÉSULTATS REPORTÉS | (5141) | 1 711 496,654 | 1 595 279,083 | | TOTAL DES A AVANT RÉSULTAT | | 3711 496,654 | 3595279,083 | | RÉSULTAT DE EXERCICE BÉNÉFICE) | (5DES) | 100 106,899 | 116 217,571 | | TOTAL DES CAPITAUX AVANT AFFECTATION | | 3811603,553 | 3 711 496,654 | | PASSIFS | | | | | PASSIFS NON COURANTS | | | | | EMPRUNTS | (6111) | 2 905 409,364 | 4 304980,552 | | TOTAL PASSIFS NON COURANTS | | 2 905 409,364 | 4304980,552 | | PASSIFS COURANTS | | | | | FOURNISSEURS ET COMPTES RATTACHÉS | (6211) | 797 627,024 | 1757534,624 | | AUTRES PASSIFS COURANTS | (6221) | 1 044 839,451 | 313653,853 | | CONCOURS BANCAIRES ET AUTRES PASSIFS | (6231) | 3 340029,062 | 1995646,718 | | TOTAL PASSIFS COURANTS | | 5182 495,537 | 4 066 835,195 | | TOTAL DES PASSIFS | | 8 087 904,901 | 8371815,747 | | TOTAL DES CAPITAUX ET DES PASSIFS | | 11 899 508,454 | 12083312.401 |\n| ACTIFS | Notes | 31/12/2023 | 31/12/2022 | |-------------------------------------|--------|----------------|----------------| | ACTIFS NON COURANTS | | | | | ACTIFS NON IMMOBILISÉS | | | | | IMMOBILISATIONS CORPORELLES | | | | | IMMOBILISATIONS CORPORELLES | (1121) | 9 607 039,316 | 9 474 508,782 | | MOINS AMORTISSEMENT | (1122) | -4 997 056,035 | -4 608 417,067 | | TOTAL IMMOBILISATIONS CORPORELLES | | 4 609 983,281 | 4 866091,715 | | IMMOBILISATIONS FINANCIÈRES | (1130) | 982 500,000 | 1005000,000 | | TOTAL ACTIFS NON IMMOBILISÉS | | 5 592 483,281 | 5 871091,715 | | TOTAL ACTIFS NON COURANTS | | 5 592 483,281 | 5871091,715 | | ACTIFS COURANTS | | | | | STOCKS | (2111) | 214 270,000 | 219210,000 | | CLIENTS | | | | | CLIENTS ET COMPTES RATTACHÉS | (2211) | 1782 162,592 | 2 907 914,707 | | TOTAL CLIENTS | | 1 782 162,592 | 2 907 914,707 | | AUTRES ACTIFS COURANTS | (2311) | 854 095,170 | 820 985,221 | | LIQUIDITÉS ET ÉQUIVALENTS DE LIQUIDITÉS | (2331) | 3 456 497,411 | 2 264 110,758 | | TOTAL DES ACTIFS COURANTS | | 6 307 025,173 | 6 212 220,686 | | TOTAL DES ACTIFS | | 11 899 508,454 | 12 083 312,401 |\nBilan 1",
+  "tier_used": 1
+}

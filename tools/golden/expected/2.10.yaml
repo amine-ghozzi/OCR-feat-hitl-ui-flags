@@ -1,0 +1,30 @@
+# WP-2.10 — dot-millimes evidence signal for scale arbitration (VAL-8).
+#
+# MEASUREMENT ONLY. The package adds ONE record field, `dot_millimes_cells`, and
+# nothing else may move. That is the whole claim, and this whitelist is how it is
+# judged: `dot_millimes_cells` is the only field named here, so a diff on
+# `statements` (and therefore on any `values_sha`), `checks`, `qcs`,
+# `hitl_required`, `tier`, `table_shapes`, `text_sha`, `unit`… is an UNEXPECTED
+# diff and the compare exits 1.
+#
+# Why no value can move. VAL-8's register row asks for the parser to learn
+# dot-millimes; the ruling refused, and this package obeys it. `french_number.py`
+# is untouched, so every token parses exactly as it did at the baseline. The
+# evidence reaches `scale_resolver.scale_candidates` as a hint that may only
+# ORDER the candidates that function already produced — `len()` is invariant and
+# both callers act only when exactly ONE candidate survives their identity, a
+# test that does not depend on order. An ambiguous cell therefore keeps its
+# basis, keeps `ASSUMPTION_BASES`, and keeps its yellow flag: the human still
+# decides, they just now see how the document was typed.
+#
+# `dot_millimes_cells` does not exist in the baseline — it was added to
+# RECORD_FIELDS by this package — so the field is ABSENT before and present after
+# on every document, which is what `added` allows. It is an int and never null
+# (0 when the document has no such cell), so one blanket rule covers all 16
+# documents and no per-document exception is needed. If one were needed it would
+# be a finding, not a line in this file.
+change: WP-2.10 — dot-millimes shape measured and recorded; no value reparsed, no value rescaled
+
+docs:
+  "*":
+    dot_millimes_cells: added

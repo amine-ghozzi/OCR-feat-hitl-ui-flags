@@ -1,0 +1,30 @@
+# WP-2.5 — Docling placeholder whitelist in smart_correct (OCR-10)
+#
+# `smart_correct` used to tokenise `<!-- image -->` as three words and fuzzy-match
+# `image` onto `MARGE`, rewriting the placeholder to `<!-- marge -->` on every
+# picture-bearing document and charging a QCS correction penalty for a machine token
+# nobody OCR'd. The placeholder now passes through untouched and is excluded from the
+# correction statistics.
+#
+# What may therefore move, on ANY document (the post-processor runs on all of them):
+#   text_sha    the extracted text differs wherever a placeholder was being rewritten
+#   text_chars  `<!-- marge -->` and `<!-- image -->` are the same length, so this
+#               normally holds — it is whitelisted only for the case where a
+#               placeholder sat flush against neighbouring text and the opaque token
+#               now separates them with a space
+#   qcs         strictly up or flat: the correction penalty shrinks, nothing else in
+#               the score changes. A DECREASE is an unexpected diff and fails compare.
+#
+# Everything else has NO rule on purpose: statements, table_count, table_shapes, checks,
+# tier, hitl_required, green_flag_*, quarantined, routing_reason, … must be identical.
+# A whitelist scoped to the picture-bearing documents would hide a regression on the
+# others, so the rules are declared on "*" and the compare is required to report
+# 0 unexpected diffs across all 16 documents.
+
+change: WP-2.5 — Docling placeholder whitelist in smart_correct (OCR-10)
+
+docs:
+  "*":
+    qcs: {up: true}
+    text_sha: any
+    text_chars: any

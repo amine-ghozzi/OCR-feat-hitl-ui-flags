@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "finalze-ocr-plugins"
+version = "0.1.0"
+description = "Benchmark-only docling OCR engine plugins (docTR, PaddleOCR PP-OCRv5) for FinAlze engine selection."
+requires-python = ">=3.10"
+# Engine deps (doctr/paddleocr) are installed explicitly in Dockerfile.benchmark,
+# not declared here, so this package installs instantly as pure registration glue.
+dependencies = []
+
+# docling discovers external OCR engines via the `docling` entry-point group;
+# allow_external_plugins=True must be set on the pipeline for these to load.
+[project.entry-points.docling]
+finalze_ocr_plugins = "finalze_ocr_plugins"
+
+[tool.setuptools]
+packages = ["finalze_ocr_plugins"]

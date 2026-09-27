@@ -1,0 +1,1301 @@
+# ========================================================================
+# Nomenclature Data — NCT (Tunisian Accounting Standard)
+# ========================================================================
+# The "menu of valid terms" — source of truth for Tier 0/1/2/HITL.
+# Schema: §19 of nomenclature_revamp_plan.md
+#
+# Line-item codes (classes 1-7) follow NCT account plan.
+#   Classes 1-5 → Bilan (10-14 Capitaux Propres, 15-18 Passifs NC, 21-29
+#                        Immobilisations/Actifs NC, 31-39 Stocks,
+#                        40-49 Tiers, 50-59 Financiers courants)
+#   Classes 6-7 → Compte de Resultat
+# ========================================================================
+
+meta:
+  standard: NCT
+  version: "1.0"
+  source: "context/Documentation/Nomenclature-et-Fonctionnement-des-comptes.pdf"
+
+# ------------------------------------------------------------------------
+# Column models (§15, §19, §27)
+# ------------------------------------------------------------------------
+column_models:
+  brut_amort_net:
+    columns: [brut, amortissement, net, value_n_minus_1]
+    # Proved against the numbers, not the headers: a rule that holds across the
+    # rows binds these roles regardless of how the headers are worded or OCR'd.
+    arithmetic_rule: "brut - amortissement == net"
+    applies_to: [bilan_actif]
+    header_keywords:
+      brut: [Brut, "Montant brut", "Valeur brute"]
+      amortissement: [Amort, Amortissement, "Amort. et prov.", "Amortissements et provisions",
+                      "Dépréc", "Dépréciation", Provisions, "Moins: Amortissement"]
+      net: [Net, "Valeur nette", "Valeur nette comptable", VNC]
+      # NB: was `n_minus_1` here and `value_n_minus_1` in n_n1 — the same role
+      # under two names, so nothing could key on it consistently.
+      value_n_minus_1: [N-1, "Exercice N-1", "Année précédente", "Exercice précédent"]
+  n_n1:
+    columns: [value_n, value_n_minus_1]
+    # Two bare period columns have no internal relation to verify.
+    arithmetic_rule: null
+    applies_to: [bilan_actif, bilan_passif, compte_resultat, flux_tresorerie]
+    header_keywords:
+      value_n: [N, "Exercice N", "Exercice clos"]
+      value_n_minus_1: [N-1, "Exercice N-1", "Exercice précédent"]
+  n_n1_variation:
+    # label | Notes | N | N-1 | Variation | %  — the most common comparative
+    # presentation. The variation column is what makes this profile provable.
+    columns: [value_n, value_n_minus_1, variation, variation_pct]
+    arithmetic_rule: "value_n - value_n_minus_1 == variation"
+    applies_to: [bilan_actif, bilan_passif, compte_resultat, flux_tresorerie]
+    header_keywords:
+      value_n: [N, "Exercice N"]
+      value_n_minus_1: [N-1, "Exercice N-1"]
+      variation: [Variation, Écart, Ecart, Var, Delta, Évolution, Evolution]
+      variation_pct: ["%", "Var %", "Variation %", "Pct", "%age"]
+
+# ------------------------------------------------------------------------
+# Section hierarchy — which sections belong to each statement/sub_type
+# ------------------------------------------------------------------------
+sections:
+  # Bilan Actif
+  actifs_non_courants:
+    statement_type: bilan
+    sub_type: actif
+    order: 1
+    label_canonical: "Actifs non courants"
+    subtotal_field: total_actifs_non_courants
+  actifs_courants:
+    statement_type: bilan
+    sub_type: actif
+    order: 2
+    label_canonical: "Actifs courants"
+    subtotal_field: total_actifs_courants
+  # Bilan Passif
+  capitaux_propres:
+    statement_type: bilan
+    sub_type: passif
+    order: 3
+    label_canonical: "Capitaux propres"
+    subtotal_field: total_capitaux_propres
+  passifs_non_courants:
+    statement_type: bilan
+    sub_type: passif
+    order: 4
+    label_canonical: "Passifs non courants"
+    subtotal_field: total_passifs_non_courants
+  passifs_courants:
+    statement_type: bilan
+    sub_type: passif
+    order: 5
+    label_canonical: "Passifs courants"
+    subtotal_field: total_passifs_courants
+  # Compte de Resultat
+  produits_exploitation:
+    statement_type: compte_resultat
+    sub_type: null
+    order: 1
+    label_canonical: "Produits d'exploitation"
+    subtotal_field: total_produits_exploitation
+  charges_exploitation:
+    statement_type: compte_resultat
+    sub_type: null
+    order: 2
+    label_canonical: "Charges d'exploitation"
+    subtotal_field: total_charges_exploitation
+  resultat_operationnel:
+    statement_type: compte_resultat
+    sub_type: null
+    order: 3
+    label_canonical: "Résultat d'exploitation"
+    subtotal_field: resultat_exploitation
+  produits_charges_financiers:
+    statement_type: compte_resultat
+    sub_type: null
+    order: 4
+    label_canonical: "Produits et charges financiers"
+    subtotal_field: resultat_financier
+  produits_charges_extraordinaires:
+    statement_type: compte_resultat
+    sub_type: null
+    order: 5
+    label_canonical: "Éléments extraordinaires"
+    subtotal_field: resultat_extraordinaire
+  # Flux de Trésorerie (§27)
+  flux_exploitation:
+    statement_type: flux_tresorerie
+    sub_type: null
+    order: 1
+    label_canonical: "Flux de trésorerie liés aux activités d'exploitation"
+    subtotal_field: flux_net_exploitation
+  flux_investissement:
+    statement_type: flux_tresorerie
+    sub_type: null
+    order: 2
+    label_canonical: "Flux de trésorerie liés aux activités d'investissement"
+    subtotal_field: flux_net_investissement
+  flux_financement:
+    statement_type: flux_tresorerie
+    sub_type: null
+    order: 3
+    label_canonical: "Flux de trésorerie liés aux activités de financement"
+    subtotal_field: flux_net_financement
+
+# ------------------------------------------------------------------------
+# Entries — the "menu" of valid terms (§19)
+# ------------------------------------------------------------------------
+# Normalized form = accent-stripped + lowercase + single-spaced
+# `variations` captures OCR/encoding garbled forms (notably FFFD �)
+# ------------------------------------------------------------------------
+entries:
+  # =====================================================================
+  # BILAN — ACTIF (classes 2, 3, 4 actif, 5 actif)
+  # =====================================================================
+  - canonical_term: "Immobilisations incorporelles"
+    account_code: "21"
+    class_num: 2
+    statement_type: bilan
+    section: actifs_non_courants
+    sub_type: actif
+    validation_field: immobilisations_incorporelles
+    is_subtotal: false
+    normalized: "immobilisations incorporelles"
+    variations:
+      - "immobilisat. incorpor."
+      - "immobilisations incorp"
+      - "immob. incorporelles"
+    decomposable: false
+    parent_subtotal: total_actifs_non_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Immobilisations corporelles"
+    account_code: "22"
+    class_num: 2
+    statement_type: bilan
+    section: actifs_non_courants
+    sub_type: actif
+    validation_field: immobilisations_corporelles
+    is_subtotal: false
+    normalized: "immobilisations corporelles"
+    variations:
+      - "immobilisat. corpor."
+      - "immobilisations corp"
+      - "immob. corporelles"
+    decomposable: true  # "terrains et constructions", "matériel et mobilier"
+    parent_subtotal: total_actifs_non_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Immobilisations en cours"
+    account_code: "23"
+    class_num: 2
+    statement_type: bilan
+    section: actifs_non_courants
+    sub_type: actif
+    validation_field: immobilisations_en_cours
+    is_subtotal: false
+    normalized: "immobilisations en cours"
+    variations:
+      - "immob. en cours"
+    decomposable: false
+    parent_subtotal: total_actifs_non_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Immobilisations financières"
+    account_code: "26"
+    class_num: 2
+    statement_type: bilan
+    section: actifs_non_courants
+    sub_type: actif
+    validation_field: immobilisations_financieres
+    is_subtotal: false
+    normalized: "immobilisations financieres"
+    variations:
+      - "immobilisations financi�res"
+      - "immobilisations financi?res"
+      - "immob. financières"
+      - "immob. financieres"
+    decomposable: false
+    parent_subtotal: total_actifs_non_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Participations et créances liées à des participations"
+    account_code: "25"
+    class_num: 2
+    statement_type: bilan
+    section: actifs_non_courants
+    sub_type: actif
+    validation_field: participations
+    is_subtotal: false
+    normalized: "participations et creances liees a des participations"
+    variations:
+      - "participations & cr�ances li�es � des participations"
+      - "participations et creances"
+      - "titres de participation"
+    decomposable: false
+    parent_subtotal: total_actifs_non_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Autres actifs non courants"
+    account_code: "27"
+    class_num: 2
+    statement_type: bilan
+    section: actifs_non_courants
+    sub_type: actif
+    validation_field: autres_actifs_non_courants
+    is_subtotal: false
+    normalized: "autres actifs non courants"
+    variations:
+      - "autres actifs"
+      - "charges reportées"
+      - "charges report�es"
+    decomposable: false
+    parent_subtotal: total_actifs_non_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Total des actifs immobilisés"
+    account_code: null
+    class_num: 2
+    statement_type: bilan
+    section: actifs_non_courants
+    sub_type: actif
+    validation_field: total_actifs_immobilises
+    is_subtotal: true
+    normalized: "total des actifs immobilises"
+    variations:
+      - "total actifs immobilis�s"
+      - "total actifs immobilises"
+      - "total des immobilisations"
+    decomposable: false
+    parent_subtotal: total_actifs_non_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Total des actifs non courants"
+    account_code: null
+    class_num: null
+    statement_type: bilan
+    section: actifs_non_courants
+    sub_type: actif
+    validation_field: total_actifs_non_courants
+    is_subtotal: true
+    normalized: "total des actifs non courants"
+    variations:
+      - "total actifs non courants"
+      - "total actif non courant"
+    decomposable: false
+    parent_subtotal: total_actif
+    column_model: brut_amort_net
+
+  - canonical_term: "Stocks"
+    account_code: "31"
+    class_num: 3
+    statement_type: bilan
+    section: actifs_courants
+    sub_type: actif
+    validation_field: stocks
+    is_subtotal: false
+    normalized: "stocks"
+    variations:
+      - "stocks et en-cours"
+      - "mati�res premi�res"
+      - "matières premières"
+    decomposable: true  # stocks + en-cours, MP + marchandises
+    parent_subtotal: total_actifs_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Clients et comptes rattachés"
+    account_code: "41"
+    class_num: 4
+    statement_type: bilan
+    section: actifs_courants
+    sub_type: actif
+    validation_field: clients_comptes_rattaches
+    is_subtotal: false
+    normalized: "clients et comptes rattaches"
+    variations:
+      - "clients & comptes rattach�s"
+      - "clients et comptes rattach�s"
+      - "créances clients"
+      - "creances clients"
+    decomposable: false
+    parent_subtotal: total_actifs_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Autres actifs courants"
+    account_code: null
+    class_num: 4
+    statement_type: bilan
+    section: actifs_courants
+    sub_type: actif
+    validation_field: autres_actifs_courants
+    is_subtotal: false
+    normalized: "autres actifs courants"
+    variations:
+      - "débiteurs divers"
+      - "d�biteurs divers"
+      - "État — débiteurs"
+    decomposable: false
+    parent_subtotal: total_actifs_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Placements et autres actifs financiers"
+    account_code: "52"
+    class_num: 5
+    statement_type: bilan
+    section: actifs_courants
+    sub_type: actif
+    validation_field: placements_autres_actifs_financiers
+    is_subtotal: false
+    normalized: "placements et autres actifs financiers"
+    variations:
+      - "placements courants"
+      - "valeurs mobilières de placement"
+    decomposable: false
+    parent_subtotal: total_actifs_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Liquidités et équivalents de liquidités"
+    account_code: "53"
+    class_num: 5
+    statement_type: bilan
+    section: actifs_courants
+    sub_type: actif
+    validation_field: liquidites_equivalents
+    is_subtotal: false
+    normalized: "liquidites et equivalents de liquidites"
+    variations:
+      - "liquidit�s et �quivalents de liquidit�s"
+      - "liquidités et équivalents"
+      - "disponibilités"
+      - "disponibilit�s"
+      - "banques et caisse"
+      - "trésorerie et équivalents"
+    decomposable: false
+    parent_subtotal: total_actifs_courants
+    column_model: brut_amort_net
+
+  - canonical_term: "Total des actifs courants"
+    account_code: null
+    class_num: null
+    statement_type: bilan
+    section: actifs_courants
+    sub_type: actif
+    validation_field: total_actifs_courants
+    is_subtotal: true
+    normalized: "total des actifs courants"
+    variations:
+      - "total actifs courants"
+      - "total actif courant"
+    decomposable: false
+    parent_subtotal: total_actif
+    column_model: brut_amort_net
+
+  - canonical_term: "Total des actifs"
+    account_code: null
+    class_num: null
+    statement_type: bilan
+    section: actifs_courants
+    sub_type: actif
+    validation_field: total_actif
+    is_subtotal: true
+    normalized: "total des actifs"
+    variations:
+      - "total actif"
+      - "total de l'actif"
+      - "total actifs"
+    decomposable: false
+    parent_subtotal: null
+    column_model: brut_amort_net
+
+  # =====================================================================
+  # BILAN — PASSIF (classes 1, 4 passif, 5 passif)
+  # =====================================================================
+  - canonical_term: "Capital social"
+    account_code: "101"
+    class_num: 1
+    statement_type: bilan
+    section: capitaux_propres
+    sub_type: passif
+    validation_field: capital_social
+    is_subtotal: false
+    normalized: "capital social"
+    variations:
+      - "capital émis"
+      - "capital emis"
+      - "capital souscrit"
+    decomposable: false
+    parent_subtotal: total_capitaux_propres
+    column_model: n_n1
+
+  - canonical_term: "Réserves"
+    account_code: "11"
+    class_num: 1
+    statement_type: bilan
+    section: capitaux_propres
+    sub_type: passif
+    validation_field: reserves
+    is_subtotal: false
+    normalized: "reserves"
+    variations:
+      - "r�serves"
+      - "réserve légale"
+      - "r�serve l�gale"
+      - "reserve legale"
+      - "réserves statutaires"
+      - "réserves et primes liées au capital"
+      - "r�serves et primes li�es au capital"
+      - "réserve spéciale de réévaluation"
+      - "réserves pour investissements"
+    decomposable: true
+    parent_subtotal: total_capitaux_propres
+    column_model: n_n1
+
+  - canonical_term: "Autres capitaux propres"
+    account_code: "14"
+    class_num: 1
+    statement_type: bilan
+    section: capitaux_propres
+    sub_type: passif
+    validation_field: autres_capitaux_propres
+    is_subtotal: false
+    normalized: "autres capitaux propres"
+    variations:
+      - "primes d'émission"
+      - "primes d'�mission"
+      - "écarts de réévaluation"
+      - "subventions d'investissement"
+    decomposable: false
+    parent_subtotal: total_capitaux_propres
+    column_model: n_n1
+
+  - canonical_term: "Résultats reportés"
+    account_code: "121"
+    class_num: 1
+    statement_type: bilan
+    section: capitaux_propres
+    sub_type: passif
+    validation_field: resultats_reportes
+    is_subtotal: false
+    normalized: "resultats reportes"
+    variations:
+      - "r�sultats report�s"
+      - "report à nouveau"
+      - "report � nouveau"
+      - "report a nouveau"
+    decomposable: false
+    parent_subtotal: total_capitaux_propres
+    column_model: n_n1
+
+  - canonical_term: "Résultat de l'exercice"
+    account_code: "13"
+    class_num: 1
+    statement_type: bilan
+    section: capitaux_propres
+    sub_type: passif
+    validation_field: resultat_exercice
+    is_subtotal: false
+    normalized: "resultat de l exercice"
+    variations:
+      - "r�sultat de l'exercice"
+      - "resultatdel'exercice"
+      - "résultat net de l'exercice"
+      - "bénéfice de l'exercice"
+      - "b�n�fice de l'exercice"
+    decomposable: false
+    parent_subtotal: total_capitaux_propres
+    column_model: n_n1
+
+  - canonical_term: "Total des capitaux propres"
+    account_code: null
+    class_num: 1
+    statement_type: bilan
+    section: capitaux_propres
+    sub_type: passif
+    validation_field: total_capitaux_propres
+    is_subtotal: true
+    normalized: "total des capitaux propres"
+    variations:
+      - "total capitaux propres"
+      - "capitaux propres totaux"
+      # ISSUE-4: pre-affectation equity total — the equity subtotal before profit
+      # allocation. Mapped here under the assumption that the schema has no distinct
+      # pre/post-affectation field, so the equity grand-total is the correct target.
+      - "total des capitaux avant affectation"
+      - "total capitaux propres avant affectation"
+    decomposable: false
+    parent_subtotal: total_passif
+    column_model: n_n1
+
+  - canonical_term: "Emprunts"
+    account_code: "16"
+    class_num: 1
+    statement_type: bilan
+    section: passifs_non_courants
+    sub_type: passif
+    validation_field: emprunts
+    is_subtotal: false
+    normalized: "emprunts"
+    variations:
+      - "emprunts & dettes assimil�es"
+      - "emprunts et dettes assimilées"
+      - "emprunts obligataires"
+      - "emprunts bancaires"
+    decomposable: false
+    parent_subtotal: total_passifs_non_courants
+    column_model: n_n1
+
+  - canonical_term: "Autres passifs financiers non courants"
+    account_code: "18"
+    class_num: 1
+    statement_type: bilan
+    section: passifs_non_courants
+    sub_type: passif
+    validation_field: autres_passifs_non_courants
+    is_subtotal: false
+    normalized: "autres passifs financiers non courants"
+    variations:
+      - "autres passifs non courants"
+      - "dettes financières non courantes"
+    decomposable: false
+    parent_subtotal: total_passifs_non_courants
+    column_model: n_n1
+
+  - canonical_term: "Provisions"
+    account_code: "15"
+    class_num: 1
+    statement_type: bilan
+    section: passifs_non_courants
+    sub_type: passif
+    validation_field: provisions
+    is_subtotal: false
+    normalized: "provisions"
+    variations:
+      - "provisions pour risques & charges"
+      - "provisions pour risques et charges"
+      - "provisions pour risques"
+    decomposable: false
+    parent_subtotal: total_passifs_non_courants
+    column_model: n_n1
+
+  - canonical_term: "Total des passifs non courants"
+    account_code: null
+    class_num: null
+    statement_type: bilan
+    section: passifs_non_courants
+    sub_type: passif
+    validation_field: total_passifs_non_courants
+    is_subtotal: true
+    normalized: "total des passifs non courants"
+    variations:
+      - "total passifs non courants"
+    decomposable: false
+    parent_subtotal: total_passif
+    column_model: n_n1
+
+  - canonical_term: "Fournisseurs et comptes rattachés"
+    account_code: "40"
+    class_num: 4
+    statement_type: bilan
+    section: passifs_courants
+    sub_type: passif
+    validation_field: fournisseurs
+    is_subtotal: false
+    normalized: "fournisseurs et comptes rattaches"
+    variations:
+      - "fournisseurs & comptes rattach�s"
+      - "fournisseurs et comptes rattach�s"
+      - "dettes fournisseurs"
+    decomposable: false
+    parent_subtotal: total_passifs_courants
+    column_model: n_n1
+
+  - canonical_term: "Autres passifs courants"
+    account_code: null
+    class_num: 4
+    statement_type: bilan
+    section: passifs_courants
+    sub_type: passif
+    validation_field: autres_passifs_courants
+    is_subtotal: false
+    normalized: "autres passifs courants"
+    variations:
+      - "créditeurs divers"
+      - "cr�diteurs divers"
+      - "dettes fiscales"
+      - "dettes sociales"
+      - "État — créditeur"
+    decomposable: false
+    parent_subtotal: total_passifs_courants
+    column_model: n_n1
+
+  - canonical_term: "Concours bancaires et autres passifs financiers"
+    account_code: "50"
+    class_num: 5
+    statement_type: bilan
+    section: passifs_courants
+    sub_type: passif
+    validation_field: concours_bancaires
+    is_subtotal: false
+    normalized: "concours bancaires et autres passifs financiers"
+    variations:
+      - "concours bancaires"
+      - "découverts bancaires"
+      - "d�couverts bancaires"
+      - "passifs financiers courants"
+    decomposable: false
+    parent_subtotal: total_passifs_courants
+    column_model: n_n1
+
+  - canonical_term: "Total des passifs courants"
+    account_code: null
+    class_num: null
+    statement_type: bilan
+    section: passifs_courants
+    sub_type: passif
+    validation_field: total_passifs_courants
+    is_subtotal: true
+    normalized: "total des passifs courants"
+    variations:
+      - "total passifs courants"
+    decomposable: false
+    parent_subtotal: total_passif
+    column_model: n_n1
+
+  - canonical_term: "Total des passifs"
+    account_code: null
+    class_num: null
+    statement_type: bilan
+    section: passifs_courants
+    sub_type: passif
+    validation_field: total_passif
+    is_subtotal: true
+    normalized: "total des passifs"
+    variations:
+      - "total passif"
+      - "total du passif"
+    decomposable: false
+    parent_subtotal: total_capitaux_propres_et_passifs
+    column_model: n_n1
+
+  - canonical_term: "Total des capitaux propres et des passifs"
+    account_code: null
+    class_num: null
+    statement_type: bilan
+    section: passifs_courants
+    sub_type: passif
+    validation_field: total_capitaux_propres_et_passifs
+    is_subtotal: true
+    normalized: "total des capitaux propres et des passifs"
+    variations:
+      - "total capitaux propres et passifs"
+      - "total capitaux propres & passifs"
+      # ISSUE-4: "propres"-less grand-total forms. Once section-discriminating
+      # tokens split the `total` pool, these lack the "propres" qualifier and would
+      # otherwise fuzzy-collapse onto the bare "Total des passifs"; pin them as
+      # variations so Stage-2 resolves them to the equity+liabilities grand-total.
+      - "total des capitaux et des passifs"
+      - "total capitaux et passifs"
+      - "total des capitaux des passifs"
+    decomposable: false
+    parent_subtotal: null
+    column_model: n_n1
+
+  # =====================================================================
+  # COMPTE DE RESULTAT (classes 6, 7)
+  # =====================================================================
+  - canonical_term: "Revenus"
+    account_code: "70"
+    class_num: 7
+    statement_type: compte_resultat
+    section: produits_exploitation
+    sub_type: null
+    validation_field: chiffre_affaires
+    is_subtotal: false
+    normalized: "revenus"
+    variations:
+      - "chiffre d'affaires"
+      - "ventes"
+      - "ventes de produits fabriqués"
+      - "prestations de services"
+      - "produits des activités annexes"
+    decomposable: false
+    parent_subtotal: total_produits_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Autres produits d'exploitation"
+    account_code: null
+    class_num: 7
+    statement_type: compte_resultat
+    section: produits_exploitation
+    sub_type: null
+    validation_field: autres_produits
+    is_subtotal: false
+    normalized: "autres produits d exploitation"
+    variations:
+      - "autres produits"
+      - "production immobilisée"
+      - "subventions d'exploitation"
+    decomposable: true
+    parent_subtotal: total_produits_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Production stockée"
+    account_code: "71"
+    class_num: 7
+    statement_type: compte_resultat
+    section: produits_exploitation
+    sub_type: null
+    validation_field: production_stockee
+    is_subtotal: false
+    normalized: "production stockee"
+    variations:
+      - "production stock�e"
+      - "variation des stocks"
+      - "variation des stocks des produits finis et des encours"
+      - "variation stocks des produits finis"
+      - "variation des stocks des produits finis"
+    decomposable: false
+    parent_subtotal: total_produits_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Production immobilisée"
+    account_code: "72"
+    class_num: 7
+    statement_type: compte_resultat
+    section: produits_exploitation
+    sub_type: null
+    validation_field: production_immobilisee
+    is_subtotal: false
+    normalized: "production immobilisee"
+    variations:
+      - "production immobilis�e"
+    decomposable: false
+    parent_subtotal: total_produits_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Subventions d'exploitation et d'équilibre"
+    account_code: "74"
+    class_num: 7
+    statement_type: compte_resultat
+    section: produits_exploitation
+    sub_type: null
+    validation_field: subventions_exploitation
+    is_subtotal: false
+    normalized: "subventions d exploitation et d equilibre"
+    variations:
+      - "subventions d'exploitation"
+      - "subventions d'�quilibre"
+    decomposable: false
+    parent_subtotal: total_produits_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Total des produits d'exploitation"
+    account_code: null
+    class_num: null
+    statement_type: compte_resultat
+    section: produits_exploitation
+    sub_type: null
+    validation_field: total_produits_exploitation
+    is_subtotal: true
+    normalized: "total des produits d exploitation"
+    variations:
+      - "total produits d'exploitation"
+      - "total des produits"
+    decomposable: false
+    parent_subtotal: null
+    column_model: n_n1
+
+  - canonical_term: "Achats consommés"
+    account_code: "60"
+    class_num: 6
+    statement_type: compte_resultat
+    section: charges_exploitation
+    sub_type: null
+    validation_field: achats_consommes
+    is_subtotal: false
+    normalized: "achats consommes"
+    variations:
+      - "achats consomm�s"
+      - "achats"
+      - "matières consommées"
+      - "mati�res consomm�es"
+    decomposable: false
+    parent_subtotal: total_charges_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Charges de personnel"
+    account_code: "64"
+    class_num: 6
+    statement_type: compte_resultat
+    section: charges_exploitation
+    sub_type: null
+    validation_field: charges_personnel
+    is_subtotal: false
+    normalized: "charges de personnel"
+    variations:
+      - "salaires"
+      - "salaires et charges sociales"
+      - "frais de personnel"
+    decomposable: false
+    parent_subtotal: total_charges_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Dotations aux amortissements et aux provisions"
+    account_code: "68"
+    class_num: 6
+    statement_type: compte_resultat
+    section: charges_exploitation
+    sub_type: null
+    validation_field: dotations_amortissements
+    is_subtotal: false
+    normalized: "dotations aux amortissements et aux provisions"
+    variations:
+      - "dotations"
+      - "dotations aux amortissements"
+      - "dotations aux provisions"
+      - "amortissements et provisions"
+    decomposable: true
+    parent_subtotal: total_charges_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Autres charges d'exploitation"
+    account_code: null
+    class_num: 6
+    statement_type: compte_resultat
+    section: charges_exploitation
+    sub_type: null
+    validation_field: autres_charges
+    is_subtotal: false
+    normalized: "autres charges d exploitation"
+    variations:
+      - "autres charges"
+      - "services extérieurs"
+      - "services ext�rieurs"
+      - "impôts et taxes"
+      - "imp�ts et taxes"
+    decomposable: true
+    parent_subtotal: total_charges_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Total des charges d'exploitation"
+    account_code: null
+    class_num: null
+    statement_type: compte_resultat
+    section: charges_exploitation
+    sub_type: null
+    validation_field: total_charges_exploitation
+    is_subtotal: true
+    normalized: "total des charges d exploitation"
+    variations:
+      - "total charges d'exploitation"
+    decomposable: false
+    parent_subtotal: null
+    column_model: n_n1
+
+  - canonical_term: "Résultat d'exploitation"
+    account_code: null
+    class_num: null
+    statement_type: compte_resultat
+    section: resultat_operationnel
+    sub_type: null
+    validation_field: resultat_exploitation
+    is_subtotal: true
+    normalized: "resultat d exploitation"
+    variations:
+      - "r�sultat d'exploitation"
+      - "résultat opérationnel"
+      - "résultat des activités ordinaires"
+    decomposable: false
+    parent_subtotal: null
+    column_model: n_n1
+
+  - canonical_term: "Produits financiers"
+    account_code: "75"
+    class_num: 7
+    statement_type: compte_resultat
+    section: produits_charges_financiers
+    sub_type: null
+    validation_field: produits_financiers
+    is_subtotal: false
+    normalized: "produits financiers"
+    variations:
+      - "produits des placements"
+      - "revenus financiers"
+    decomposable: false
+    parent_subtotal: resultat_financier
+    column_model: n_n1
+
+  - canonical_term: "Charges financières"
+    account_code: "65"
+    class_num: 6
+    statement_type: compte_resultat
+    section: produits_charges_financiers
+    sub_type: null
+    validation_field: charges_financieres
+    is_subtotal: false
+    normalized: "charges financieres"
+    variations:
+      - "charges financi�res"
+      - "intérêts et charges assimilées"
+      - "int�r�ts"
+      - "charges des emprunts"
+      # Curated synonyms: the net financial-charges line canonicalizes to
+      # "Charges financières" (consistent with the reference across Etat_résultat
+      # 1/2/3). Explicit variations resolve at the variation stage — a reviewed
+      # mapping, distinct from a fuzzy collapse the qualifier guard would block.
+      - "charges financieres nette"
+      - "charges financieres nettes"
+    decomposable: false
+    parent_subtotal: resultat_financier
+    column_model: n_n1
+
+  - canonical_term: "Résultat financier"
+    account_code: null
+    class_num: null
+    statement_type: compte_resultat
+    section: produits_charges_financiers
+    sub_type: null
+    validation_field: resultat_financier
+    is_subtotal: true
+    normalized: "resultat financier"
+    variations:
+      - "r�sultat financier"
+      - "résultat des activités financières"
+    decomposable: false
+    parent_subtotal: null
+    column_model: n_n1
+
+  - canonical_term: "Gains extraordinaires"
+    account_code: "77"
+    class_num: 7
+    statement_type: compte_resultat
+    section: produits_charges_extraordinaires
+    sub_type: null
+    validation_field: gains_extraordinaires
+    is_subtotal: false
+    normalized: "gains extraordinaires"
+    variations:
+      - "produits exceptionnels"
+      - "éléments extraordinaires"
+      - "�l�ments extraordinaires"
+    decomposable: false
+    parent_subtotal: resultat_extraordinaire
+    column_model: n_n1
+
+  - canonical_term: "Pertes extraordinaires"
+    account_code: "67"
+    class_num: 6
+    statement_type: compte_resultat
+    section: produits_charges_extraordinaires
+    sub_type: null
+    validation_field: pertes_extraordinaires
+    is_subtotal: false
+    normalized: "pertes extraordinaires"
+    variations:
+      - "charges exceptionnelles"
+    decomposable: false
+    parent_subtotal: resultat_extraordinaire
+    column_model: n_n1
+
+  - canonical_term: "Résultat extraordinaire"
+    account_code: null
+    class_num: null
+    statement_type: compte_resultat
+    section: produits_charges_extraordinaires
+    sub_type: null
+    validation_field: resultat_extraordinaire
+    is_subtotal: true
+    normalized: "resultat extraordinaire"
+    variations:
+      - "r�sultat extraordinaire"
+      - "résultat exceptionnel"
+    decomposable: false
+    parent_subtotal: null
+    column_model: n_n1
+
+  - canonical_term: "Impôts sur les bénéfices"
+    account_code: "69"
+    class_num: 6
+    statement_type: compte_resultat
+    section: produits_charges_extraordinaires
+    sub_type: null
+    validation_field: impots_benefices
+    is_subtotal: false
+    normalized: "impots sur les benefices"
+    variations:
+      - "imp�ts sur les b�n�fices"
+      - "impôts sur les sociétés"
+      - "imp�t sur les soci�t�s"
+      - "charge fiscale"
+      - "impôt"
+      - "impot sur les benefices"
+    decomposable: false
+    parent_subtotal: null
+    column_model: n_n1
+
+  - canonical_term: "Résultat net de l'exercice"
+    account_code: null
+    class_num: null
+    statement_type: compte_resultat
+    section: produits_charges_extraordinaires
+    sub_type: null
+    validation_field: resultat_net
+    is_subtotal: true
+    normalized: "resultat net de l exercice"
+    variations:
+      - "r�sultat net de l'exercice"
+      - "résultat net"
+      - "r�sultat net"
+      - "résultat de l'exercice"
+      - "bénéfice net"
+      - "b�n�fice net"
+      - "perte nette"
+    decomposable: false
+    parent_subtotal: null
+    column_model: n_n1
+
+  # =====================================================================
+  # FLUX DE TRESORERIE (§27)
+  # =====================================================================
+  - canonical_term: "Résultat net de l'exercice"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_exploitation
+    sub_type: null
+    validation_field: tft_resultat_net
+    is_subtotal: false
+    normalized: "resultat net de l exercice"
+    variations:
+      - "r�sultat net de l'exercice"
+      - "résultat net"
+    decomposable: false
+    parent_subtotal: flux_net_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Amortissements et provisions"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_exploitation
+    sub_type: null
+    validation_field: amortissements_provisions
+    is_subtotal: false
+    normalized: "amortissements et provisions"
+    variations:
+      - "dotations nettes aux amortissements et provisions"
+    decomposable: false
+    parent_subtotal: flux_net_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Variation du besoin en fonds de roulement"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_exploitation
+    sub_type: null
+    validation_field: variation_bfr
+    is_subtotal: false
+    normalized: "variation du besoin en fonds de roulement"
+    variations:
+      - "variation du BFR"
+      - "variation des créances clients"
+      - "variation des stocks"
+      - "variation des fournisseurs"
+    decomposable: true
+    parent_subtotal: flux_net_exploitation
+    column_model: n_n1
+
+  - canonical_term: "Flux net de trésorerie lié à l'exploitation"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_exploitation
+    sub_type: null
+    validation_field: flux_net_exploitation
+    is_subtotal: true
+    normalized: "flux net de tresorerie lie a l exploitation"
+    variations:
+      - "flux net d'exploitation"
+      - "flux de trésorerie d'exploitation"
+      - "flux de tr�sorerie d'exploitation"
+    decomposable: false
+    parent_subtotal: variation_nette_tresorerie
+    column_model: n_n1
+
+  - canonical_term: "Décaissements liés aux acquisitions d'immobilisations"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_investissement
+    sub_type: null
+    validation_field: acquisitions_immobilisations
+    is_subtotal: false
+    normalized: "decaissements lies aux acquisitions d immobilisations"
+    variations:
+      - "acquisitions d'immobilisations"
+      - "acquisitions d'immobilisations corporelles"
+      - "acquisitions d'immobilisations incorporelles"
+    decomposable: false
+    parent_subtotal: flux_net_investissement
+    column_model: n_n1
+
+  - canonical_term: "Encaissements liés aux cessions d'immobilisations"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_investissement
+    sub_type: null
+    validation_field: cessions_immobilisations
+    is_subtotal: false
+    normalized: "encaissements lies aux cessions d immobilisations"
+    variations:
+      - "cessions d'immobilisations"
+      - "produits de cession"
+    decomposable: false
+    parent_subtotal: flux_net_investissement
+    column_model: n_n1
+
+  - canonical_term: "Flux net de trésorerie lié à l'investissement"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_investissement
+    sub_type: null
+    validation_field: flux_net_investissement
+    is_subtotal: true
+    normalized: "flux net de tresorerie lie a l investissement"
+    variations:
+      - "flux net d'investissement"
+      - "flux de trésorerie d'investissement"
+    decomposable: false
+    parent_subtotal: variation_nette_tresorerie
+    column_model: n_n1
+
+  - canonical_term: "Augmentation de capital"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_financement
+    sub_type: null
+    validation_field: augmentation_capital
+    is_subtotal: false
+    normalized: "augmentation de capital"
+    variations:
+      - "encaissements liés à l'émission d'actions"
+    decomposable: false
+    parent_subtotal: flux_net_financement
+    column_model: n_n1
+
+  - canonical_term: "Encaissements provenant des emprunts"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_financement
+    sub_type: null
+    validation_field: emprunts_encaisses
+    is_subtotal: false
+    normalized: "encaissements provenant des emprunts"
+    variations:
+      - "nouveaux emprunts"
+      - "emprunts contractés"
+    decomposable: false
+    parent_subtotal: flux_net_financement
+    column_model: n_n1
+
+  - canonical_term: "Remboursements d'emprunts"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_financement
+    sub_type: null
+    validation_field: remboursements_emprunts
+    is_subtotal: false
+    normalized: "remboursements d emprunts"
+    variations:
+      - "remboursement d'emprunts"
+    decomposable: false
+    parent_subtotal: flux_net_financement
+    column_model: n_n1
+
+  - canonical_term: "Dividendes versés"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_financement
+    sub_type: null
+    validation_field: dividendes_verses
+    is_subtotal: false
+    normalized: "dividendes verses"
+    variations:
+      - "dividendes vers�s"
+      - "distribution de dividendes"
+    decomposable: false
+    parent_subtotal: flux_net_financement
+    column_model: n_n1
+
+  - canonical_term: "Flux net de trésorerie lié au financement"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: flux_financement
+    sub_type: null
+    validation_field: flux_net_financement
+    is_subtotal: true
+    normalized: "flux net de tresorerie lie au financement"
+    variations:
+      - "flux net de financement"
+      - "flux de trésorerie de financement"
+    decomposable: false
+    parent_subtotal: variation_nette_tresorerie
+    column_model: n_n1
+
+  - canonical_term: "Variation nette de trésorerie"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: null
+    sub_type: null
+    validation_field: variation_nette_tresorerie
+    is_subtotal: true
+    normalized: "variation nette de tresorerie"
+    variations:
+      - "variation de trésorerie"
+      - "variation nette"
+    decomposable: false
+    parent_subtotal: null
+    column_model: n_n1
+
+  - canonical_term: "Trésorerie en début d'exercice"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: null
+    sub_type: null
+    validation_field: tresorerie_debut
+    is_subtotal: false
+    normalized: "tresorerie en debut d exercice"
+    variations:
+      - "tr�sorerie en d�but d'exercice"
+      - "trésorerie d'ouverture"
+      - "tresorerie au 1er janvier"
+    decomposable: false
+    parent_subtotal: tresorerie_cloture
+    column_model: n_n1
+
+  - canonical_term: "Trésorerie en fin d'exercice"
+    account_code: null
+    class_num: null
+    statement_type: flux_tresorerie
+    section: null
+    sub_type: null
+    validation_field: tresorerie_cloture
+    is_subtotal: true
+    normalized: "tresorerie en fin d exercice"
+    variations:
+      - "tr�sorerie en fin d'exercice"
+      - "trésorerie de clôture"
+      - "tr�sorerie de cl�ture"
+      - "trésorerie à la clôture"
+    decomposable: false
+    parent_subtotal: null
+    column_model: n_n1

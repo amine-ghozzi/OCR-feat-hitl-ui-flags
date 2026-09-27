@@ -1,0 +1,149 @@
+# ==============================================================================
+# FinAlze OCR PoC - Repository Ignored Files
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Python & Virtual Environments
+# ------------------------------------------------------------------------------
+venv/
+.venv/
+env/
+ENV/
+lib/
+lib64/
+bin/
+include/
+share/
+develop-eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ------------------------------------------------------------------------------
+# Python Compiled / Cache Files
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyd
+*.pyo
+
+# ------------------------------------------------------------------------------
+# Testing and Quality Tools
+# ------------------------------------------------------------------------------
+.pytest_cache/
+.tox/
+.coverage
+.coverage.*
+.nosecounts
+nosetests.xml
+coverage.xml
+htmlcov/
+*.cover
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ru生产t_cache/
+.ruff_cache/
+.black
+
+# ------------------------------------------------------------------------------
+# Environment Variables & Secrets (Crucial for API Keys / Credentials)
+# ------------------------------------------------------------------------------
+.env
+.env.*
+.venv
+*.env
+*.secrets
+secrets.py
+credentials.json
+*.pem
+*.key
+# safe template (no secrets) — keep it tracked
+!.env.example
+# TLS material for the public entrypoint (SEC-7): scripts/gen_selfsigned_cert.sh
+# writes here, and a bank-provided cert may be dropped here too. Never tracked.
+certs/
+
+# ------------------------------------------------------------------------------
+# IDEs, Editors & System Files
+# ------------------------------------------------------------------------------
+.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ------------------------------------------------------------------------------
+# Machine Learning / OCR Local Weights & Caches
+# ------------------------------------------------------------------------------
+# Model files are too large for Git; we ignore local weights directories if used
+models/
+.cache/
+.huggingface/
+.surya/
+.easyocr/
+
+# ------------------------------------------------------------------------------
+# Project Specific Local Data & OCR Outputs
+# ------------------------------------------------------------------------------
+# We ignore the contents of local data and output directories to prevent
+# committing large PDFs, financial statements, images, or extracted JSONs.
+# data/*
+# !data/.gitkeep
+
+# output/*
+# !output/.gitkeep
+
+# Runtime upload artifacts written by the API (per-document UUID dirs) — never commit.
+output/uploads/
+
+# Benchmark scratch run-dirs (artifacts per run; not source). Golden sets are promoted
+# out explicitly when curated.
+tools/extraction_benchmark/runs/
+
+# Agent worktrees (local scratch, large)
+.claude/worktrees/
+
+# Obsidian vault state (context/ opens as a vault; keep app.json + core-plugins.json tracked)
+context/.obsidian/workspace.json
+context/.obsidian/workspace-mobile.json
+context/.obsidian/graph.json
+context/.obsidian/search.json
+context/.obsidian/plugins/*/data.json
+
+# Ad-hoc pipeline probe outputs (never commit extraction JSON)
+output/*.json
+
+# ------------------------------------------------------------------------------
+# Learning log — variation candidates (GOV-4)
+# ------------------------------------------------------------------------------
+# Per-tenant, never tracked: it records which banks a client borrows from. The path
+# is resolved by accounting.variation_logger.resolve_log_path() —
+# explicit arg > FINALZE_VARIATION_LOG > data/variation_candidates/<org>.jsonl.
+# (data/variation_candidates/.gitkeep is force-added: a file whose parent directory
+#  is excluded cannot be re-included with a "!" negation.)
+data/variation_candidates.jsonl
+data/variation_candidates/
+
+# Golden sweep — per-document diff detail for NON-PUBLIC documents (MEA-1 / G-2).
+# Written by `tools/golden_sweep.py compare`; never committed.
+tools/golden/diffs/

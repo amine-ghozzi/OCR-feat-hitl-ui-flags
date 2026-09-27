@@ -1,0 +1,53 @@
+# Extraction-critical version constraints — derived from `pip freeze` of the
+# verified dev venv (2026-06-10), the exact versions the 381-test suite and the
+# extraction benchmark (0.9062) validated. Used as a pip constraints file (-c)
+# by Dockerfile.api / Dockerfile.worker so image builds cannot drift on the
+# packages that determine extraction behaviour (a docling 2.70->2.101 drift
+# broke `export_to_dataframe` -> zero tables in the container).
+#
+# Curated, NOT the full freeze. Regenerate versions from:
+#   venv/Scripts/python -m pip freeze
+# marker-pdf / surya-ocr were removed from requirements (2026-06-12) — their
+# Pillow<11 cap had forced the worker image to pillow 10.4 vs the venv's 11.3,
+# changing PIL resampling in preprocessing and producing different OCR reads.
+
+# document understanding (the drift that broke the worker)
+docling==2.70.0
+docling-core==2.61.0
+docling-ibm-models==3.11.0
+docling-parse==4.7.3
+rapidocr==3.6.0
+
+# image preprocessing — MUST match the venv: PIL resampling differences between
+# pillow 10.4 and 11.3 changed marginal OCR reads (label/Notes drift).
+Pillow==11.3.0
+
+# numerics / dataframes (parse + validation behaviour)
+numpy==2.4.1
+pandas==2.3.3
+
+# ML runtime
+torch==2.10.0
+torchvision==0.25.0
+transformers==4.57.6
+
+# parsing / matching / UI-adjacent (shared with the validators)
+babel==2.18.0
+RapidFuzz==3.14.5
+PyMuPDF==1.26.7
+openpyxl==3.1.5
+streamlit==1.53.1
+streamlit-aggrid==1.2.1.post2
+
+# API web stack — requirements-api.txt floors these at `fastapi>=0.115` /
+# `prometheus-fastapi-instrumentator>=7.0`, which floated to fastapi 0.137 +
+# starlette 1.3 on a rebuild. fastapi 0.137 puts `_IncludedRouter` objects in
+# `app.routes`; instrumentator 8.0.0 (latest) reads `route.path` on every route
+# → "'_IncludedRouter' object has no attribute 'path'" on EVERY request (incl.
+# /healthz → container never healthy). Bisected the safe window: 0.116–0.136 all
+# satisfy the metrics middleware AND the app's 204 route; 0.115 is too old (its
+# `-> None` 204 handling rejects revoke_api_key) and 0.137 introduced the break.
+# Pin the newest good version. Lift once the instrumentator supports 0.137+.
+# Verified: fastapi 0.136.3 + starlette 0.46.2 + prometheus-fastapi-instrumentator 8.0.0.
+fastapi==0.136.3
+starlette==0.46.2

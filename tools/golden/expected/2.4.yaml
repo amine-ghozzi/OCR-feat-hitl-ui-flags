@@ -1,0 +1,65 @@
+# WP-2.4 — Tier-0 sub-3-row frames kept as tagged fragments, inert until reassembly
+# (OCR-7, first half; the lost-region retry is deferred to WP-3.0).
+#
+# This whitelist declares NOTHING. Every field-level diff on every document is therefore
+# unexpected and the compare exits 1. That is the point: the package's whole claim is
+# that it changes the emitted record on no document, so the only result that corroborates
+# it is zero diffs. There is nothing to whitelist because nothing is supposed to move.
+#
+# WHAT SHIPS. A frame with fewer than 3 data rows is no longer DROPPED — it is kept and
+# tagged `fragment: True` in `table_provenance`, so CLS-1/CLS-4 can reassemble the pieces
+# a page break or an interior rule split. The `< 3` rule's PURPOSE — keep find_tables()
+# noise out of the output — is preserved by tagging rather than dropping: a tagged
+# fragment is a PIECE of a statement, not a statement, and is held out of all FIVE places
+# a Tier-0 frame can travel.
+#
+#   1. the Tier-3 ensemble vote          (`_tier3_ensemble` source assembly)
+#   2. the statement builder             (`_attach_statements`, blanked not removed, so
+#                                         every `table_indices` back-pointer stays aligned)
+#   3. dual-tier reconciliation          (`reconcile_dual_tier` inputs)
+#   4. the Tier-1 supplementation leg    (which appends Tier-0 frames straight into
+#                                         `result.tables`, and whose count decides it fires)
+#   5. Tier 0's own green-flag metrics   (match_rate, parse_fail_rate, column_confidence,
+#                                         classification_confidence and WP-2.11's
+#                                         footing_results) — the only place left where a
+#                                         fragment could move `green_flag_failures` and
+#                                         `tier_attempts`, both of which survive into the
+#                                         Tier-3 result through `best_prior.metadata`
+#
+# Every PDF in this corpus resolves at Tier 1 or Tier 3 — the Tier-0 green flag fails on
+# all nine — and both tiers rebuild `tables` from their own frames, so a retained fragment
+# cannot reach the record at all. It is carried for the next package, not emitted.
+#
+# MEASURED BEFORE THE SWEEP (Tier-0 replay of the pre-WP-2.4 rule against the shipped one,
+# comparing the FULL >= 3-row frames — the only ones that can reach the vote):
+#   every document: IDENTICAL, 0 pages differing
+#     air_liquide 3 -> 3 · ciments_bizerte 48 -> 48 · somocer 14 -> 14 · EF_CLB 3 -> 3
+#     EF_LA_VIANDE_BLANCHE 1 -> 1 · EF_PROV._COHAPROM 19 -> 19
+#     fis_innov, Rapport_CAC_2024_Aquaculture, Rapport_CAC_2024_signe: scanned, Tier 0
+#     exits at the digital/scanned check and never runs the page loop
+#   fragments now retained (carried, never emitted):
+#     ciments_bizerte 4 (p22, p24, p25, p30) · somocer 7 (p4, p18, p21, p23)
+#     EF_LA_VIANDE_BLANCHE 7 across 5 pages · EF_PROV._COHAPROM 2 across 2 pages
+#     air_liquide 0 · EF_CLB 0 · the three scanned PDFs 0
+#
+# WHAT IS DEFERRED. OCR-7 also asks the text strategy to retry a page that lost every
+# table. Both candidate gates were measured and neither ships:
+#   `needs_retry or not page_tables` — fires on every page with NO detected region, where
+#     `strategy="text"` manufactures one page-sized pseudo-table of 50-70 rows out of the
+#     running text (25 of 28 pages on air_liquide, 29 of 42 on somocer, 9 of 57 on
+#     ciments_bizerte). 32 unexpected diffs, two pinned facts flipped.
+#   `needs_retry or (bool(tabs.tables) and not page_tables)` — only a DETECTED region that
+#     was lost. Sound, and narrow (air_liquide p13, somocer p25-p26, LVB p14, COHAPROM
+#     p3-p6/p8/p9), but still moved 4 documents: the frames it recovers ([61, 16], [41, 9],
+#     [17, 9]) are not financial-statement tables and it changes how the ensemble merges.
+# Deferred to WP-3.0 (P3 diagnosis) with that measurement. The retry gate in
+# `_tier0_native` is therefore unchanged, and `test_lost_region_page_does_not_retry_yet`
+# pins the deferral so it is not re-widened by accident.
+#
+# F-VB-p6 stays known-fail by construction: LVB p6-p9 is a Tier-3 PAIRING loss
+# (CLS-3 / WP-3.1, Master-Plan §2 correction 3), not something Tier 0 can recover — the
+# frame the deferred leg would have recovered on LVB is on p14. The retained fragments are
+# the enabling half the register asks for; the payoff lands in P3/P4.
+change: WP-2.4 — Tier-0 fragments tagged and held out of all five consumers; no document's record may move
+
+docs: {}

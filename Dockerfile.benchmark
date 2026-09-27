@@ -1,0 +1,32 @@
+# Benchmark-only image — derived from the production worker, adds OCR engines
+# needed to compare the Tier-1 deterministic slate. NEVER the production path:
+# the worker stays lean; engines are added here so per-engine benchmark runs
+# share one environment (fair runtime/resource numbers).
+#
+# Run pattern (repo mounted live, so the instrumented harness + engine map are
+# picked up without rebuilding):
+#   docker run --rm -v "$PWD:/repo" -w /repo -e PYTHONPATH=/repo/src \
+#     -e FINALZE_OCR_ENGINE=tesseract_cli finalze-benchmark \
+#     python -m tools.extraction_benchmark cases --run engine-tesseract_cli-<date>
+FROM finalze-worker
+USER root
+# Tesseract CLI backend (docling TesseractCliOcrOptions shells out to `tesseract`)
+# + French language data for the corpus. rapidocr + easyocr already ship in the
+# worker image, so this is the only system addition for the first three engines.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        tesseract-ocr tesseract-ocr-fra \
+    && rm -rf /var/lib/apt/lists/*
+
+# docTR — the one Tier-1 candidate from a distinct architecture family
+# (DBNet + CRNN/ViT, not Paddle-lineage). Rides on the torch already in the
+# worker image. PaddleOCR is added in a separate stage/build (its paddlepaddle
+# dep is version/Python-sensitive and must not be allowed to abort this build).
+RUN pip install --no-cache-dir "python-doctr[torch]"
+
+# Benchmark-only docling OCR plugins (docTR, PaddleOCR). Pip-installed (not just
+# on PYTHONPATH) so docling's entry-point factory discovers the engines. The
+# paddleocr import inside the plugin is lazy, so this installs cleanly even
+# before paddle is present.
+COPY tools/docling_ocr_plugins /opt/finalze_ocr_plugins
+RUN pip install --no-cache-dir /opt/finalze_ocr_plugins
+USER worker

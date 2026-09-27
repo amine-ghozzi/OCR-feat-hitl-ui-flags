@@ -1,0 +1,134 @@
+# Corpus facts — what the code review established about these documents, asserted
+# against a golden snapshot (`python tools/golden_sweep.py facts --snapshot <file>`).
+#
+# `expect` is a RECORD of today's behaviour, not a wish:
+#   pass       the pipeline gets this right at HEAD and must keep getting it right
+#   known-fail the pipeline gets this WRONG at HEAD; the fact is here so the fix has a
+#              target and so nobody "fixes" it twice
+#   manual     not decidable from a structural record; a human has to look
+#
+# `facts` exits 3 on a FLIP in either direction — a known-fail that now passes is the
+# signal a work package landed; a pass that now fails is a regression. Facts whose
+# document is not in the snapshot are reported "not in snapshot" and change nothing.
+#
+# `check` is a named callable from golden.CHECKS with its arguments — a registry, not an
+# expression evaluator: this file is data, and data must not be able to execute anything.
+# Available: statement_pages_superset · count_qualified_type · some_statement_covers ·
+# no_statement_covers · no_repeated_page_within_statement · statement_on_page · field,
+# plus `all:` / `any:` to combine them.
+
+facts:
+  # CLS-1 — air_liquide's primary statements are on pp. 2-4; the Tier-3 vote pairs
+  # tables by list index and those pages never reach the output.
+  - id: F-AL-pages
+    doc_id: air_liquide_efi300625.pdf
+    check: {fn: statement_pages_superset, args: {pages: [2, 3, 4]}}
+    expect: known-fail
+
+  # CLS — ciments_bizerte has exactly ONE balance-sheet asset side.
+  - id: F-CIM-1BA
+    doc_id: ciments_bizerte_efi300625.pdf
+    check: {fn: count_qualified_type, args: {type: bilan_actif, eq: 1}}
+    expect: known-fail
+
+  # CLS-8 — Note 14 genuinely continues from p40 onto p41, so one statement must span
+  # both pages.
+  - id: F-CIM-N14
+    doc_id: ciments_bizerte_efi300625.pdf
+    check: {fn: some_statement_covers, args: {pages: [40, 41]}}
+    expect: known-fail
+
+  # CLS-6/7 (negative) — these page runs are NOT continuations (p41-42 are two
+  # unrelated tables; p46-48 are Notes 18/19/20), so no statement may span them.
+  # Measured at HEAD on 2026-09-18 (baseline sweep): the builder DOES merge them —
+  # the false continuations Master-Plan §2 item 1 describes. known-fail until the
+  # continuation recalibration lands (WP-4.2); a flip to pass is that package's signal.
+  - id: F-CIM-NEG
+    doc_id: ciments_bizerte_efi300625.pdf
+    check: {fn: no_statement_covers, args: {spans: [[41, 42], [46, 47, 48]]}}
+    expect: known-fail
+
+  # E-5 — same-page merges are forbidden: no statement may list a page twice.
+  - id: F-COH-p11
+    doc_id: EF_PROV._COHAPROM_2024_VCAD.pdf
+    check: {fn: no_repeated_page_within_statement}
+    expect: known-fail
+
+  # Q8 — the cash-flow statement is typed in the gate; LVB's is on page 9.
+  - id: F-LVB-TFT
+    doc_id: EF_LA_VIANDE_BLANCHE_2024.pdf
+    check: {fn: statement_on_page, args: {page: 9, qualified_type: flux_tresorerie}}
+    expect: known-fail
+
+  # Q8 — ciments' cash-flow statement is on page 5.
+  - id: F-CIM-TFT
+    doc_id: ciments_bizerte_efi300625.pdf
+    check: {fn: statement_on_page, args: {page: 5, qualified_type: flux_tresorerie}}
+    expect: known-fail
+
+  # OCR-7 — LVB p6 is a balance sheet of at least 19 rows; Tier 0 drops the fragments.
+  - id: F-VB-p6
+    doc_id: EF_LA_VIANDE_BLANCHE_2024.pdf
+    check: {fn: statement_on_page, args: {page: 6, min_rows: 19}}
+    expect: known-fail
+
+  # OCR-1 — fis_innov is a fully scanned PDF whose pages carry /Rotate 270; de-rotated
+  # it yields ~28,600 characters in 16 tables. Before WP-2.1 it extracted 29 characters
+  # into 16 EMPTY frames (table_count was already 16 — the frames existed, the OCR
+  # stage was never called), so only the text_chars leg of this fact failed.
+  # flipped by WP-2.1 (PDF de-rotation helper): known-fail -> pass.
+  - id: F-FIS
+    doc_id: fis_innov_invest_efd311223.pdf
+    check:
+      all:
+        - {fn: field, args: {field: text_chars, min: 20000}}
+        - {fn: field, args: {field: table_count, eq: 16}}
+    expect: pass
+
+  # RTE-1 — these four DOCX score 0.767–0.790: above the 0.75 cascade bar, below
+  # the 0.90 no-human bar. The QCS report has always said `needs_hitl` for that
+  # band; the Tier-1 accept path never copied the answer into `metadata`, so the
+  # worker read the False default and all four were persisted as auto-accepted.
+  # flipped by WP-2.7 — the plumbing, not the thresholds: `tau_fast_high` is
+  # still 0.75 and `tau_excellent` still 0.90. (bilan1 and "Etat résultat 1"
+  # already routed to HITL and are therefore not here.)
+  - id: F-DOCX-hitl
+    doc_id: [bilab2.docx, bilan3.docx, Etat_r_sultat_2.docx, Etat_r_sultat_3.docx]
+    check: {fn: field, args: {field: hitl_required, eq: true}}
+    expect: pass
+
+  # The auditor's opinion on the BRA report is qualified. Nothing in a structural
+  # record can show that — a human reads the opinion paragraph.
+  - id: F-BRA-opinion
+    doc_id: Rapport_CAC_2024_sign___1_1_.pdf
+    check: {fn: field, args: {field: ok, eq: true}}
+    expect: manual
+
+  # VAL-7 / E-2 (WP-2.9) — the unit a document states is READ and RECORDED. `not_null`
+  # asserts that the binding happened without pinning WHICH unit: the value legitimately
+  # differs per document, and pinning it here would make this file a second, weaker copy
+  # of the snapshot. Nothing is rescaled either way — `unit` is a record, never an input
+  # to a figure.
+  #
+  # These nine documents state a unit somewhere (a table header, or the document text
+  # the tier could offer) and the record carries it.
+  # fis_innov joined this list on 2026-09-19: once WP-2.1 de-rotated it, its tables
+  # became readable and one header states "(en DT)" (the interaction WP-2.9 predicted).
+  - id: F-UNIT
+    doc_id: [air_liquide_efi300625.pdf, ciments_bizerte_efi300625.pdf,
+             somocer_efc311224.pdf, fis_innov_invest_efd311223.pdf, EF_CLB_2024_Provisoire_1_.pdf,
+             EF_LA_VIANDE_BLANCHE_2024.pdf, EF_PROV._COHAPROM_2024_VCAD.pdf,
+             Rapport_CAC_2024_Aquaculture.pdf, Rapport_CAC_2024_sign___1_1_.pdf]
+    check: {fn: field, args: {field: unit, not_null: true}}
+    expect: pass
+
+  # …and these seven state none, so the record says so rather than inventing one. A flip
+  # here is information in both directions: fis_innov gains a unit the moment OCR-1 lands
+  # (it extracts 29 characters today, so there is no text to read), and a DOCX gaining one
+  # means the detector started reading something that is not a unit statement.
+  - id: F-UNIT-SILENT
+    doc_id: [Bilan_1.jpg, bilan1.docx, bilab2.docx,
+             bilan3.docx, Etat_r_sultat_1.docx, Etat_r_sultat_2.docx,
+             Etat_r_sultat_3.docx]
+    check: {fn: field, args: {field: unit, not_null: false}}
+    expect: pass

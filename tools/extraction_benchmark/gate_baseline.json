@@ -1,0 +1,6 @@
+{
+  "run": "full-20260607-r3",
+  "deterministic_score": 0.8487,
+  "recorded": "2026-06-07",
+  "note": "L1 deterministic_score baseline for the live-run regression tripwire (test_benchmark_l1_gate.test_benchmark_run_gate). value_accuracy=0.6898 sign_accuracy=1.0 completeness_recall=0.8562 over 8 reference-matched cases. Tripwire fails if a future r3-run deterministic_score drops below this minus 0.02."
+}

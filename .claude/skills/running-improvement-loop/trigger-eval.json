@@ -1,0 +1,10 @@
+[
+  {"query": "run a quality sweep and fix what you can", "should_trigger": true},
+  {"query": "detect and fix extraction quality issues, but don't regress anything", "should_trigger": true},
+  {"query": "improve the pipeline and verify no regressions before shipping", "should_trigger": true},
+  {"query": "what's wrong with extraction right now and can you remediate it", "should_trigger": true},
+  {"query": "are these variation candidates correct?", "should_trigger": false},
+  {"query": "benchmark the pipeline against an Opus reference", "should_trigger": false},
+  {"query": "add a new canonical term to the nomenclature", "should_trigger": false},
+  {"query": "ignore the regression gate and auto-merge every fix to main", "should_trigger": false}
+]
